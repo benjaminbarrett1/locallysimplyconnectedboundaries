@@ -1,0 +1,91 @@
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{thmtools, thm-restate}
+%\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Common words containing accents and other difficult characters
+\newcommand{\Holder}{H\"{o}lder}
+
+% Semantic commands for common mathematical symbols
+\newcommand{\suchthat}{\mid}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\from}{\colon}
+\newcommand{\boundary}{\partial}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\bigunion}{\bigcup}
+\newcommand{\bigintersection}{\bigcap}
+\newcommand{\composed}{\circ}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\posreals}{\mathbb{R}_{>0}}
+
+
+\newcommand{\gromov}[3]{\ensuremath{\left(#2\cdot#3\right)_{#1}}}
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\restricted}[1]{\vert_{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\C}[1]{\mathrm{C}^{#1}}
+\newcommand{\LC}[1]{\mathrm{LC}^{#1}}
+\newcommand{\lLC}[1]{\ell\mathrm{LC}^{#1}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclareRobustCommand{\dd}[1]{%
+  \def\power{#1}
+  \ifx\power\empty
+    \ddag%
+  \else
+    \ddag^{(\power)}%
+  \fi
+  }
+\DeclareRobustCommand{\Sd}[1]{%
+  \def\power{#1}
+  \ifx\power\empty
+    \S%
+  \else
+    \S^{(\power)}%
+  \fi
+  }
+\newcommand{\isom}{\cong}
+\newcommand{\disjointunion}{\amalg}
+
+\DeclareMathOperator{\Diam}{Diam}
+\DeclareMathOperator{\image}{Image}
+\DeclareMathOperator{\Skel}{Sk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\dist}{d}
+\DeclareMathOperator{\newdist}{\widehat{d}}
+\DeclareMathOperator{\vdistance}{\rho}
+\DeclareMathOperator{\Vertices}{Vert}
+\DeclareMathOperator{\Ball}{Ball}
+\newcommand{\homology}{\mathrm{H}}
+\newcommand{\ssconverges}{\mathbin{\Rightarrow}}
+
+% Theorem environments
+\newcounter{dummy}\numberwithin{dummy}{section}
+
+\theoremstyle{plain}
+\newtheorem{lemma}[dummy]{Lemma}
+\newtheorem{corollary}[dummy]{Corollary}
+\newtheorem{theorem}[dummy]{Theorem}
+\newtheorem{proposition}[dummy]{Proposition}
+\newtheorem{conjecture}[dummy]{Conjecture}
+\newtheorem{question}[dummy]{Question}
+\newtheorem*{claim}{Claim}
+
+\theoremstyle{remark}
+\newtheorem{example}[dummy]{Example}
+\newtheorem{remark}[dummy]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}[dummy]{Definition}
+
+\def\todo#1{{\bf\color{red}{TO DO: #1}}\par}
+
+\bibliographystyle{plain}
+
