@@ -599,49 +599,116 @@ boundary. In~\cite{bestvinamess91}, Bestvina and Mess introduce the following
 condition that a hyperbolic group might satisfy.
 
 \begin{definition}
-  Double dagger condition
+  We say that $G$ satisfies $\ddag_M$ if there exists a number $L$ such that,
+  for any $n$ and any $x$ and $y$ in $S_n$ with $\dist(x,y) \leq M$, $x$ and
+  $y$ are connected by a path of length at most $L$ in the complement of the
+  ball with radius $\dist(x,y) - 3\delta$ with centre $1 \in G$.
+  \todo{$3\delta$?}
 \end{definition}
 
 This property is linked to the connectedness of $\boundary G$ by the following
 propositions:
 
-\begin{proposition}
-  $\ddag$ implies locally path connected.
+\begin{proposition}\cite[Proposition 3.2]{bestvinamess91}
+  If $G$ satisfies $\ddag_{11\delta + 3}$ then $\boundary G$ is locally path
+  connected.
 \end{proposition}
 
 \begin{proposition}
-  no cut point implies $\ddag$.
+  If $\boundary G - \set\xi$ is connected for any $\xi \in \boundary G$ then
+  $G$ satisfies $\ddag_M$ for any $M$.
 \end{proposition}
 
-Taken together with the following theorem of Bowditch~\cite{bowditch98b} and
-Swarup~\cite{swarup96}, these propositions show that $\boundary G$ is locally
-path connected if and only if it is connected.
+Taken together with the following theorem, first proved by
+Bowditch~\cite{bowditch98b} when $G$ is strongly accessible and then by
+Swarup~\cite{swarup96} in the general case, these propositions show that
+$\boundary G$ is locally path connected if and only if it is connected.
 
-\begin{theorem}
+\begin{theorem}\cite{bowditch98b,swarup96}
   If $\boundary G$ is connected then $\boundary G$ does not contain a cut
   point.
 \end{theorem}
 
-\subsection{An equivalent condition}
+\subsection{An modified condition}
 
-In this section we reinterpret the double dagger condition as a condition
-describing the existence of paths in the spheres $K_n$ of
-Section~\ref{sec:spheres}. This interpretation gives a more systematic method
-for constructing paths in $\boundary G$ from paths in the spheres $K_n$, and
-permits a generalisation to higher dimensional connectivity.
+In this section we introduce a related condition. This condition is stronger
+than $\ddag_M$, but, using Bestvina and Mess's result, we show that it holds
+under the same assumption. This condition reinterprets the paths in $\ddag_M$
+as paths in the complexes $K_n$, with the additional assumption that these
+paths approximate paths that factor through the projection map $p^\infty_n$.
+This interpretation gives a more systematic method for constructing paths in
+$\boundary G$ from paths in the spheres $K_n$, and permits a generalisation to
+higher dimensional connectivity.
 
 \begin{definition}
-  New double dagger condition. \todo{State condition.}
+  We say that $G$ satisfies $\ddag'_M$ if there exists a number $L$ such that,
+  for any $n$ sufficiently large any $\zeta_1$ and $\zeta_2$ in $\boundary G$
+  such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$, and
+  any points $x_1$ and $x_2$ in $K_n$ adjacent to $p^\infty_n(\zeta_1)$ and
+  $p^\infty_n(\zeta_2)$, there is a path $\alpha\from I\to \boundary G$ from
+  $\zeta_1$ to $\zeta_2$ in $\boundary G$ such that $p^\infty_n\composed\alpha$
+  admits a simplicial approximation connecting $x_1$ to $x_2$ in $K_n$ after at
+  most $L$ barycentric subdivisions of $I$.
 \end{definition}
 
-\todo{Prove things about this condition}
+\begin{proposition}
+  If $\boundary G - \set\xi$ is path connected then $G$ satisfies $\ddag'_M$
+  for any $M$.
+\end{proposition}
+
+\begin{proof}
+  Suppose $\ddag'_M$ does not hold. Then for any $i$ there exists a number $n_i
+  \geq i$, points $\zeta_1^i$ and $\zeta_2^i$ in $\boundary G$ and vertices
+  $x_1^i$ and $y_1^i$ of $K_{n_i}$ adjacent in $K_{n_i}$ to
+  $p^\infty_{n_i}(\zeta^i_1)$ and $p^\infty_{n_i}(\zeta^i_2)$ such that there
+  is no path $\alpha$ from $\zeta_1^i$ to $\zeta_2^i$ in $\boundary G$ where
+  $p^\infty_{n_i}\composed\alpha$ admits a simplicial approximation after at
+  most $i$ barycentric subdivisions of the interval.
+
+  Take group elements $g_i$ such that $g_i\cdot x_1^i$ is equal to some vertex
+  $x_1$ for all $i$ vertices and pass to a subsequence as in
+  Section~\ref{sec:horoball}, so that $g_i\to\xi$ as $i \to\infty$. Since
+  $\dist(x_1^i, x_2^i)$ is bounded we can pass to a deeper subsequence so that
+  $g_i\cdot x_2^i$ is constant equal to $x_2$ for all $i$, and $x_2$ is
+  contained in $H_i$ for all $i$. 
+
+  Now, $g_i\cdot \zeta_1^i$ and $g_i\cdot\zeta_2^i$ map by $q_i$ to points in
+  simplices adjacent to $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} the
+  sequences we can pass to a subsequence so that the sequences $g_i\cdot
+  \zeta_1^i$ and $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$
+  in $\boundary G - \set\xi$ as $i \to \infty$.
+  \todo{finish this}
+\end{proof}
+
+Using this property we define maps $i^n_{n+1}\from \Sk^1 K_n$ to $\Sk^1K_{n+1}$
+as follows.
+
+\begin{proposition}
+  Suppose that $G$ satisfies $\ddag'_M$ for $M = D+2$. Then there exists $k$
+  such that for $n$ sufficiently large there is a map
+  $i^n_{n+1}\from \Sk_1 K_n \to \Sk_1 K_{n+1}$ satisfying the following
+  conditions:
+  \begin{enumerate}
+    \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
+      $\sd_k\Sk_1 K_n$,
+    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq ?$, and
+    \item for each $n$, $i^n_{n+1}$ is affine homotopic to a map that factors
+      through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  \todo{Prove this}
+\end{proof}
 
 \section{Local simple connectedness}
 
 In this section we introduce a new condition that a hyperbolic group might satisfy. 
 
 \begin{definition}
-  \todo{New condition}
+  We say that $G$ satisfies $\Sd_M$ if there exists $k$ such that for any $n$
+  sufficiently large and any affine map $f\from \boundary\Delta^2$ \todo{Do
+  this}
 \end{definition}
 
 \todo{If this condition is satisfied then the bounadry is locally simply
