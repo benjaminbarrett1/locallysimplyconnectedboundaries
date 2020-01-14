@@ -301,6 +301,294 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
 
 \section{Horoballs in the Rips Complex}
 
+In future sections we will make use of a limiting argument, which will relate
+the topology of the complement of a point in the boundary $\boundary G$ to a
+particular complex built from $K$, which we will think of as a horoball in $K$.
+In this section we prove that this construction possesses certain properties
+that we will need later.
+
+\subsection{Defining the horoball}\label{sec:horoball}
+
+For each $n$, let $v_n$ be a vertex of $K_n$ and let $g_n$ be an element of $G$
+taken so that $g_n\cdot v_n$ is independent of $n$.  Since $K$ is locally
+finite, we can pass to a subsequence so that now $v_i \in K_{n_i}$ satisfying
+the following conditions:
+\begin{enumerate}
+  \item
+    The translates by $g_i$ of large neighbourhoods of $v_i$ in the sphere
+    $S_{n_i} \subset G$ are equal: for any $i \geq j$,
+    \begin{equation*}
+      g_i\left(N_j(v_i) \intersection S_{n_i}\right) 
+            = g_j\left(N_j(v_j) \intersection S_{n_j}\right).
+    \end{equation*}
+    (Here $N$ denotes a neighbourhood taken with respect to the word metric on
+    $G$.)
+  \item
+    The sequence $g_i = g_i\cdot 1$ of vertices of $K$ converges to a point
+    $\xi \in \boundary G$ as $i\to\infty$.
+\end{enumerate}
+
+Let $H_i$ be the full subcomplex of $K$ with vertex set
+\begin{equation*}
+  g_i\left(N_i(v_i) \intersection S_{n_i}\right);
+\end{equation*}
+notice that $H_i$ contains $H_j$ for $i \geq j$, and also that $g_i$ maps the
+full subcomplex of $K_{n_i}$ with vertex set $N_i(v_i) \intersection S_{n_i}$
+isometrically onto $H_i$. 
+
+Let $H$ be the union of the complexes $H_i \subset K$. We view $H$ as a
+horosphere, the topology of which approximates that of $\boundary G - \set\xi$.
+The rest of~\ref{sec:horoball} will be spent justifying this point of view.
+
+\subsection{Geodesics and and the horosphere}
+
+\begin{lemma}\label{lem:geodesicsmeethorosphere}
+  Every bi-infinite geodesic with $\xi$ in its limit set meets $H$.
+\end{lemma}
+
+\begin{proof}
+  Let $\alpha$ be a bi-infinite geodesic with $\xi$ as a limit pint. Pick a
+  point $w \in f(\Vertices(J))$ and let the distance $\dist(w,\alpha)$ be
+  realised by a point $x \in \alpha$.
+
+  The points $g_i$ converge to $\xi$ as $i\to\infty$, so the distances
+  $\dist(x, [\xi, g_i])$ tend to infinity as $i$ tends to infinity. The
+  triangle with vertices $x$, $\xi$ and $g_i$ is $\delta$-slim, so for each $i$
+  there exists a point $y_i$ on $[x, g_i]$ with $\dist(y_i, \alpha) \leq
+  \delta$ and $y_i\to\xi$ as $i\to\infty$.  For each $i$ let $z_i$ be a point
+  on $\alpha$ with $\dist(y_i, z_i) \delta$.
+
+  Since $\dist(g_i, x) = n_i$ for $i$ sufficiently large and $\dist(x,y_i) \to
+  \infty$ as $i\to\infty$, we have the following limit.
+  \begin{align*}\label{eqn:zi_closer_to_gi_than_x}
+    \dist(g_i,z_i) - n_i &\leq \dist(g_i,y_i) + \delta - n_i \text{ for $i$
+                                        sufficiently large} \\
+                         &= - \dist(x,y_i) + \delta \\
+                         &\to -\infty\text{ as $i \to \infty$} \tag{$\star$}
+  \end{align*}
+  Therefore, for $i$ sufficiently large, there exists a point $p_i$ on $\alpha$
+  such that $z_i$ lies between $\xi$ and $p_i$ on $\alpha$ and so that
+  $\dist(g_i,p_i)=n_i$. We now show that $\dist(p_i, x)$ is uniformly bounded.
+
+  The limit~\eqref{eqn:zi_closer_to_gi_than_x}, taken together with the fact
+  that $\dist(g_i, x) = \dist(g_i, p_i) = n_i$, shows that the distances
+  $\dist([z_i, g_i], x)$ and $\dist([z_i, g_i], p_i)$ tend to infinity as
+  $i\to\infty$.  We now divide into cases according to which of $x$ and $p_i$
+  is closer to $z_i$.
+  \begin{enumerate}
+    \item If $x$ is between $z_i$ and $p_i$ on $\alpha$ then by considering a
+      geodesic triangle with vertices $g_i$, $z_i$ and $p_i$ we see that for
+      $i$ sufficiently large, $x$ is within a distance $\delta$ of a point
+      $q_i$ on the geodesic from $g_i$ to $p_i$.  Therefore,
+      \begin{align*}
+        \dist(g_i,x)&\leq \dist(g_i,q_i)+\delta\\
+                        &\leq \dist(g_i,p_i)-\dist(p_i,q_i)+\delta\\
+                        &\leq \dist(g_i,p_i)-\dist(x,p_i)+2\delta.
+      \end{align*}
+      It follows that $\dist(x,p_i) \leq \dist(g_i,p_i)-\dist(g_i,x)+2\delta
+      = 2\delta$.
+    \item If $p_i$ is between $z_i$ and $x$ on $\alpha$ then by an identical 
+      argument with the r\^oles of $x$ and $p_i$ reversed we can similarly 
+      deduce that 
+      \begin{align*}
+        \dist(x,p_i)\leq\dist(g_i,x) - \dist(g_i,p_i) + 2\delta =2\delta.
+      \end{align*}
+  \end{enumerate}
+
+  Either way, $\dist(w, p_i) \leq \dist(x,w) + 2\delta$. In summary, we have
+  shown that for $i$ sufficiently large there is a point $p_i\in\alpha$ with
+  $\dist(g_i,p_i)=n_i$ and $\dist(p_i,f(\Vertices J))$ bounded by $\dist(x,w) +
+  2\delta$. Then $p_i \in H_i$ whenever $i$ is at least $\dist(x,w) + 2\delta$.
+\end{proof}
+
+\begin{lemma}\label{lem:boundedintersection}
+  Let $C$ be a compact subset of $\boundary G - \set\xi$. Then the set of points 
+  of intersection between $H$ and bi-infinite geodesics with one end point equal 
+  to $\xi$ and the other in $C$ is bounded.
+\end{lemma}
+
+\begin{proof}
+  Let $\alpha$ be any bi-infinite geodesic with $\alpha(-\infty)=\xi$ and 
+  $\alpha(\infty)\in C$. Let $x \in \alpha \intersection H$. Since $C$ is
+  compact, there exists a point $v \in \alpha$, between $\xi$ and $x$ on
+  $\alpha$, such for that any bi-infinite geodesic $\beta$ with
+  $\beta(-\infty)$ in $C$ and $\beta(\infty) = \alpha(\infty)$, $\beta$ does
+  not meet the $100\delta$-neighbourhood of the sub-ray of $\alpha$ between
+  $\xi$ and $v$: otherwise a limiting argument shows that $\xi$ is in $C$.
+
+  Since $g_i \to \xi$, the distance $\dist(v, [\xi, g_i]) \to \infty$ as
+  $i\to\infty$. The triangle with vertices $\xi$, $g_i$ and $x$ is
+  $\delta$-slim, so the geodesic path from $g_i$ to $x$ passes within a
+  distance $\delta$ of $v$ for $i$ large enough. Therefore, since $\dist(g_i,
+  x) = n_i$ for $i$ large enough, the following inequality holds for all $i$
+  large enough.
+  \begin{align*}
+    0 \leq \dist(g_i, v) + \dist(v, x) - n_i \leq 2\delta.
+  \end{align*}
+
+  Let $\alpha'$ be a bi-infinite geodesic with $\alpha'(-\infty) = \xi$ and
+  $\alpha'(\infty) \in C$ and let $x' \in \alpha' \intersection H$. The ideal
+  triangle with vertices $\xi$, $\alpha(\infty)$ and $\alpha'(\infty)$ is
+  $\delta$-slim, so the subray of $\alpha$ between $\xi$ and $v$ is contained
+  in a $\delta$-neighbourhood of $\alpha'$.  Let $v' \in \alpha'$ be a point
+  with $\dist(v, v') \leq \delta$. 
+  
+  We split into cases according to the order of $\xi$, $v'$ and $x'$ on
+  $\alpha'$.
+  \begin{enumerate}
+    \item
+      First we suppose that $v'$ is between $x'$ and $\xi$ on $\alpha'$. Then as
+      in the argument above, for $i$ sufficiently large we have the following
+      inequality:
+      \begin{align*}
+        0 \leq \dist(g_i, v') + \dist(v', x') - n_i \leq 2\delta.
+      \end{align*}
+      And therefore,
+      \begin{align*}
+        -2\delta \leq \dist(g_i, v) + \dist(v, x') - n_i \leq 4\delta.
+      \end{align*}
+      Finally, putting these inequalities together,
+      \begin{align*}
+        \dist(v,x') \leq \dist(v,x) + 4\delta,
+      \end{align*}
+      and thus we can uniformly bound this distance in this case.
+    \item
+      Alternatively, $x'$ is between $v'$ and $\xi$ on $\alpha'$ and so (since
+      the triangle with vertices $\xi$, $v$ and $v'$ is $\delta$-slim) $x'$ is
+      within a distance $2\delta$ of the geodesic ray from $x$ to $\xi$. By
+      considering the triangle with vertices $\xi$, $g_i$ and $x$ for $i$ large
+      enough, a geodesic segment from $g_i$ to $x$ passes within a distance
+      $3\delta$ of $x'$. Therefore we have the following inequality for all $i$
+      sufficiently large:
+      \begin{align*}
+        0 \leq \dist(g_i, x') + \dist(x', x) - \dist(g_i, x) \leq 6\delta.
+      \end{align*}
+      Finally, for $i$ sufficiently large, $\dist(g_i, x') = \dist(g_i, x) = n_i$,
+      so
+      \begin{align*}
+        \dist(x,x') \leq 6\delta.
+      \end{align*}
+  \end{enumerate}
+\end{proof}
+
+\subsection{Projections to the horosphere}
+
+\begin{definition}
+  Let $U_i \subset \boundary G$ be the (closed) preimage of $H_i$ under the map 
+  $g_i \composed p^\infty_{n_i} \composed g_i^{-1} \from \boundary G \to X$.
+  Denote by $q_i$ the restriction of this map to $U_i$.
+\end{definition}
+
+The following lemma is immediate from the definition of $p^\infty_i$.
+
+\begin{lemma}\label{lem:describing_q_i}\todo{Check this}
+  Let $\zeta \in \boundary G - \set\xi$ and suppose that $q_i(\zeta) \in H_i$
+  is defined, so $\zeta \in U_i$, and $N_{4\delta+1} q_i(\zeta) \in H_i$. Then
+  $q_i(\zeta)$ is contained in the minimal simplex of $H_i$ with vertex set
+  \begin{align*}
+    N_{2\delta+1} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
+    $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}}.
+  \end{align*}\qed
+\end{lemma}
+
+\begin{lemma}
+  Every compact subset of $\boundary G - \set\xi$ is contained in $U_i$ for 
+  $i$ sufficiently large.
+\end{lemma} 
+
+\begin{proof}
+  Suppose that a compact subset $C$ of $\boundary G - \set\xi$ is not contained
+  in $U_i$ for infinitely many $i$. Then after passing to a subsequence there
+  exists for each $i$ a point $\zeta_i \in C\setminus U_i$. 
+
+  By assumption, $g_i^{-1}(H_i)$ contains the star in $K_{n_i}$ of 
+  $g_i^{-1}(H_{i-1})$, so the definition of $p^\infty_{n_i}$ implies that a 
+  geodesic ray $\alpha_i$ from $e$ to $g_i^{-1}(\zeta_i)$ does not pass through 
+  $g_i^{-1}(H_{i-1})$. Equivalently, $g_i\composed\alpha_i$ is a geodesic from 
+  $g_i$ to $\zeta_i$ that does not pass through $H_{i-1}$. 
+
+  After reparameterising and passing to a subsequence, the geodesic rays
+  $g_i\composed\alpha_i$ converge uniformly on compact subsets to a bi-infinite
+  geodesic from $\xi$ to some point $\zeta \in C$.  This geodesic does not pass
+  through $H$, which contradicts \cref{lem:geodesicsmeethorosphere}.
+\end{proof}
+
+\begin{lemma}\label{lem:affinehomotopic}
+  For any compact subset $C\subset\boundary G - \set\xi$, there exists $i_0$ 
+  such that for all $i \geq i_0$ and any $\zeta \in C$, $\newdist(q_i(\zeta),
+  q_{i_0}(\zeta)) \leq 8\delta + 2$, and, in particular, $q_i\restricted{C}$
+  and $q_{i_0}\restricted{C}$ are related by an affine homotopy.
+\end{lemma}
+
+\begin{proof}
+  Let $B\subset H$ be a bounded set containing all points where geodesics with
+  one limit point equal to $\xi$ and the other in $C$ meet $H$; this set exists
+  by \cref{lem:boundedintersection}.
+
+  Fix $\alpha$ to be some geodesic with $\alpha(-\infty)=\xi$ and
+  $\alpha(\infty)\in C$ and let $x$ be a point of intersection between $\alpha$
+  and $B$. Since the triangle with vertcies $x$, $g_i$ and $\xi$ is
+  $\delta$-slim, and $\dist(x, [\xi, g_i]) \to \infty$ as $i\to\infty$, for
+  each $i$ there exists a point $y_i$ on $[g_i, x]$ with $\dist(y_i, \alpha)
+  \leq \delta$ and so that $y_i \to \xi$ as $i\to\infty$. Let $z_i \in \alpha$
+  be such that $\dist(y_i, z_i)\leq\delta$.
+  
+  Now fix $i_0$ such that the following conditions hold for all $i\geq 
+  i_0$.
+  \begin{enumerate}
+    \item The distance $\dist(y_i,x)$ is greater than $7\delta + \Diam B$.
+    \item The set $C$ is contained in $U_i$.
+  \end{enumerate}
+
+  Let $\zeta \in C$ and let $\alpha'$ be a geodesic from $\xi$ to $\zeta$. Let 
+  $x'$ be a point in the intersection of $\alpha'$ and $B$. 
+
+  Now let $i\geq i_0$. Then by considering the ideal triangle with vertices
+  $g_i$, $x$ and $x'$, and using the fact that $\dist(y_i, x) > \delta + \Diam
+  B$, we deduce that there exists a point $y_i'$ on $[x', g_i]$ with
+  $\dist(y_i, y_i') \leq \delta$.
+
+  Similarly, since $\dist(z_i, x) > \delta + \Diam B$, consideration of the
+  triangle with vertices $\xi$, $x$ and $x'$ reveals that there exists a point
+  $z_i'$ on $\alpha'$ between $\xi$ and $x'$ with $\dist(z_i, z_i') \leq
+  \delta$. Then $\dist(y_i', z_i') \leq 3\delta$.
+
+  Since $\dist(z_i', x') > 2\delta$, the distance from $y_i'$ to the subray of
+  $\alpha'$ from $x'$ to $\zeta$ is greater than $\delta$. Therefore by
+  considering a triangle with vertices $g_i$, $x'$ and $\zeta$ we see that
+  there exists a point $w_i$ on a geodesic ray $\eta_i$ from $g_i$ to $\zeta$
+  with $\dist(w_i, y_i') \leq \delta$. It follows that $\dist(w_i, z_i') \leq
+  4\delta$, and we know that $\dist(x', z_i') > 5\delta$, so $\dist(x', [z_i',
+  w_i]) > \delta$ and therefore $\dist(x', \eta_i) \leq \delta$.
+
+  In summary, any geodesic ray from $g_i$ to $\zeta$ passes within a distance 
+  $\delta$ of $x'$, for $i\geq i_0$. Furthermore, $\dist(g_i,x') = n_i$, so 
+  $\dist(\eta_i(n_i), x')\leq 2\delta$. It follows from the description of
+  $q_i$ in \cref{lem:describing_q_i} that $q_i(\zeta)$ is contained in a
+  simplex with all vertices within a distance $4\delta+1$ of $x'$. The set of
+  all such vertices spans a simplex, so, in particular, $q_i\restricted{C}$ and
+  $q_{i_0}\restricted{C}$ are related by an affine homotopy for $i \geq i_0$. 
+\end{proof}
+
+\begin{lemma}\label{lem:propermaps} 
+  For any compact subset $C \subset H$ there exists $i_0$ such that
+  \begin{align*}
+    \bigunion_{i\geq i_0} q_i^{-1} C
+  \end{align*}
+  is a relatively compact subset of $\boundary G - \set\xi$.
+\end{lemma}
+
+\begin{proof}
+  If not then there exists a sequence $\zeta_i$ of points with $\zeta_i \in U_i$ 
+  for all $i$ such that $q_i(\zeta_i) \in C$ for all $i$ and $\zeta_i \to \xi$ 
+  as $i \to \infty$.
+
+  Then for each $i$ a geodesic from $g_i$ to $\zeta_i$ passes through the star 
+  in $H$ of $C$.  After passing to a subsequence these geodesic rays converge to 
+  a bi-infinite geodesic passing through the star in $H$ of $C$, both end points 
+  of which must be $\xi$, which is a contradiction.
+\end{proof}
+
 \section{The double dagger condition}
 
 We begin this section by recalling results of Bestvina and Mess, Bowditch, and
