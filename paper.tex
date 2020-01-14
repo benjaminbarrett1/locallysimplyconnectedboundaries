@@ -711,8 +711,498 @@ In this section we introduce a new condition that a hyperbolic group might satis
   this}
 \end{definition}
 
-\todo{If this condition is satisfied then the bounadry is locally simply
-connected.}
+Our goal in this section is to prove the following theorem.
+
+\begin{theorem}
+  If $G$ satisfies $\Sd_M$ for all $M$ then $\boundary G$ is locally simply
+  connected.
+\end{theorem}
+
+\subsection{Constructing maps to $\boundary G$}
+
+We will make frequent use of the following lemma, adapted 
+from~\cite{bestvinamess91}
+
+\begin{lemma}\cite{bestvinamess91}\label{lem:near_geod_rays}
+  Let $G$ be infinite. For any $x \in X$ there exists a geodesic ray $\alpha$ 
+  with $\alpha(0) = e$ and $\dist(x,\alpha) \leq 2\delta$. 
+  
+  Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 4\delta$.
+\end{lemma}
+
+\begin{proof}
+  For the first claim, see~\cite{bestvinamess91}. For the second, let $p$ be a 
+  point on $\alpha$ such that $\dist(x, p) \leq 2\delta$. Then the triangle 
+  inequality shows that $\abs{\dist(e,p), \dist(e,x)} \leq 2\delta$, and 
+  so $\dist(p, \alpha(\dist(e,x))) \leq 2\delta$. Then the result 
+  follows from another application of the triangle inequality.
+\end{proof}
+
+We begin the proof of \cref{thm:ddagimpliesLCd} by proving the following 
+proposition.
+
+\begin{proposition}\label{prop:ddag_implies_i}
+  Let $d \geq -1$. Suppose that $G$ satisfies the conditions $\Sd{d-1}$ and
+  $\dd{d}$. Then there are constants $n_0$, $k$ and $\epsilon$ such that for
+  each $n\geq n_0$ there is map $i^n_{n+1}\from\Skel_{d+1} K_n \to \Skel_{d+1}
+  K_{n+1}$ such that the following conditions hold.
+  \begin{enumerate}
+    \item For any $x \in \Vertices(K_n)$, $\dist(x, i_{n+1}^n(x)) \leq
+      \epsilon$.
+    \item The map $i^n_{n+1}$ is affine on the subdivision $\sd^k\Skel_{d+1}
+      K_n$ of $\Skel_{d+1}K_n$.
+    \item The map $i^n_{n+1}\restricted{\Skel_d K_n}$ admits a factoring.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  The condition $\dd{-1}$ implies the infinitude of $G$, so
+  \cref{lem:near_geod_rays} is applicable. For $x \in \Vertices{K_n}$ choose an
+  infinite geodesic ray $\alpha_x$ such that $\alpha(0) = 1$ and
+  $\dist(\alpha(n), x) \leq 4\delta$. Define $i^n_{n+1}(x) =
+  \alpha_x(n+1)$. Then $i^n_{n+1}$ satisfies the first requirement with
+  $\epsilon = 4\delta+2$ and satisfies the second requirement automatically.
+
+  Furthermore, $\alpha_x(\infty) \in V_{n+1}(\alpha_x(n+1))$, so 
+  $p^\infty_{n+1}(\alpha_x(\infty))$ lies in a simplex of $K_{n+1}$ that also 
+  contains $\alpha_x(n+1)$.  Therefore the map $i^n_{n+1}$ and a simplicial 
+  approximation to the map $x \mapsto \alpha_x(\infty) \mapsto p^\infty_{n+1} 
+  (\alpha_x(\infty))$ are related by an affine homotopy, so $i^n_{n+1}$ admits a 
+  factoring. 
+
+  Now apply \cref{prop:extendingaffinemaps2} to extend $i^n_{n+1}$ from
+  $\Vertices(K_n)$ to $\Skel_{d+1} K_n$ to obtain a map with the required
+  properties.
+\end{proof}
+
+Throughout the remainder of this section we assume that $G$ satisfies $\dd{d-1}$ 
+and $\Sd{d}$. Let $n_0$, $k$ and $\epsilon$ be the constants given in 
+\cref{prop:ddag_implies_i}, and for $n\geq n_0$ let $i^n_{n+1} 
+\from \sd^k\Skel_{d+1} K_n \to \Skel_{d+1} K_{n+1}$ be the affine map given by 
+that proposition.  For $n \geq m \geq n_0$ let $i^m_n$ be the composition 
+$i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_{d+1} K_m \to 
+\Skel_{d+1} K_n$.  This map is affine on a degree $k^{n-m}$ subdivision of 
+$\Skel_{d+1} K_m$.
+
+In what follows we require the following useful lemma.
+
+\begin{lemma}\label{lem:useful}
+  Let $(x_n)$ be a sequence of points in $G$ with $\dist(x_{n+1}, e) = 
+  \dist(x_n, e) + 1$ and $\dist(x_{n+1}, x_n)$ bounded. Then,
+  \begin{align*}
+    \gromov{e}{x_m}{x_n} \geq \dist(e,x_m) - C
+  \end{align*}
+  for some constant $C$ depending only on $\delta$ and the bound on 
+  $\dist(x_{n+1}, x_n)$.
+\end{lemma}
+
+\begin{proof}
+  We estimate the Gromov product using the visual metric $\vdistance$ on 
+  $\boundary G$; then the claimed inequality follows from the triangle 
+  inequality. 
+  
+  Let $i_n = \dist(x_n, e)$, so $i_n = i_0 + n$, and let 
+  $\dist(x_{n+1},x_n)$ be bounded by $C_0$. By 
+  \cref{lem:near_geod_rays} there exists a sequence $(\alpha_n)$ of 
+  geodesic rays with $\dist(\alpha_n(i_n), x_n) \leq 4\delta$. Then 
+  $\dist(\alpha_n(i_n), \alpha_{n+1}(i_{n+1})) \leq C_0 + 8\delta$. Then 
+  $\gromov{e}{\alpha_n(\infty)}{ \alpha_{n+1}(\infty)} \geq i_n - (C_0 + 
+  8\delta)/2$.
+
+  By the triangle inequality it follows that for $n\geq m$ we have the following 
+  inequality.
+  \begin{align*}
+    \vdistance(\alpha_n(\infty), \alpha_m(\infty)) \leq C_1 a^{-i_m}
+  \end{align*}
+  for some constants $C_1$ depending only on $\delta$ and $C_0$. Then, by
+  definition of the visual metric, there exists a constant $C_2$ such that
+  \begin{align*}
+    \gromov{e}{\alpha_n(\infty)}{\alpha_m(\infty)} \geq i_m - C_2.
+  \end{align*}
+
+  Now, by \cref{lem:boundary_gromov_product} there exists a constant $C_3$ such
+  that
+  \begin{align*}
+    \gromov{e}{\alpha_n(i_n)}{\alpha_m(i_m)} \geq i_m - C_3,\qedhere
+  \end{align*}
+  as required.
+\end{proof}
+
+\begin{lemma}\label{lem:linearproduct}
+  There is a constant $C$ such that if $x \in \Skel_{d+1} K_m$ then
+  \begin{align*}
+    \gromov{e}{i^m_n(x)}{x} \geq m - C
+  \end{align*}
+  for all $n\geq m\geq n_0$.
+\end{lemma}
+
+\begin{proof}
+  For $n \geq m$, let $y_n$ be a vertex of the minimal simplex of $K_n$
+  containing $i^m_n(x)$. Then, for each $n \geq m$, we have $\dist(e, y_{n+1})
+  = \dist(e, y_n)$. 
+
+  We now bound the distance $\dist(y_n, y_{n+1}$. To start with, $\dist(y_n,
+  i^n_{n+1} y_n) \leq \epsilon$. Let $R$ be such that any two vertices in the
+  1-skeleton of $\sd^k \Delta^{d+1}$ are joined by a path traversing at most
+  $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$ containing
+  $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a vertex of
+  the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n, y_{n+1})
+  \leq RD$.  Putting this together,
+  \begin{align*}
+      \dist(y_n, y_{n+1}) \leq \epsilon + RD
+  \end{align*}
+
+  It follows from \cref{lem:useful} that there exists a constant $C$ depending
+  only on $\delta$, $\epsilon$ and $k$ such that $\gromov{e}{y_n}{y_m} \geq m -
+  C$.
+
+  Finally, by applying the inequality in \cref{rem:dist_vs_newdist}, we deduce
+  that
+  \begin{align*}
+      \gromov{e}{i^m_n(x)}{x} \geq m - C - 3D.\qedhere
+  \end{align*}
+\end{proof}
+
+\begin{corollary}
+  For $m \geq n_0$ and $x \in \Skel_{d+1} K_m$, the sequence
+  $(i^m_n(x))_{n\geq m}$ converges to a point in $\boundary G$, which we shall
+  denote $i^m_\infty(x)$.
+\end{corollary}
+
+\begin{proof}
+  For $n_1$ and $n_2$ at least $m$, \cref{lem:linearproduct} implies that
+  $\gromov{e}{i^m_{n_1}(x)}{i^m_{n_2}(x)} \geq \min\{n_1,n_2\} - C$, which
+  tends to infinity as $n_1$ and $n_2$ tend to infinity.
+\end{proof}
+
+\begin{lemma}\label{lem:simplexproduct}
+  There is a constant $C$ such that if $m \geq n_0$ and $x$ and $y$ are in a
+  common simplex of $\Skel_{d+1} K_m$ then
+  \begin{align*}
+    \gromov{e}{i^m_n(x)}{i^m_n(y)} \geq m - C
+  \end{align*}
+  for all $n\geq m$.
+\end{lemma}
+
+\begin{proof}
+  The inequality of \cref{lem:linearproduct} is satisfied for each of $x$ 
+  and $y$. By~\cite{bridsonhaefliger99} there exist $\delta'$ depending only on 
+  $\delta$ such that
+  \begin{align*}
+    \gromov{e}{i^m_n(x)}{i^m_n(y)} &\geq \min\{\gromov{e}{i^m_n(x)}{x}, 
+    \gromov{e}{x}{y}, \gromov{e}{y}{i^m_n(y)}\} - 2\delta'\\
+    &\geq \min\{m - C, m - R/2, m - C\} - 2\delta' \\
+    &\geq m - C'
+  \end{align*}
+  for some constant $C'$.
+\end{proof}
+
+The following corollary immediately follows from \cref{lem:simplexproduct}.
+
+\begin{corollary}\label{cor:visualdiameter}
+  There is a constant $C$ such that for any $m\geq n_0$ and any simplex
+  $\sigma$ of $\Skel_{d+1} K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
+  respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$,
+  where $a$ is the visual parameter.
+\end{corollary}
+
+\begin{proposition}\label{prop:continuouslimit}
+  The map $i^m_\infty\from \Skel_{d+1} K_m \to \boundary G$ is continuous.
+\end{proposition}
+
+\begin{proof}
+  Fix $x \in \Skel_{d+1} K_m$. Let $k$ be the constant given in the definition 
+  of the map $i$. For $n\geq 0$ let $U_n$ be the star in $\beta^{nk} 
+  \Skel_{d+1}K_m$ of the minimal simplex of $\beta^{nk}\Skel_{d+1}K_m$ 
+  containing $x$. Then $U_n$ is a neighbourhood of $x$ for each $n$. 
+
+  For each $n$, the restriction of $i^m_{m+n}$ to a simplex in 
+  $\beta^{nk}\Skel_{d+1}K_m$ is affine, and therefore has image contained in a 
+  simplex of $\Skel_{d+1} K_{m+n}$. The point $x$ is contained in every simplex 
+  of $U_n$, so for any $y \in U_n$ the points $i^m_{m+n}(x)$ and $i^m_{m+n}(y)$ 
+  are contained in a common simplex of $\Skel_{d+1}K_m$. Therefore, by 
+  \cref{cor:visualdiameter}, there is a constant $C$ such that 
+  $\vdistance(i^m_\infty(x), i^m_\infty(y)) \leq Ca^{-(m+n)}$ for every $y \in 
+  U_n$.
+\end{proof}
+
+\begin{remark}
+  In fact, if $K_m$ is endowed with a metric in which each simplex is 
+  isometrically identified with the standard simplex of the same dimension then 
+  the map $i^m_\infty$ can be shown to be H\"{o}lder continuous with exponent 
+  only depending on $\delta$ and the constants in the definition of the map $i$. 
+  We do not require this strengthening of \cref{prop:continuouslimit} 
+  here.
+\end{remark}
+
+Finally, we use the maps $i^n_\infty$ to construct homotopies between certain
+special maps to $\boundary G$.
+
+\begin{proposition}\label{prop:basic_homotopies}
+  Let $C$ be a constant. Then there exists a number $m_0$ and a function $\mu
+  \from \posreals\to\posreals$ such that $\mu(\eta)\to0$ as $\eta\to0$ with the following
+  property. Let $n \geq m_0$ and let $f_0$ and $f_1$ be any maps from
+  $\boundary\Delta^{d+1}$ to $K_n$ satisfying the following conditions:
+  \begin{enumerate}
+    \item the maps $f_0$ and $f_1$ are affine on some subdivision of
+      $\boundary\Delta^{d+1}$;
+    \item for any $x \in \boundary\Delta^{d+1}$, the distance 
+      $\newdist(f_0(x), f_1(x))$ is at most $C$;
+    \item each of $f_0$ and $f_1$ admits a factoring.
+  \end{enumerate}
+  Then there is a homotopy $h$ from $i^n_\infty\composed f_0$ to
+  $i^n_\infty\composed f_1$ satisfying a uniform continuity condition: for any
+  $x \in \boundary\Delta^{d+1}$ and any $s$ and $t$ in $[0,1]$,
+  \begin{align*}
+    \rho(h(x,s), h(x,t)) \leq \mu(\abs{s-t})a^{-n}.
+  \end{align*}
+\end{proposition}
+
+\begin{proof}
+  To start with, apply \cref{prop:extendingaffinemaps2} with $k = C + D$ to
+  obtain constants $k'$ and $m_0\geq n_0$ such that the conclusion of the
+  proposition holds. 
+
+  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^{d+1}$ such
+  that $f_0$ and $f_1$ are both affine on $J$. Then the map 
+  \begin{align*}
+    f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
+          \to K_n,
+  \end{align*}
+  defined on a subset of the product simplicial complex $J \times [0,1]$,
+  satisfies the conditions of \cref{prop:extendingaffinemaps2}, and so admits
+  an affine extension $F \from \sd^{k'} (J \times [0,1]) \to K_n$. Let $h =
+  i^n_\infty \composed F$, so $h$ is a homotopy from $i^n_\infty\composed f_0$
+  to $i^n_\infty\composed f_1$ and it remains to prove the uniform continuity
+  assertion.
+
+  Let $\eta_0$ be such that for $\eta$ at most $\eta_0$, 
+  for any $x \in \Delta^d$, for any $s$ and $t$ in $[0,1]$ with
+  $\abs{s-t} \leq \eta$, the segment $\{x\} \times [s,t]$ is contained in a
+  union of at most two $(d+1)$-simplices of $\sd^{k'}(\Delta^d \times [0,1])$.
+  We first define the modulus of continuity $\mu(\eta)$ for $\eta > \eta_0$.
+
+  Let $M$ be the number of $(d+1)$-simplices in $\sd^{k'}(\Delta^d \times
+  [0,1])$.  \Cref{cor:visualdiameter} gives a constant $C_0$ such that any
+  $(d+1)$-simplex of $K_n$ is mapped to a subset of $\boundary G$ of diameter
+  at most $C_0 a^{-n}$, and so we can take $\mu(\eta) = C_0M$ for $\eta >
+  \eta_0$.
+
+  Now, for $\eta \leq \eta_0$, there exists a maximal number $\kappa(\eta) \geq
+  0$ such that for any $x \in \Delta^d$ and any $s$ and $t$ in $[0,1]$ with
+  $\abs{s-t} \leq \eta$, the segment $\{x\} \times [s,t]$ is contained in a
+  union of at most two $(d+1)$-simplices of
+  $\sd^{\kappa(\eta)}\sd^{k'}(\Delta^d\times[0,1])$. Note that $\kappa(\eta)
+  \to \infty$ as $\eta \to 0$. Now, if $N\in\naturals$ then a $(d+1)$-simplex of
+  $\sd^{k^N}K_n$ is mapped by $i^n_{n+N}$ into a $(d+1)$-simplex of $K_{n+N}$,
+  which is mapped by $i^{n+N}_\infty$ to a set of diameter at most
+  $C_0a^{-n+N}$. Therefore, if $N$ is such that $\kappa(\eta) \geq k^N$ then
+  for $x \in \boundary\Delta^{d+1}$ and $\abs{s-t} < \eta$, $\rho(h(x,s),
+  h(x,t)) \leq 2C_0a^{-n-N}$. It follows that we may take $\mu(\eta)$ as follows:
+  \begin{align*}
+    \mu(\eta) = 2C_0 a^{-\floor*{\frac{\log\kappa(\eta)}{\log k}}}.\qedhere
+  \end{align*}
+\end{proof}
+
+\subsection{Proving \Cref{thm:ddagimpliesLCd}}
+
+We now use the maps $(i^n_{n+1})$ to prove \cref{thm:ddagimpliesLCd}. We begin
+with two lemmas.
+
+\begin{lemma}\label{lem:convergestoidentity}
+  There is a constant $C$ such that the distance from $(i^m_\infty \composed 
+  p^\infty_m)$ to the identity map $\boundary G\to\boundary G$ is at most 
+  $Ca^{-m}$ for each $m$, where $a$ is the visual parameter.
+\end{lemma}
+
+\begin{proof}
+  Let $\xi \in \boundary G$. By \cref{lem:linearproduct} there is a 
+  constant $C$ such that 
+  \begin{align*}
+    \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
+  \end{align*} 
+  for each $n\geq m\geq n_0$. 
+
+  Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
+  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_{d+1}K_m$ containing 
+  $p^\infty_m(\xi)$, and $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$.
+  It follows that there is a constant $\delta'$ depending only on $\delta$ such 
+  that
+  \begin{align*}
+    \mathrlap{\gromov{e}{\alpha(n)}{i^m_n\composed p^\infty_m(\xi)}}\quad\quad &\\
+          & \geq \min\{\gromov{e}{\alpha(n)}{\alpha(m)}, 
+            \gromov{e}{\alpha(m)}{p^\infty_m(\xi)}, 
+            \gromov{e}{p^\infty_m(\xi)}{i^m_n\composed p^\infty_m(\xi)}\} 
+            - 2\delta' \\
+          &\geq \min\{m - C, m - R/2, m\} - 2\delta' \\
+          &\geq m - C'
+  \end{align*}
+  for some constant $C'$.
+
+  Therefore $\gromov{e}{\xi}{i^m_\infty\composed p^\infty_m(\xi)} \geq m - C'$, 
+  from which the claim follows.
+\end{proof}
+
+\begin{lemma}\label{lem:name_this}
+  There is a number $C$ such that, for any $\xi \in \boundary G$ and any $n
+  \geq 0$ and any vertices $x_1$ and $x_2$ of the minimal simplices containing
+  $i^n_{n+1}\composed p^\infty_n(\xi)$ and $p^\infty_{n+1}(\xi)$ respectively,
+  \begin{align*}
+    \dist(x_1, x_2) \leq C.
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  By \cref{lem:close_projections} the distances $\newdist(p^\infty_n(\xi),
+  p^\infty_{n+1}(\xi))$ are bounded by $6\delta + 3 + 2D$. Let $y$ be a vertex
+  of a simplex containing $p^\infty_n(\xi)$; then $\newdist(y, p^\infty_n(\xi))$
+  is bounded by $D$.
+  
+  Furthermore, $\dist(y, i^n_{n+1}(y))$ is uniformly bounded by the constant
+  $\epsilon$ from \cref{prop:ddag_implies_i}, and $\newdist(i^n_{n+1}(y),
+  i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by the product of $D$ and
+  the constant $k$ appearing in \cref{prop:ddag_implies_i}. By putting all this
+  together we obtain a bound $C$ on $\newdist(i^n_{n+1}\composed
+  p^\infty_n(\xi), p^\infty_{n+1}(\xi))$, and then $\dist(x_1, x_2) \leq C +
+  2D$.
+\end{proof}
+
+\begin{proposition}\label{prop:uniform_homotopies}
+  There exists a number $m_0$ and a function $\nu\from\posreals\to\posreals$ such
+  that $\nu(\eta)\to0$ as $\eta\to0$ with the following property. Let
+  $\gamma\from\boundary\Delta^{d+1}\to\boundary G$ be a continuous map. Let $n
+  \geq m_0$ and let $f$ be an affine approximation to
+  $p^\infty_n\composed\gamma$. Then there is a homotopy $h$ from $\gamma$ to
+  $i^n_\infty\composed f$ such that for any $x \in \boundary\Delta^{d+1}$ and
+  any $s$ and $t$ in $[0,1]$,
+  \begin{align*}
+    \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t}) a^{-n}.
+  \end{align*}
+\end{proposition}
+
+\begin{proof}
+  Let $C$ be as in \cref{lem:name_this} and apply \cref{prop:basic_homotopies}
+  to obtain a number $m_0\geq n_0$ and a function $\mu$. 
+  
+  Let $\gamma\from\boundary\Delta^{d+1}\to\boundary G$, $n\geq m_0$ and
+  $f\from\boundary\Delta^{d+1}\to K_n$ be as in the proposition. Let $f_0 = f$,
+  and for $m > 0$ let $f_m\from\boundary\Delta^{d+1}\to K_{n+m}$ be a
+  simplicial approximation to $p^\infty_{n+m}\composed\gamma$. For $m \geq 0$
+  let $\gamma_m = i^{m+n}_\infty\composed f_m$. For each $m\geq 0$ the
+  following observations are immediate:
+  \begin{enumerate}
+    \item the map $f_m$ admits a factoring;
+    \item the image of $f_m$ is contained in the $d$-skeleton of $K_{n+m}$, and
+      so $i^{n+m}_{n+m+1}\composed f_m$ admits a factoring;
+    \item by \cref{lem:name_this} we have $\newdist(i^{n+m}_{n+m+1}\composed
+      f_m(x), f_{m+1}(x)) \leq C$ for all $x \in \boundary\Delta^{d+1}$.
+  \end{enumerate}
+  Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
+  from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
+  satisfying a uniform continuity condition. Define an infinite concatenation
+  of these homotopies:
+  \begin{align*}
+    h(x,t) = 
+    \begin{cases}
+      \gamma(x) & \text{if } t = 0\\
+      h_n\left(x,2^{m+1}\left(t-\frac{1}{2^{m+1}}\right)\right) 
+              & \text{if $t \in \left[\frac{1}{2^{m+1}}, \frac{1}{2^m}\right]$
+                    , $m\geq 0$}.
+    \end{cases}
+  \end{align*}
+  This function is clearly continuous except possibly on
+  $\boundary\Delta^{d+1}\times\{0\}$. We aim to show it is also continuous
+  there, but first we define the function $\nu$. 
+
+  Let $m \in \naturals$. We aim to bound the distance $\rho(h(x,s), h(x,t))$
+  for $\abs{s,t} \leq 2^{-m}$ independently of $n$ and the particular path
+  $\gamma$. We first treat the case when one of $s$ and $t$ is $0$, then we
+  deal with the case when $s$ and $t$ are small, and finally we treat the case
+  when $s$ and $t$ are large. (Our ``small'' and ``large'' regions intersect,
+  to guarantee that this covers all possibilities.)
+
+  To begin, we bound the distance $\rho(h(x,0), h(x,t))$
+  where $x \in \boundary \Delta^{d+1}$ and $t < 2^{-m}$. Let $C'$ be the
+  constant appearing in \cref{lem:convergestoidentity}. Then 
+  \begin{align*}
+    \rho(h(x,0), h(x,2^{-m})) \leq C'a^{-m-n}.
+  \end{align*}
+  Furthermore, for any $m' \in \naturals$ and any $t \in [2^{-m'-1}, 2^{-m'}]$,
+  \begin{align*}
+    \rho(h(x,t), h(x,2^{-m'})) \leq \mu(1)a^{-m'-n}.
+  \end{align*}
+  It follows that for $t \leq 2^{-m}$,
+  \begin{align*}
+    \rho(h(x,0), h(x,t)) \leq a^{-n}\left(C'a^{-m} + \sum_{m' \geq m}
+          \mu(1)a^{-m'}\right).
+  \end{align*}
+
+  Similarly, we treat the ``small'' case. Here $s$ and $t$ are \emph{small} if
+  they are at most $2^{-m/2}$. If $s$ and $t$ are both at most this large
+  then
+  \begin{align*}
+    \rho(h(x,s), h(x,t)) \leq a^{-n} \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'}
+  \end{align*}
+
+  Finally, if $s$ and $t$ are such that $\abs{s-t} \leq 2^{-m}$ but at least
+  one of $s$ and $t$ is greater than $2^{-m/2}$ then both $s$ and $t$ are at
+  least $2^{-m/2}$. This is the ``large'' case. It follows that 
+  \begin{align*}
+    \rho(h(x,s), h(x,t)) &\leq a^{-n} \mu(\abs{s-t} 2^{m/2 + 1}) \\
+                         &\leq a^{-n} \mu(2^{1-m/2})
+  \end{align*}
+  
+  Therefore for $\eta \in (2^{-m-1}, 2^{-m}]$ we define
+  \begin{align*}
+    \nu(\eta)  = \max\left\{
+      C'a^{-m} + \sum_{m' \geq m} \mu(1)a^{-m'},
+      \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'},
+      \mu(2^{1-m/2})
+    \right\},
+  \end{align*}
+  and we see that $\nu(\eta) \to 0$ as $\eta \to 0$, and also that
+  \begin{align*}
+    \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t})
+  \end{align*}
+  for any $x \in \boundary\Delta^{d+1}$ and $s$ and $t$ in $[0,1]$.
+
+  It remains to show that $h$ is continuous at $(x,0)$ for each $x$ in
+  $\boundary\Delta^{d+1}$. Let $\epsilon > 0$ and take a neighbourhood $U$ of
+  $x$ in $\boundary\Delta^{d+1}$ such that $\rho(\gamma(x), \gamma(y)) \leq
+  \epsilon/2$ for $y$ in $U$. Let $\eta > 0$ be so that $\nu(\eta) <
+  \epsilon/2$. Then for any $(y, t) \in U \times [0, \eta]$, $\rho(h(x,0),
+  h(y,t)) < \epsilon$.
+\end{proof}
+
+\Cref{thm:ddagimpliesLCd} follows as a corollary of this proposition.
+
+\ddagimpliesLCd*
+
+\begin{proof}
+  To begin, let $\nu$ and $m_0 \geq n_0$ be as in
+  \cref{prop:uniform_homotopies}. Let $r_0 =
+  k_1a^{-m_0}$, so that, by \cref{lem:projectstoasimplex},
+  $p^\infty_{m_0}\composed\gamma$ has image contained in the star of a single
+  vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta^{d+1}\to\boundary
+  G$ with $\Diam\image(\gamma)\leq r_0$.
+
+  Let $\gamma\from\boundary\Delta^{d+1}\to\boundary G$ be such a map. Let 
+  \begin{align*}
+    m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0,
+  \end{align*}
+  so that by \cref{lem:projectstoasimplex} $p^\infty_{m}\composed\gamma$ has
+  image contained in a single vertex of $K_m$. Then a constant map
+  $\boundary\Delta^{d+1} \to K_m$ is a simplicial approximation to
+  $p^\infty_m\composed\gamma$; applying \cref{prop:uniform_homotopies} to
+  this map immediately gives a homotopy $h$ from $\gamma$ to the constant map.
+
+  Furthermore,
+  \begin{align*}
+    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta^{d+1}, s,t \in [0,1]} \rho(h(x,s), h(x,t)) \\
+                  &\leq \Diam\image\gamma + a^{-m} \nu(1) \\
+                  &\leq (1 + a\nu(1)/k_1) \Diam\image\gamma \qedhere
+  \end{align*}
+\end{proof}
 
 \section{Simply connected point complements}
 
