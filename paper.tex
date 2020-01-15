@@ -42,9 +42,9 @@ very much, so we make the following simple definition.
   Notice that $\newdist$ agrees with $\dist$ on $G$, and for any $x$ and $y$ in
   $K$, if $x^\star$ and $y^\star$ are \emph{any} vertices of simplices
   containing $x$ and $y$ respectively, then
-  \begin{align*}
+  \begin{equation*}
     \abs{\newdist(x,y) - \dist(x^\star, y^\star)} \leq 2D
-  \end{align*}
+  \end{equation*}
 \end{remark}
 
 We denote by $\gromov{{-}}{{-}}{{-}}$ the Gromov product on $G \union
@@ -53,10 +53,10 @@ We denote by $\gromov{{-}}{{-}}{{-}}$ the Gromov product on $G \union
 \begin{definition}
   Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
   $\gromov{x}{y}{z}$ of $x$, $y$ and $z$} as follows.
-  \begin{align*}
+  \begin{equation*}
     \gromov{x}{y}{z} = \frac{1}{2}\left(\newdist(x,y) + \newdist(x,z) -
           \newdist(y,z)\right)
-  \end{align*}
+  \end{equation*}
 \end{definition}
 
 We now equip $K$ with a topology as follows.
@@ -68,9 +68,9 @@ We now equip $K$ with a topology as follows.
     \item For $x \in K$, the neighbourhoods of $x$ are the neighbourhoods of
       $x$ in $K$, treating $K$ with the usual topology of a simplicial complex.
     \item For $\xi \in \boundary G$, the set
-      \begin{align*}
+      \begin{equation*}
         \set{x \in K \union \boundary G \suchthat \gromov{e}{x}{\xi} \geq N}_{N\in\naturals}
-      \end{align*}
+      \end{equation*}
       is a fundamental system of neighbourhoods for the point $x$.
   \end{enumerate}
 \end{definition}
@@ -147,15 +147,15 @@ first describe a closely related system of simplicial complexes.
   $\gamma_i(\infty) = \xi$ and $\dist(\gamma_i(n), g_i) \leq 2\delta+1$.
   Then $\Diam\set{\gamma_i(n) \suchthat i=1, \dotsc, n} \leq 2\delta$, and it
   follows that
-  \begin{align*}
+  \begin{equation*}
     \Diam\{g_1, \dotsc, g_k\} \leq 6\delta+ 2 \leq D.\qedhere
-  \end{align*}
+  \end{equation*}
 \end{proof}
 
 For each $n$, fix a partition of unity subordinate to the open covering 
-\begin{align*}
+\begin{equation*}
   \set{V_n(x) \suchthat x \in S_n}
-\end{align*} 
+\end{equation*} 
 of $\boundary G$. This is equivalent to a continuous map $\pi_n \from \boundary
 G \to L_n$. Let $p^\infty_n\from\boundary G\to K_n$ be the composition of
 $\pi_n$ with the simplicial map $L_n \to K_n$ given by
@@ -184,18 +184,18 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
 \begin{lemma}\label{lem:boundary_gromov_product}
   Let $\alpha_1$ and $\alpha_2$ be geodesic rays with $\alpha_1(0) =
   \alpha_2(0) = e$. Then for any $m_1$ and $m_2$,
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_1(m_1)}{\alpha_2(m_2)} \geq 
         \min\{m_1 - 3\delta, m_2 - 3\delta, \gromov{e}{\alpha_1(\infty)}{\alpha_2(\infty)} - 6\delta\}
-  \end{align*}
+  \end{equation*}
 \end{lemma}
 
 \begin{proof}
   By~\cite{bridsonhaefliger99},
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_1(\infty)}{\alpha_2(\infty)} \leq \liminf_{n_1, n_2}
         \gromov{e}{\alpha_1(n_1)}{\alpha_2(n_2)} + 2\delta.
-  \end{align*}
+  \end{equation*}
   Let $n_1 \geq m_1$ and $n_2 \geq m_2$. 
   
   Let $p_1$ be a point on $[\alpha_1(n_1), \alpha_2(n_2)] \union \alpha_2$
@@ -221,16 +221,16 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   \alpha_2(n_2)]$ then, by considering the triangle with vertices $p_2$,
   $\alpha_2(m_2)$ and $\alpha_2(n_2)$, we see that $\dist(p_1, \alpha_2) \leq
   2\delta$. Therefore $\dist(\alpha_1(m_1), \alpha_2) \leq 3\delta$, and so
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_1(m_1)}{\alpha_2(m_2)} \geq \min\{m_1, m_2\} - 3\delta
-  \end{align*}
+  \end{equation*}
   and the result follows.
 
   Otherwise,
-  \begin{align*}
+  \begin{equation*}
     \dist(\alpha_1(n_1), \alpha_2(n_2)) = \dist(\alpha_1(n_1), p_1) +
         \dist(p_1, p_2) + \dist(p_2, \alpha_2(n_2)).
-  \end{align*}
+  \end{equation*}
   Therefore,
   \begin{align*}
     \mathrlap{\gromov{e}{\alpha_1(n_1)}{\alpha_n(n_2)} - \gromov{e}{\alpha_1(m_1)}{\alpha_2(m_2)}}
@@ -241,9 +241,9 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
            &\mathllap{{}\leq{}} \delta+2\delta+\delta=4\delta 
   \end{align*}
   It follows that
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_1(\infty)}{\alpha_2(\infty)} \leq \gromov{e}{\alpha_1(m_1)}{\alpha_2(m_2)} + 6\delta,
-  \end{align*}
+  \end{equation*}
   which completes the proof.
 \end{proof}
 
@@ -262,13 +262,13 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   
   By definition of the visual metric, $\gromov{e}{\xi_1}{\xi_2} \geq
   \log_a(k_1/\rho_0)$. Therefore, by \cref{lem:boundary_gromov_product},
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_1(n)}{\alpha_2(n)} \geq \min\{n - 3\delta, \log_a(k_1/\rho_0) - 6\delta\}.
-  \end{align*}
+  \end{equation*}
   In particular,
-  \begin{align*}
+  \begin{equation*}
     \dist(\alpha_1(n), \alpha_2(n)) \leq \max\{6\delta, 12\delta - 2(\log(k_1/\rho_0) - n)\}
-  \end{align*}
+  \end{equation*}
   and the result follows.
 \end{proof}
 
@@ -283,9 +283,9 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   $\set{g \in S_m \suchthat \xi \in V_m(g)}$ and $p^n_m\composed p^\infty_n(\xi)$ is
   contained in the simplex spanned by $\{p^n_m(g) \suchthat g \in S_n \text{
   and } \xi \in V_n(g)\}$.  We show that the union
-  \begin{align*}
+  \begin{equation*}
     \set{g \in S_m \suchthat \xi \in V_m(g)} \union \{p^n_m(g) \suchthat g \in S_n \text{ and } \xi \in V_n(g)\}
-  \end{align*}
+  \end{equation*}
   of these sets spans a simplex in $K_n$; this simplex then contains
   $p^\infty_m(\xi)$ and $p^n_m\composed p^\infty_n(\xi)$.  It is sufficient to
   prove that if $\xi \in V_m(g_1) \intersection V_n(g_2)$ for $g_1 \in S_m$ and
@@ -390,9 +390,9 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
     \item If $p_i$ is between $z_i$ and $x$ on $\alpha$ then by an identical 
       argument with the r\^oles of $x$ and $p_i$ reversed we can similarly 
       deduce that 
-      \begin{align*}
+      \begin{equation*}
         \dist(x,p_i)\leq\dist(g_i,x) - \dist(g_i,p_i) + 2\delta =2\delta.
-      \end{align*}
+      \end{equation*}
   \end{enumerate}
 
   Either way, $\dist(w, p_i) \leq \dist(x,w) + 2\delta$. In summary, we have
@@ -422,9 +422,9 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
   distance $\delta$ of $v$ for $i$ large enough. Therefore, since $\dist(g_i,
   x) = n_i$ for $i$ large enough, the following inequality holds for all $i$
   large enough.
-  \begin{align*}
+  \begin{equation*}
     0 \leq \dist(g_i, v) + \dist(v, x) - n_i \leq 2\delta.
-  \end{align*}
+  \end{equation*}
 
   Let $\alpha'$ be a bi-infinite geodesic with $\alpha'(-\infty) = \xi$ and
   $\alpha'(\infty) \in C$ and let $x' \in \alpha' \intersection H$. The ideal
@@ -440,17 +440,17 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
       First we suppose that $v'$ is between $x'$ and $\xi$ on $\alpha'$. Then as
       in the argument above, for $i$ sufficiently large we have the following
       inequality:
-      \begin{align*}
+      \begin{equation*}
         0 \leq \dist(g_i, v') + \dist(v', x') - n_i \leq 2\delta.
-      \end{align*}
+      \end{equation*}
       And therefore,
-      \begin{align*}
+      \begin{equation*}
         -2\delta \leq \dist(g_i, v) + \dist(v, x') - n_i \leq 4\delta.
-      \end{align*}
+      \end{equation*}
       Finally, putting these inequalities together,
-      \begin{align*}
+      \begin{equation*}
         \dist(v,x') \leq \dist(v,x) + 4\delta,
-      \end{align*}
+      \end{equation*}
       and thus we can uniformly bound this distance in this case.
     \item
       Alternatively, $x'$ is between $v'$ and $\xi$ on $\alpha'$ and so (since
@@ -460,14 +460,14 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
       enough, a geodesic segment from $g_i$ to $x$ passes within a distance
       $3\delta$ of $x'$. Therefore we have the following inequality for all $i$
       sufficiently large:
-      \begin{align*}
+      \begin{equation*}
         0 \leq \dist(g_i, x') + \dist(x', x) - \dist(g_i, x) \leq 6\delta.
-      \end{align*}
+      \end{equation*}
       Finally, for $i$ sufficiently large, $\dist(g_i, x') = \dist(g_i, x) = n_i$,
       so
-      \begin{align*}
+      \begin{equation*}
         \dist(x,x') \leq 6\delta.
-      \end{align*}
+      \end{equation*}
   \end{enumerate}
 \end{proof}
 
@@ -485,10 +485,10 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   Let $\zeta \in \boundary G - \set\xi$ and suppose that $q_i(\zeta) \in H_i$
   is defined, so $\zeta \in U_i$, and $N_{4\delta+1} q_i(\zeta) \in H_i$. Then
   $q_i(\zeta)$ is contained in the minimal simplex of $H_i$ with vertex set
-  \begin{align*}
+  \begin{equation*}
     N_{2\delta+1} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
     $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}}.
-  \end{align*}\qed
+  \end{equation*}\qed
 \end{lemma}
 
 \begin{lemma}
@@ -573,9 +573,9 @@ The following lemma is immediate from the definition of $p^\infty_i$.
 
 \begin{lemma}\label{lem:propermaps} 
   For any compact subset $C \subset H$ there exists $i_0$ such that
-  \begin{align*}
+  \begin{equation*}
     \bigunion_{i\geq i_0} q_i^{-1} C
-  \end{align*}
+  \end{equation*}
   is a relatively compact subset of $\boundary G - \set\xi$.
 \end{lemma}
 
@@ -713,7 +713,7 @@ In this section we introduce a new condition that a hyperbolic group might satis
 
 Our goal in this section is to prove the following theorem.
 
-\begin{restatable}{theorem}{ddagimpliesLCd}
+\begin{restatable}{theorem}{ddagimpliesLCd}\label{thm:ddagimpliesLCd}
   If $G$ satisfies $\Sd_M$ for all $M$ then $\boundary G$ is locally simply
   connected.
 \end{restatable}
@@ -789,9 +789,9 @@ In what follows we require the following useful lemma.
 \begin{lemma}\label{lem:useful}
   Let $(x_n)$ be a sequence of points in $G$ with $\dist(x_{n+1}, e) = 
   \dist(x_n, e) + 1$ and $\dist(x_{n+1}, x_n)$ bounded. Then,
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{x_m}{x_n} \geq \dist(e,x_m) - C
-  \end{align*}
+  \end{equation*}
   for some constant $C$ depending only on $\delta$ and the bound on 
   $\dist(x_{n+1}, x_n)$.
 \end{lemma}
@@ -811,28 +811,28 @@ In what follows we require the following useful lemma.
 
   By the triangle inequality it follows that for $n\geq m$ we have the following 
   inequality.
-  \begin{align*}
+  \begin{equation*}
     \vdistance(\alpha_n(\infty), \alpha_m(\infty)) \leq C_1 a^{-i_m}
-  \end{align*}
+  \end{equation*}
   for some constants $C_1$ depending only on $\delta$ and $C_0$. Then, by
   definition of the visual metric, there exists a constant $C_2$ such that
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{\alpha_n(\infty)}{\alpha_m(\infty)} \geq i_m - C_2.
-  \end{align*}
+  \end{equation*}
 
   Now, by \cref{lem:boundary_gromov_product} there exists a constant $C_3$ such
   that
-  \begin{align*}
-    \gromov{e}{\alpha_n(i_n)}{\alpha_m(i_m)} \geq i_m - C_3,\qedhere
-  \end{align*}
+  \begin{equation*}
+    \gromov{e}{\alpha_n(i_n)}{\alpha_m(i_m)} \geq i_m - C_3,
+  \end{equation*}
   as required.
 \end{proof}
 
 \begin{lemma}\label{lem:linearproduct}
   There is a constant $C$ such that if $x \in \Skel_{d+1} K_m$ then
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{i^m_n(x)}{x} \geq m - C
-  \end{align*}
+  \end{equation*}
   for all $n\geq m\geq n_0$.
 \end{lemma}
 
@@ -848,9 +848,9 @@ In what follows we require the following useful lemma.
   $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a vertex of
   the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n, y_{n+1})
   \leq RD$.  Putting this together,
-  \begin{align*}
+  \begin{equation*}
       \dist(y_n, y_{n+1}) \leq \epsilon + RD
-  \end{align*}
+  \end{equation*}
 
   It follows from \cref{lem:useful} that there exists a constant $C$ depending
   only on $\delta$, $\epsilon$ and $k$ such that $\gromov{e}{y_n}{y_m} \geq m -
@@ -858,9 +858,9 @@ In what follows we require the following useful lemma.
 
   Finally, by applying the inequality in \cref{rem:dist_vs_newdist}, we deduce
   that
-  \begin{align*}
+  \begin{equation*}
       \gromov{e}{i^m_n(x)}{x} \geq m - C - 3D.\qedhere
-  \end{align*}
+  \end{equation*}
 \end{proof}
 
 \begin{corollary}
@@ -878,9 +878,9 @@ In what follows we require the following useful lemma.
 \begin{lemma}\label{lem:simplexproduct}
   There is a constant $C$ such that if $m \geq n_0$ and $x$ and $y$ are in a
   common simplex of $\Skel_{d+1} K_m$ then
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{i^m_n(x)}{i^m_n(y)} \geq m - C
-  \end{align*}
+  \end{equation*}
   for all $n\geq m$.
 \end{lemma}
 
@@ -953,9 +953,9 @@ special maps to $\boundary G$.
   Then there is a homotopy $h$ from $i^n_\infty\composed f_0$ to
   $i^n_\infty\composed f_1$ satisfying a uniform continuity condition: for any
   $x \in \boundary\Delta^{d+1}$ and any $s$ and $t$ in $[0,1]$,
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \mu(\abs{s-t})a^{-n}.
-  \end{align*}
+  \end{equation*}
 \end{proposition}
 
 \begin{proof}
@@ -965,10 +965,10 @@ special maps to $\boundary G$.
 
   Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^{d+1}$ such
   that $f_0$ and $f_1$ are both affine on $J$. Then the map 
-  \begin{align*}
+  \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
           \to K_n,
-  \end{align*}
+  \end{equation*}
   defined on a subset of the product simplicial complex $J \times [0,1]$,
   satisfies the conditions of \cref{prop:extendingaffinemaps2}, and so admits
   an affine extension $F \from \sd^{k'} (J \times [0,1]) \to K_n$. Let $h =
@@ -999,9 +999,9 @@ special maps to $\boundary G$.
   $C_0a^{-n+N}$. Therefore, if $N$ is such that $\kappa(\eta) \geq k^N$ then
   for $x \in \boundary\Delta^{d+1}$ and $\abs{s-t} < \eta$, $\rho(h(x,s),
   h(x,t)) \leq 2C_0a^{-n-N}$. It follows that we may take $\mu(\eta)$ as follows:
-  \begin{align*}
+  \begin{equation*}
     \mu(\eta) = 2C_0 a^{-\floor*{\frac{\log\kappa(\eta)}{\log k}}}.\qedhere
-  \end{align*}
+  \end{equation*}
 \end{proof}
 
 \subsection{Proving \Cref{thm:ddagimpliesLCd}}
@@ -1018,9 +1018,9 @@ with two lemmas.
 \begin{proof}
   Let $\xi \in \boundary G$. By \cref{lem:linearproduct} there is a 
   constant $C$ such that 
-  \begin{align*}
+  \begin{equation*}
     \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
-  \end{align*} 
+  \end{equation*} 
   for each $n\geq m\geq n_0$. 
 
   Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
@@ -1047,9 +1047,9 @@ with two lemmas.
   There is a number $C$ such that, for any $\xi \in \boundary G$ and any $n
   \geq 0$ and any vertices $x_1$ and $x_2$ of the minimal simplices containing
   $i^n_{n+1}\composed p^\infty_n(\xi)$ and $p^\infty_{n+1}(\xi)$ respectively,
-  \begin{align*}
+  \begin{equation*}
     \dist(x_1, x_2) \leq C.
-  \end{align*}
+  \end{equation*}
 \end{lemma}
 
 \begin{proof}
@@ -1075,9 +1075,9 @@ with two lemmas.
   $p^\infty_n\composed\gamma$. Then there is a homotopy $h$ from $\gamma$ to
   $i^n_\infty\composed f$ such that for any $x \in \boundary\Delta^{d+1}$ and
   any $s$ and $t$ in $[0,1]$,
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t}) a^{-n}.
-  \end{align*}
+  \end{equation*}
 \end{proposition}
 
 \begin{proof}
@@ -1101,7 +1101,7 @@ with two lemmas.
   from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
   satisfying a uniform continuity condition. Define an infinite concatenation
   of these homotopies:
-  \begin{align*}
+  \begin{equation*}
     h(x,t) = 
     \begin{cases}
       \gamma(x) & \text{if } t = 0\\
@@ -1109,7 +1109,7 @@ with two lemmas.
               & \text{if $t \in \left[\frac{1}{2^{m+1}}, \frac{1}{2^m}\right]$
                     , $m\geq 0$}.
     \end{cases}
-  \end{align*}
+  \end{equation*}
   This function is clearly continuous except possibly on
   $\boundary\Delta^{d+1}\times\{0\}$. We aim to show it is also continuous
   there, but first we define the function $\nu$. 
@@ -1124,25 +1124,25 @@ with two lemmas.
   To begin, we bound the distance $\rho(h(x,0), h(x,t))$
   where $x \in \boundary \Delta^{d+1}$ and $t < 2^{-m}$. Let $C'$ be the
   constant appearing in \cref{lem:convergestoidentity}. Then 
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,0), h(x,2^{-m})) \leq C'a^{-m-n}.
-  \end{align*}
+  \end{equation*}
   Furthermore, for any $m' \in \naturals$ and any $t \in [2^{-m'-1}, 2^{-m'}]$,
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,t), h(x,2^{-m'})) \leq \mu(1)a^{-m'-n}.
-  \end{align*}
+  \end{equation*}
   It follows that for $t \leq 2^{-m}$,
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,0), h(x,t)) \leq a^{-n}\left(C'a^{-m} + \sum_{m' \geq m}
           \mu(1)a^{-m'}\right).
-  \end{align*}
+  \end{equation*}
 
   Similarly, we treat the ``small'' case. Here $s$ and $t$ are \emph{small} if
   they are at most $2^{-m/2}$. If $s$ and $t$ are both at most this large
   then
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq a^{-n} \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'}
-  \end{align*}
+  \end{equation*}
 
   Finally, if $s$ and $t$ are such that $\abs{s-t} \leq 2^{-m}$ but at least
   one of $s$ and $t$ is greater than $2^{-m/2}$ then both $s$ and $t$ are at
@@ -1153,17 +1153,17 @@ with two lemmas.
   \end{align*}
   
   Therefore for $\eta \in (2^{-m-1}, 2^{-m}]$ we define
-  \begin{align*}
+  \begin{equation*}
     \nu(\eta)  = \max\left\{
       C'a^{-m} + \sum_{m' \geq m} \mu(1)a^{-m'},
       \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'},
       \mu(2^{1-m/2})
     \right\},
-  \end{align*}
+  \end{equation*}
   and we see that $\nu(\eta) \to 0$ as $\eta \to 0$, and also that
-  \begin{align*}
+  \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t})
-  \end{align*}
+  \end{equation*}
   for any $x \in \boundary\Delta^{d+1}$ and $s$ and $t$ in $[0,1]$.
 
   It remains to show that $h$ is continuous at $(x,0)$ for each $x$ in
@@ -1187,9 +1187,9 @@ with two lemmas.
   G$ with $\Diam\image(\gamma)\leq r_0$.
 
   Let $\gamma\from\boundary\Delta^{d+1}\to\boundary G$ be such a map. Let 
-  \begin{align*}
+  \begin{equation*}
     m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0,
-  \end{align*}
+  \end{equation*}
   so that by \cref{lem:projectstoasimplex} $p^\infty_{m}\composed\gamma$ has
   image contained in a single vertex of $K_m$. Then a constant map
   $\boundary\Delta^{d+1} \to K_m$ is a simplicial approximation to
