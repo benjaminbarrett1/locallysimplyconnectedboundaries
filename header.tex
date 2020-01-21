@@ -35,22 +35,6 @@
 \newcommand{\lLC}[1]{\ell\mathrm{LC}^{#1}}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\DeclareRobustCommand{\dd}[1]{%
-  \def\power{#1}
-  \ifx\power\empty
-    \ddag%
-  \else
-    \ddag^{(\power)}%
-  \fi
-  }
-\DeclareRobustCommand{\Sd}[1]{%
-  \def\power{#1}
-  \ifx\power\empty
-    \S%
-  \else
-    \S^{(\power)}%
-  \fi
-  }
 \newcommand{\isom}{\cong}
 \newcommand{\disjointunion}{\amalg}
 

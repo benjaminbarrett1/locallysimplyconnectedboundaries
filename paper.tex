@@ -692,8 +692,8 @@ $\Skel_1K_{n+1}$ as follows.
     \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
       $\sd_k\Skel_1 K_n$,
     \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq ?$, and
-    \item for each $n$, $i^n_{n+1}$ is affine homotopic to a map that factors
-      through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
+    \item for each $n$, the map $i^n_{n+1}$ is affine homotopic to a map that
+      factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
   \end{enumerate}
 \end{proposition}
 
@@ -703,10 +703,17 @@ $\Skel_1K_{n+1}$ as follows.
 
 \section{Local simple connectedness}
 
-In this section we introduce a new condition that a hyperbolic group might satisfy. 
+\todo{Proposition below}
+
+\begin{proposition}\label{prop:extendingaffinemaps2}
+  Something about extending affine maps.
+\end{proposition}
+
+In this section we introduce a new condition that a hyperbolic group might
+satisfy. 
 
 \begin{definition}
-  We say that $G$ satisfies $\Sd_M$ if there exists $k$ such that for any $n$
+  We say that $G$ satisfies $\S_M$ if there exists $k$ such that for any $n$
   sufficiently large and any affine map $f\from \boundary\Delta^2$ \todo{Do
   this}
 \end{definition}
@@ -714,7 +721,7 @@ In this section we introduce a new condition that a hyperbolic group might satis
 Our goal in this section is to prove the following theorem.
 
 \begin{restatable}{theorem}{ddagimpliesLCd}\label{thm:ddagimpliesLCd}
-  If $G$ satisfies $\Sd_M$ for all $M$ then $\boundary G$ is locally simply
+  If $G$ satisfies $\S_M$ for all $M$ then $\boundary G$ is locally simply
   connected.
 \end{restatable}
 
@@ -742,8 +749,8 @@ We begin the proof of \cref{thm:ddagimpliesLCd} by proving the following
 proposition.
 
 \begin{proposition}\label{prop:ddag_implies_i}
-  Let $d \geq -1$. Suppose that $G$ satisfies the conditions $\Sd{d-1}$ and
-  $\dd{d}$. Then there are constants $n_0$, $k$ and $\epsilon$ such that for
+  Let $d \geq -1$. Suppose that $G$ satisfies the conditions $\S^{d-1}$ and
+  $\ddag^{d}$. Then there are constants $n_0$, $k$ and $\epsilon$ such that for
   each $n\geq n_0$ there is map $i^n_{n+1}\from\Skel_{d+1} K_n \to \Skel_{d+1}
   K_{n+1}$ such that the following conditions hold.
   \begin{enumerate}
@@ -756,7 +763,7 @@ proposition.
 \end{proposition}
 
 \begin{proof}
-  The condition $\dd{-1}$ implies the infinitude of $G$, so
+  The condition $\ddag^{-1}$ implies the infinitude of $G$, so
   \cref{lem:near_geod_rays} is applicable. For $x \in \Vertices{K_n}$ choose an
   infinite geodesic ray $\alpha_x$ such that $\alpha(0) = 1$ and
   $\dist(\alpha(n), x) \leq 4\delta$. Define $i^n_{n+1}(x) =
@@ -775,8 +782,8 @@ proposition.
   properties.
 \end{proof}
 
-Throughout the remainder of this section we assume that $G$ satisfies $\dd{d-1}$ 
-and $\Sd{d}$. Let $n_0$, $k$ and $\epsilon$ be the constants given in 
+Throughout the remainder of this section we assume that $G$ satisfies $\ddag^{d-1}$ 
+and $\S^{d}$. Let $n_0$, $k$ and $\epsilon$ be the constants given in 
 \cref{prop:ddag_implies_i}, and for $n\geq n_0$ let $i^n_{n+1} 
 \from \sd^k\Skel_{d+1} K_n \to \Skel_{d+1} K_{n+1}$ be the affine map given by 
 that proposition.  For $n \geq m \geq n_0$ let $i^m_n$ be the composition 
