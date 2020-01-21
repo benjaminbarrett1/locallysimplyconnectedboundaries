@@ -591,6 +591,18 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   of which must be $\xi$, which is a contradiction.
 \end{proof}
 
+\begin{lemma}\label{lem:uniform_continuity}
+  For any compact subset $C \subset \boundary G - \set\xi$ there exists $i_0$
+  and $\epsilon > 0$ such that $C \in U_i$ for $i \geq i_0$, and so that
+  $\newdist(q_i(\zeta_1), q_i(\zeta_2)) \leq ?$ whenever $i \geq i_0$ and
+  $\zeta_1$ and $\zeta_2$ are points in $C$ with $\rho(\zeta_1, \zeta_2) \leq
+  \epsilon$.
+\end{lemma}
+
+\begin{proof}
+  \todo{Prove this uniform continuity statement.}
+\end{proof}
+
 \section{The double dagger condition}
 
 We begin this section by recalling results of Bestvina and Mess, Bowditch, and
@@ -677,14 +689,57 @@ higher dimensional connectivity.
   sequences we can pass to a subsequence so that the sequences $g_i\cdot
   \zeta_1^i$ and $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$
   in $\boundary G - \set\xi$ as $i \to \infty$.
-  \todo{finish this}
+  
+  Let $C$ be a compact subset of $\boundary G - \set\xi$ containing a path
+  $\beta$ from $\zeta_1$ to $\zeta_2$ and also a neighbourhood of each of the
+  points $\zeta_1$ and $\zeta_2$. Let $\epsilon$ and $i_0$ be as in
+  Lemma~\ref{lem:uniform_continuity}. By increasing $i_0$ we may also assume
+  that $\zeta_1^i$ and $\zeta_2^i$ are contained in $C$ for $i \geq i_0$. By
+  decreasing $\epsilon$ we may assume that the $\epsilon$-neighbourhoods of
+  $\zeta_1$ and $\zeta_2$ are contained in $C$.
+
+  Since $\boundary G$ is locally path connected, there exists a neighbourhood
+  of $\zeta_1$ (repsectively $\zeta_2$) such that any point in this
+  neighbourhood is joined to $\zeta_1$ (respectively $\zeta_2$) by a path
+  contained in the $\epsilon$-neighbourhood of $\zeta_1$. Now increase $i_0$ to
+  ensure that $\zeta_1^i$ and $\zeta_2^i$ are contained in these neighbourhoods
+  for $i \geq i_0$. Let $\alpha_1^i$ (respectively $\alpha_2^i$) be a path in
+  the ball of radius $\epsilon$ centred at $\zeta_1$ (respectively $\zeta_2$)
+  connecting $\zeta_1^i$ (repsectively $\zeta_2^i$) to $\zeta_1$ (respectively
+  $\zeta_2$.)
+
+  Then the concatenation of $\alpha_1^i$, $\beta$ and $\alpha_2^i$ gives a path
+  in $C$ from $\zeta_1^i$ to $\zeta_2^i$ that can be cut into boundedly many
+  subpaths of diameter at most $\epsilon$. It follows that the composition of
+  this path with $q_i$ is a path that admits a simplicial approximation
+  connecting $x_1$ to $x_2$ after boundedly many subdivisions of the interval.
+  For $i \geq i_0$ sufficiently large this gives a contradiction.
+  \todo{Check this paragraph.}
 \end{proof}
 
 Using this property we define maps $i^n_{n+1}\from \Skel_1 K_n$ to
 $\Skel_1K_{n+1}$ as follows.
 
+In what follows we will make use of the following lemma, adapted from
+from~\cite{bestvinamess91}
+
+\begin{lemma}\cite{bestvinamess91}\label{lem:near_geod_rays}
+  Let $G$ be infinite. For any $x \in X$ there exists a geodesic ray $\alpha$ 
+  with $\alpha(0) = e$ and $\dist(x,\alpha) \leq 2\delta$. 
+  
+  Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 4\delta$.
+\end{lemma}
+
+\begin{proof}
+  For the first claim, see~\cite{bestvinamess91}. For the second, let $p$ be a 
+  point on $\alpha$ such that $\dist(x, p) \leq 2\delta$. Then the triangle 
+  inequality shows that $\abs{\dist(e,p), \dist(e,x)} \leq 2\delta$, and 
+  so $\dist(p, \alpha(\dist(e,x))) \leq 2\delta$. Then the result 
+  follows from another application of the triangle inequality.
+\end{proof}
+
 \begin{proposition}
-  Suppose that $G$ satisfies $\ddag'_M$ for $M = D+2$. Then there exists $k$
+  Suppose that $G$ satisfies $\ddag'_M$ for $M = ?$. Then there exists $k$
   such that for $n$ sufficiently large there is a map
   $i^n_{n+1}\from \Skel_1 K_n \to \Skel_1 K_{n+1}$ satisfying the following
   conditions:
@@ -698,15 +753,21 @@ $\Skel_1K_{n+1}$ as follows.
 \end{proposition}
 
 \begin{proof}
-  \todo{Prove this}
+  First we define $i^n_{n+1}$ on the vertex set of $K_n$. For a vertex $x$ of
+  $K_n$, let $\alpha$ be a geodesic with $\dist(x, \alpha(n)) \leq 4\delta$ and
+  let $i^n_{n+1}(x)$ be any vertex of the minimal simplex of $K_{n+1}$
+  containing $p^\infty_{n+1}(\gamma_x(\infty))$. Then the second claimed
+  property follows from \todo{why?}
+
+  For an edge $e$ of $K_n$, the distance between the images of the end points
+  of $e$ under $i^n_{n+1}$ is at most \todo{?} and it follows that \todo{prove
+  this}.
 \end{proof}
 
 \section{Local simple connectedness}
 
-\todo{Proposition below}
-
 \begin{proposition}\label{prop:extendingaffinemaps2}
-  Something about extending affine maps.
+  \todo{Proposition about extending affine maps.}
 \end{proposition}
 
 In this section we introduce a new condition that a hyperbolic group might
@@ -726,24 +787,6 @@ Our goal in this section is to prove the following theorem.
 \end{restatable}
 
 \subsection{Constructing maps to $\boundary G$}
-
-We will make frequent use of the following lemma, adapted 
-from~\cite{bestvinamess91}
-
-\begin{lemma}\cite{bestvinamess91}\label{lem:near_geod_rays}
-  Let $G$ be infinite. For any $x \in X$ there exists a geodesic ray $\alpha$ 
-  with $\alpha(0) = e$ and $\dist(x,\alpha) \leq 2\delta$. 
-  
-  Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 4\delta$.
-\end{lemma}
-
-\begin{proof}
-  For the first claim, see~\cite{bestvinamess91}. For the second, let $p$ be a 
-  point on $\alpha$ such that $\dist(x, p) \leq 2\delta$. Then the triangle 
-  inequality shows that $\abs{\dist(e,p), \dist(e,x)} \leq 2\delta$, and 
-  so $\dist(p, \alpha(\dist(e,x))) \leq 2\delta$. Then the result 
-  follows from another application of the triangle inequality.
-\end{proof}
 
 We begin the proof of \cref{thm:ddagimpliesLCd} by proving the following 
 proposition.
