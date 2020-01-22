@@ -49,6 +49,7 @@ very much, so we make the following simple definition.
 
 We denote by $\gromov{{-}}{{-}}{{-}}$ the Gromov product on $G \union
 \boundary G$. Using $\newdist$ we extend the Gromov product to $K$:
+\todo{This looks shit.}
 
 \begin{definition}
   Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
@@ -69,7 +70,8 @@ We now equip $K$ with a topology as follows.
       $x$ in $K$, treating $K$ with the usual topology of a simplicial complex.
     \item For $\xi \in \boundary G$, the set
       \begin{equation*}
-        \set{x \in K \union \boundary G \suchthat \gromov{e}{x}{\xi} \geq N}_{N\in\naturals}
+        \set{x \in K \union \boundary G 
+              \suchthat \gromov{e}{x}{\xi} \geq N}_{N\in\naturals}
       \end{equation*}
       is a fundamental system of neighbourhoods for the point $x$.
   \end{enumerate}
@@ -614,8 +616,7 @@ condition that a hyperbolic group might satisfy.
   We say that $G$ satisfies $\ddag_M$ if there exists a number $L$ such that,
   for any $n$ and any $x$ and $y$ in $S_n$ with $\dist(x,y) \leq M$, $x$ and
   $y$ are connected by a path of length at most $L$ in the complement of the
-  ball with radius $\dist(x,y) - 3\delta$ with centre $1 \in G$.
-  \todo{$3\delta$?}
+  ball with radius $\dist(x,y) - \delta$ with centre $1 \in G$.
 \end{definition}
 
 This property is linked to the connectedness of $\boundary G$ by the following
@@ -728,6 +729,8 @@ from~\cite{bestvinamess91}
   with $\alpha(0) = e$ and $\dist(x,\alpha) \leq 2\delta$. 
   
   Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 4\delta$.
+  \todo{Since I'm assuming ideal triangles are delta-slim, 2delta should be
+  delta and 4delta should be 2delta.}
 \end{lemma}
 
 \begin{proof}
@@ -739,29 +742,38 @@ from~\cite{bestvinamess91}
 \end{proof}
 
 \begin{proposition}
-  Suppose that $G$ satisfies $\ddag'_M$ for $M = ?$. Then there exists $k$
-  such that for $n$ sufficiently large there is a map
-  $i^n_{n+1}\from \Skel_1 K_n \to \Skel_1 K_{n+1}$ satisfying the following
-  conditions:
+  Suppose that $G$ satisfies $\ddag'_{D + 8\delta+2}$. Then there exists $L$
+  such that for $n$ sufficiently large there is a map $i^n_{n+1}\from \Skel_1
+  K_n \to \Skel_1 K_{n+1}$ satisfying the following conditions:
   \begin{enumerate}
     \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
-      $\sd_k\Skel_1 K_n$,
-    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq ?$, and
+      $\sd_L\Skel_1 K_n$,
+    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 4\delta+1$,
+      and
     \item for each $n$, the map $i^n_{n+1}$ is affine homotopic to a map that
       factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
   \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-  First we define $i^n_{n+1}$ on the vertex set of $K_n$. For a vertex $x$ of
-  $K_n$, let $\alpha$ be a geodesic with $\dist(x, \alpha(n)) \leq 4\delta$ and
-  let $i^n_{n+1}(x)$ be any vertex of the minimal simplex of $K_{n+1}$
-  containing $p^\infty_{n+1}(\gamma_x(\infty))$. Then the second claimed
-  property follows from \todo{why?}
+  Let $n_0$ and $L$ be the numbers given by the condition $\ddag'_{D + 8\delta
+  + 2}$ and let $n \geq n_0$.
 
-  For an edge $e$ of $K_n$, the distance between the images of the end points
-  of $e$ under $i^n_{n+1}$ is at most \todo{?} and it follows that \todo{prove
-  this}.
+  First we define $i^n_{n+1}$ on the vertex set of $K_n$. For a vertex $x$ of
+  $K_n$, let $\gamma_x$ be a geodesic with $\dist(x, \gamma_x(n)) \leq 4\delta$
+  and let $i^n_{n+1}(x)$ be $\gamma_x(n+1)$, which is a vertex of a simplex
+  containing $p^\infty_{n+1}(\gamma_n(\infty))$. Then $\dist(x, i^n_{n+1}(x))
+  \leq 4\delta + 1$, as required by the second condition.
+
+  For an edge $e$ of $K_n$ with end points $x_1$ and $x_2$, the distance
+  $\dist(x_1, x_2)$ is at most $D + 8\delta + 2$. It follows that there is a
+  path $\alpha$ from $\gamma_{x_1}(\infty)$ to $\gamma_{x_2}(\infty)$ in
+  $\boundary G$ so that $p^\infty_{n+1}\composed\alpha$ admits a simplicial
+  approximation connecting $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after at most
+  $L$ subdivisions. Define $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
+
+  This process defines a map $i^n_{n+1}\from \Skel_1 K_n\to \Skel_1 K_{n+1}$
+  with the required properties.
 \end{proof}
 
 \section{Local simple connectedness}
