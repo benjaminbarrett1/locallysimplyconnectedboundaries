@@ -358,7 +358,7 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
   triangle with vertices $x$, $\xi$ and $g_i$ is $\delta$-slim, so for each $i$
   there exists a point $y_i$ on $[x, g_i]$ with $\dist(y_i, \alpha) \leq
   \delta$ and $y_i\to\xi$ as $i\to\infty$.  For each $i$ let $z_i$ be a point
-  on $\alpha$ with $\dist(y_i, z_i) \delta$.
+  on $\alpha$ with $\dist(y_i, z_i) \leq \delta$.
 
   Since $\dist(g_i, x) = n_i$ for $i$ sufficiently large and $\dist(x,y_i) \to
   \infty$ as $i\to\infty$, we have the following limit.
@@ -468,7 +468,7 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
       Finally, for $i$ sufficiently large, $\dist(g_i, x') = \dist(g_i, x) = n_i$,
       so
       \begin{equation*}
-        \dist(x,x') \leq 6\delta.
+        \dist(x,x') \leq 6\delta.\qedhere
       \end{equation*}
   \end{enumerate}
 \end{proof}
@@ -490,7 +490,7 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   \begin{equation*}
     N_{2\delta+1} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
     $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}}.
-  \end{equation*}\qed
+  \end{equation*}
 \end{lemma}
 
 \begin{lemma}
