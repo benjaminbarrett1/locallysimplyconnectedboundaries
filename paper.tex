@@ -47,9 +47,9 @@ very much, so we make the following simple definition.
   \end{equation*}
 \end{remark}
 
-We denote by $\gromov{{-}}{{-}}{{-}}$ the Gromov product on $G \union
-\boundary G$. Using $\newdist$ we extend the Gromov product to $K$:
-\todo{This looks shit.}
+We denote by $\gromov{a}{b}{c}$ the Gromov product of $b$ and $c$ in $G \union
+\boundary$ with respect to base point $a \in G$. Using $\newdist$ we extend the
+Gromov product to $K$:
 
 \begin{definition}
   Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
@@ -483,7 +483,7 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
 
 The following lemma is immediate from the definition of $p^\infty_i$.
 
-\begin{lemma}\label{lem:describing_q_i}\todo{Check this}
+\begin{lemma}\label{lem:describing_q_i}\todo{Check this and state uniform continuity lemma as appropriate}
   Let $\zeta \in \boundary G - \set\xi$ and suppose that $q_i(\zeta) \in H_i$
   is defined, so $\zeta \in U_i$, and $N_{4\delta+1} q_i(\zeta) \in H_i$. Then
   $q_i(\zeta)$ is contained in the minimal simplex of $H_i$ with vertex set
@@ -586,23 +586,50 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   for all $i$ such that $q_i(\zeta_i) \in C$ for all $i$ and $\zeta_i \to \xi$ 
   as $i \to \infty$.
 
-  \todo{Is star actually the right word?}
-  Then for each $i$ a geodesic from $g_i$ to $\zeta_i$ passes through the star 
-  in $H$ of $C$.  After passing to a subsequence these geodesic rays converge to 
-  a bi-infinite geodesic passing through the star in $H$ of $C$, both end points 
-  of which must be $\xi$, which is a contradiction.
+  Then for each $i$ a geodesic from $g_i$ to $\zeta_i$ passes through the subcomplex
+  of $H$ comprising all simplices that meet $C$.  After passing to a
+  subsequence these geodesic rays converge to a bi-infinite geodesic passing
+  through the star in $H$ of $C$, both end points of which must be $\xi$, which
+  is a contradiction.
 \end{proof}
 
 \begin{lemma}\label{lem:uniform_continuity}
-  For any compact subset $C \subset \boundary G - \set\xi$ there exists $i_0$
-  and $\epsilon > 0$ such that $C \in U_i$ for $i \geq i_0$, and so that
-  $\newdist(q_i(\zeta_1), q_i(\zeta_2)) \leq ?$ whenever $i \geq i_0$ and
-  $\zeta_1$ and $\zeta_2$ are points in $C$ with $\rho(\zeta_1, \zeta_2) \leq
-  \epsilon$.
+  For any point $\zeta \in \boundary G - \set\xi$, there is a neighbourhood $V$
+  of $\zeta$ and a number $i_0$ such that $V \subset U_i$ for all $i \geq i_0$,
+  and the diameter of $q_i(V)$ with respect to $\newdist$ is at most $?$.
 \end{lemma}
 
 \begin{proof}
-  \todo{Prove this uniform continuity statement.}
+  Let $\zeta \in \boundary G - \set\xi$ and let $\alpha$ be a bi-infinite
+  geodesic from $\xi$ to $\zeta$. Let $x$ be a point on $\alpha$ so that the
+  distance between the sub-ray of $\alpha$ from $x$ to $\zeta$ and the set $H$
+  is at least $9\delta+2$.
+
+  Let $V$ be the following set. It is easy to check that this is a
+  neighbourhood of $\zeta$.
+  \begin{equation*}
+    V = \set{\beta(\infty) \suchthat \text{$\beta$ a geodesic with
+            $\beta(-\infty) = \xi$ and $\dist(\beta, x) \leq 3\delta+1$}}
+  \end{equation*}
+  The neighbourhood $V$ is relatively compact in $\boundary G - \set\xi$ so
+  there we may take $i_0$ such that $V \subset U_i$ for $i \geq i_0$. Enlarge
+  $i_0$ so that for any $i \geq i_0$, $\dist([\xi, g_i], x) \geq ?$.
+
+  Now let $\zeta_1$ and $\zeta_2$ be points in $V$ and let $i \geq i_0$. For
+  $j$ equal to $1$ or $2$ let $\gamma_j$ be any geodesic ray from $g_i$ to
+  $\zeta_j$ and let $\beta_j$ be a bi-infinite geodesic with $\beta_j(-\infty) =
+  \xi$, $\beta_j(\infty) = \zeta_j$ and $\dist(\beta_j, x) \leq 3\delta+1$; let
+  this minimal distance be realised by a point $y_j \in \beta_j$. By
+  considering a triangle with vertices $\xi$, $g_i$ and $\zeta_j$, $\dist(y_j,
+  \gamma_j) \leq \delta$, so $\dist(\gamma_j, x) \leq 4\delta+1$; let $z_j \in
+  \gamma_j$ minimise this minimal distance. Then $\dist(z_1, z_2) \leq
+  8\delta+2$.
+
+  Now, $\dist(x, H) \geq 9\delta+2$, so $\dist(z_j, H) \geq 5\delta+1$.
+  Furthermore, $\beta_j(n_i) \in H$. It follows that $\dist(\beta_j(n_i), [z_1,
+  z_2]) > \delta$ and so by considering a triangle with vertices $g_i$, $z_1$
+  and $z_2$, $\dist(\beta_1(n_i), \beta_2(n_i)) \leq 2\delta$. The result
+  follows by lemma~\ref{lem:describing_q_i}. 
 \end{proof}
 
 \section{The double dagger condition}
