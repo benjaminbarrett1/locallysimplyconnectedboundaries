@@ -476,20 +476,27 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
 \subsection{Projections to the horosphere}
 
 \begin{definition}
-  Let $U_i \subset \boundary G$ be the (closed) preimage of $H_i$ under the map 
-  $g_i \composed p^\infty_{n_i} \composed g_i^{-1} \from \boundary G \to X$.
-  Denote by $q_i$ the restriction of this map to $U_i$.
+  Let $U_i \subset \boundary G$ be the set of all points in $\boundary G -
+  \set\xi$ such that all geodesic rays from $g_i \in G$ to points in $U_i$ pass
+  through $H_i$. Let $q_i$ be the restriction of the map $g_i \composed
+  p^\infty_{n_i} \composed g_i^{-1}$ to $U_i$.
 \end{definition}
 
 The following lemma is immediate from the definition of $p^\infty_i$.
 
-\begin{lemma}\label{lem:describing_q_i}\todo{Check this and state uniform continuity lemma as appropriate}
-  Let $\zeta \in \boundary G - \set\xi$ and suppose that $q_i(\zeta) \in H_i$
-  is defined, so $\zeta \in U_i$, and $N_{4\delta+1} q_i(\zeta) \in H_i$. Then
+\begin{lemma}\label{lem:describing_q_i}
+  The set $q_i(U_i)$ is contained in $H_i$.
+  Furthermore, let $\zeta \in U_i$ so that $q_i(\zeta) \in H_i$.  Then
   $q_i(\zeta)$ is contained in the minimal simplex of $H_i$ with vertex set
   \begin{equation*}
     N_{2\delta+1} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
-    $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}}.
+    $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}} \intersection H_i
+  \end{equation*}
+  In particular, if $\eta$ is any geodesic ray with $\eta(0) = g_i$ and
+  $\eta(\infty) = \zeta$ then $q_i(\zeta)$ is contained in the minimal simplex
+  of $H_i$ with vertex set
+  \begin{equation*}
+    N_{4\delta + 1}(\eta(n_i)) \intersection H_i.
   \end{equation*}
 \end{lemma}
 
@@ -501,25 +508,15 @@ The following lemma is immediate from the definition of $p^\infty_i$.
 \begin{proof}
   Suppose that a compact subset $C$ of $\boundary G - \set\xi$ is not contained
   in $U_i$ for infinitely many $i$. Then after passing to a subsequence there
-  exists for each $i$ a point $\zeta_i \in C\setminus U_i$. 
-
-  \todo{This assumption is gone.}
-  By assumption, $g_i^{-1}(H_i)$ contains the star in $K_{n_i}$ of 
-  $g_i^{-1}(H_{i-1})$, so the definition of $p^\infty_{n_i}$ implies that a 
-  geodesic ray $\alpha_i$ from $e$ to $g_i^{-1}(\zeta_i)$ does not pass through 
-  $g_i^{-1}(H_{i-1})$. Equivalently, $g_i\composed\alpha_i$ is a geodesic from 
-  $g_i$ to $\zeta_i$ that does not pass through $H_{i-1}$. 
-
-  After reparameterising and passing to a subsequence, the geodesic rays
-  $g_i\composed\alpha_i$ converge uniformly on compact subsets to a bi-infinite
-  geodesic from $\xi$ to some point $\zeta \in C$.  This geodesic does not pass
-  through $H$, which contradicts \cref{lem:geodesicsmeethorosphere}.
+  exists for each $i$ a point $\zeta_i \in C\setminus U_i$, so for each $i$
+  there is a geodesic ray $\alpha_i$ from $g_i$ to $\zeta_i$ that does not pass
+  through $H_i$. After passing to a subsequence, the rays $\alpha_i$ converge uniformly on compact susbets to a bi-infinite geodesic from $\xi$ to some $\zeta \in C$ that does not meet $H$, contardicting Lemma~\ref{lem:geodesicsmeethorosphere}.
 \end{proof}
 
 \begin{lemma}\label{lem:affinehomotopic}
   For any compact subset $C\subset\boundary G - \set\xi$, there exists $i_0$ 
   such that for all $i \geq i_0$ and any $\zeta \in C$, $\newdist(q_i(\zeta),
-  q_{i_0}(\zeta)) \leq 8\delta + 2$, and, in particular, $q_i\restricted{C}$
+  q_{i_0}(\zeta)) \leq 10\delta + 2$, and, in particular, $q_i\restricted{C}$
   and $q_{i_0}\restricted{C}$ are related by an affine homotopy.
 \end{lemma}
 
@@ -586,17 +583,16 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   for all $i$ such that $q_i(\zeta_i) \in C$ for all $i$ and $\zeta_i \to \xi$ 
   as $i \to \infty$.
 
-  Then for each $i$ a geodesic from $g_i$ to $\zeta_i$ passes through the subcomplex
-  of $H$ comprising all simplices that meet $C$.  After passing to a
-  subsequence these geodesic rays converge to a bi-infinite geodesic passing
-  through the star in $H$ of $C$, both end points of which must be $\xi$, which
-  is a contradiction.
+  Then for each $i$ a geodesic from $g_i$ to $\zeta_i$ passes within a bounded
+  distance of $C$. After passing to a subsequence these geodesic rays converge
+  to a bi-infinite geodesic passing within a bounded distance of $C$, both end
+  points of which must be $\xi$. This is a contradiction.
 \end{proof}
 
 \begin{lemma}\label{lem:uniform_continuity}
   For any point $\zeta \in \boundary G - \set\xi$, there is a neighbourhood $V$
-  of $\zeta$ and a number $i_0$ such that $V \subset U_i$ for all $i \geq i_0$,
-  and the diameter of $q_i(V)$ with respect to $\newdist$ is at most $?$.
+  of $\zeta$ and a number $i_0$ such that, for all $i \geq i_0$, $V \subset U_i$ 
+  and the diameter of $q_i(V)$ with respect to $\newdist$ is at most $6\delta+2$.
 \end{lemma}
 
 \begin{proof}
@@ -612,8 +608,8 @@ The following lemma is immediate from the definition of $p^\infty_i$.
             $\beta(-\infty) = \xi$ and $\dist(\beta, x) \leq 3\delta+1$}}
   \end{equation*}
   The neighbourhood $V$ is relatively compact in $\boundary G - \set\xi$ so
-  there we may take $i_0$ such that $V \subset U_i$ for $i \geq i_0$. Enlarge
-  $i_0$ so that for any $i \geq i_0$, $\dist([\xi, g_i], x) \geq ?$.
+  we may take $i_0$ such that $V \subset U_i$ for $i \geq i_0$. Enlarge $i_0$
+  so that for any $i \geq i_0$, $\dist([\xi, g_i], x) \geq 4\delta+1$.
 
   Now let $\zeta_1$ and $\zeta_2$ be points in $V$ and let $i \geq i_0$. For
   $j$ equal to $1$ or $2$ let $\gamma_j$ be any geodesic ray from $g_i$ to
@@ -626,9 +622,9 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   8\delta+2$.
 
   Now, $\dist(x, H) \geq 9\delta+2$, so $\dist(z_j, H) \geq 5\delta+1$.
-  Furthermore, $\beta_j(n_i) \in H$. It follows that $\dist(\beta_j(n_i), [z_1,
+  Furthermore, $\gamma_j(n_i) \in H$. It follows that $\dist(\gamma_j(n_i), [z_1,
   z_2]) > \delta$ and so by considering a triangle with vertices $g_i$, $z_1$
-  and $z_2$, $\dist(\beta_1(n_i), \beta_2(n_i)) \leq 2\delta$. The result
+  and $z_2$, $\dist(\gamma_1(n_i), \gamma_2(n_i)) \leq 2\delta$. The result
   follows by lemma~\ref{lem:describing_q_i}. 
 \end{proof}
 
