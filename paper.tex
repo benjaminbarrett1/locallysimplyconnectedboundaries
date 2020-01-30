@@ -630,8 +630,8 @@ The following lemma is immediate from the definition of $p^\infty_i$.
 
 \section{The double dagger condition}
 
-We begin this section by recalling results of Bestvina and Mess, Bowditch, and
-Swarup, which characterise the hyperbolic groups with locally (path) connected
+We begin this section by recalling work of Bestvina and Mess, Bowditch, and
+Swarup, which characterise the hyperbolic groups with locally path connected
 boundary. In~\cite{bestvinamess91}, Bestvina and Mess introduce the following
 condition that a hyperbolic group might satisfy.
 
@@ -677,10 +677,10 @@ $\boundary G$ from paths in the spheres $K_n$, and permits a generalisation to
 higher dimensional connectivity.
 
 \begin{definition}
-  We say that $G$ satisfies $\ddag'_M$ if there exists a number $L$ such that,
-  for any $n$ sufficiently large any $\zeta_1$ and $\zeta_2$ in $\boundary G$
+  We say that $G$ satisfies $\ddag'_M$ if there exist numbers $L$ and $n_0$ such that,
+  for any $n \geq n_0$, any $\zeta_1$ and $\zeta_2$ in $\boundary G$
   such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$, and
-  any points $x_1$ and $x_2$ in $K_n$ adjacent to $p^\infty_n(\zeta_1)$ and
+  any vertices $x_1$ and $x_2$ of $K_n$ adjacent to $p^\infty_n(\zeta_1)$ and
   $p^\infty_n(\zeta_2)$, there is a path $\alpha\from I\to \boundary G$ from
   $\zeta_1$ to $\zeta_2$ in $\boundary G$ such that $p^\infty_n\composed\alpha$
   admits a simplicial approximation connecting $x_1$ to $x_2$ in $K_n$ after at
@@ -709,69 +709,66 @@ higher dimensional connectivity.
   contained in $H_i$ for all $i$. 
 
   Now, $g_i\cdot \zeta_1^i$ and $g_i\cdot\zeta_2^i$ map by $q_i$ to points in
-  simplices adjacent to $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} the
-  sequences we can pass to a subsequence so that the sequences $g_i\cdot
-  \zeta_1^i$ and $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$
-  in $\boundary G - \set\xi$ as $i \to \infty$.
+  simplices adjacent to $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} we
+  can pass to a subsequence so that the sequences $g_i\cdot \zeta_1^i$ and
+  $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$ in $\boundary
+  G - \set\xi$ as $i \to \infty$.
   
   Let $C$ be a compact subset of $\boundary G - \set\xi$ containing a path
   $\beta$ from $\zeta_1$ to $\zeta_2$ and also a neighbourhood of each of the
-  points $\zeta_1$ and $\zeta_2$. Let $\epsilon$ and $i_0$ be as in
-  Lemma~\ref{lem:uniform_continuity}. By increasing $i_0$ we may also assume
-  that $\zeta_1^i$ and $\zeta_2^i$ are contained in $C$ for $i \geq i_0$. By
-  decreasing $\epsilon$ we may assume that the $\epsilon$-neighbourhoods of
-  $\zeta_1$ and $\zeta_2$ are contained in $C$.
+  points $\zeta_1$ and $\zeta_2$. By Lemma~\ref{lem:uniform_continuity} and
+  compactness of $C$, there exists $\epsilon > 0$ and $i_0 \in \naturals$ such
+  that for subset $V$ of $C$ of diameter at most $\epsilon$ and any $i \geq
+  i_0$, $q_i(V)$ has diameter (with respect to $\newdist$) at most $6\delta+2$.
+  By increasing $i_0$ we may also assume that $\zeta_1^i$ and $\zeta_2^i$ are
+  contained in $C$ for $i \geq i_0$. By decreasing $\epsilon$ we may assume
+  that the $\epsilon$-neighbourhoods of $\zeta_1$ and $\zeta_2$ are contained
+  in $C$. 
 
-  Since $\boundary G$ is locally path connected, there exists a neighbourhood
-  of $\zeta_1$ (repsectively $\zeta_2$) such that any point in this
-  neighbourhood is joined to $\zeta_1$ (respectively $\zeta_2$) by a path
-  contained in the $\epsilon$-neighbourhood of $\zeta_1$. Now increase $i_0$ to
-  ensure that $\zeta_1^i$ and $\zeta_2^i$ are contained in these neighbourhoods
-  for $i \geq i_0$. Let $\alpha_1^i$ (respectively $\alpha_2^i$) be a path in
-  the ball of radius $\epsilon$ centred at $\zeta_1$ (respectively $\zeta_2$)
-  connecting $\zeta_1^i$ (repsectively $\zeta_2^i$) to $\zeta_1$ (respectively
-  $\zeta_2$.)
+  Since $\boundary G$ is locally path connected, for $j$ equal to $1$ or $2$
+  there exists a neighbourhood of $\zeta_j$ such that any point in this
+  neighbourhood is joined to $\zeta_j$ by a path contained in the
+  $\epsilon$-neighbourhood of $\zeta_j$. Now increase $i_0$ to ensure that
+  $\zeta_1^i$ and $\zeta_2^i$ are contained in these neighbourhoods for $i \geq
+  i_0$. Let $\alpha_1^j$ be a path in the ball of radius $\epsilon$ centred at
+  $\zeta_j$ connecting $\zeta_j^i$ to $\zeta_j$.
 
-  Then the concatenation of $\alpha_1^i$, $\beta$ and $\alpha_2^i$ gives a path
-  in $C$ from $\zeta_1^i$ to $\zeta_2^i$ that can be cut into boundedly many
-  subpaths of diameter at most $\epsilon$. It follows that the composition of
-  this path with $q_i$ is a path that admits a simplicial approximation
-  connecting $x_1$ to $x_2$ after boundedly many subdivisions of the interval.
-  For $i \geq i_0$ sufficiently large this gives a contradiction.
-  \todo{Check this paragraph.}
+  Then the concatenation $\alpha^i\from[0,1]\to \boundary G$ of $\alpha_1^i$,
+  $\beta$ and $\alpha_2^i$ gives a path in $C$ from $\zeta_1^i$ to $\zeta_2^i$
+  such that $I$ can be covered by boundedly many open intervals, each of which
+  has image under $\alpha^i$ with diameter at most $\epsilon$. It follows that
+  the composition of $\alpha^i$ with $q_i$ is a path that admits a simplicial
+  approximation connecting $x_1$ to $x_2$ after boundedly many subdivisions of
+  the interval. For $i \geq i_0$ large enough this gives a contradiction.
 \end{proof}
 
 Using this property we define maps $i^n_{n+1}\from \Skel_1 K_n$ to
-$\Skel_1K_{n+1}$ as follows.
-
-In what follows we will make use of the following lemma, adapted from
-from~\cite{bestvinamess91}
+$\Skel_1K_{n+1}$ as follows.  We will make use of the following lemma, adapted
+from from~\cite{bestvinamess91}
 
 \begin{lemma}\cite{bestvinamess91}\label{lem:near_geod_rays}
   Let $G$ be infinite. For any $x \in X$ there exists a geodesic ray $\alpha$ 
-  with $\alpha(0) = e$ and $\dist(x,\alpha) \leq 2\delta$. 
+  with $\alpha(0) = e$ and $\dist(x,\alpha) \leq \delta$. 
   
-  Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 4\delta$.
-  \todo{Since I'm assuming ideal triangles are delta-slim, 2delta should be
-  delta and 4delta should be 2delta.}
+  Furthermore, $\dist(x, \alpha(\dist(e,x))) \leq 2\delta$.
 \end{lemma}
 
 \begin{proof}
   For the first claim, see~\cite{bestvinamess91}. For the second, let $p$ be a 
-  point on $\alpha$ such that $\dist(x, p) \leq 2\delta$. Then the triangle 
-  inequality shows that $\abs{\dist(e,p), \dist(e,x)} \leq 2\delta$, and 
-  so $\dist(p, \alpha(\dist(e,x))) \leq 2\delta$. Then the result 
+  point on $\alpha$ such that $\dist(x, p) \leq \delta$. Then the triangle 
+  inequality shows that $\abs{\dist(e,p) - \dist(e,x)} \leq \delta$, and 
+  so $\dist(p, \alpha(\dist(e,x))) \leq \delta$. Then the result 
   follows from another application of the triangle inequality.
 \end{proof}
 
 \begin{proposition}
-  Suppose that $G$ satisfies $\ddag'_{D + 8\delta+2}$. Then there exists $L$
+  Suppose that $G$ satisfies $\ddag'_{D + 4\delta+2}$. Then there exists $L$
   such that for $n$ sufficiently large there is a map $i^n_{n+1}\from \Skel_1
   K_n \to \Skel_1 K_{n+1}$ satisfying the following conditions:
   \begin{enumerate}
     \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
       $\sd_L\Skel_1 K_n$,
-    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 4\delta+1$,
+    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
       and
     \item for each $n$, the map $i^n_{n+1}$ is affine homotopic to a map that
       factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
@@ -783,17 +780,18 @@ from~\cite{bestvinamess91}
   + 2}$ and let $n \geq n_0$.
 
   First we define $i^n_{n+1}$ on the vertex set of $K_n$. For a vertex $x$ of
-  $K_n$, let $\gamma_x$ be a geodesic with $\dist(x, \gamma_x(n)) \leq 4\delta$
+  $K_n$, let $\gamma_x$ be a geodesic with $\dist(x, \gamma_x(n)) \leq 2\delta$
   and let $i^n_{n+1}(x)$ be $\gamma_x(n+1)$, which is a vertex of a simplex
   containing $p^\infty_{n+1}(\gamma_n(\infty))$. Then $\dist(x, i^n_{n+1}(x))
-  \leq 4\delta + 1$, as required by the second condition.
+  \leq 2\delta + 1$, as required by the second condition.
 
-  For an edge $e$ of $K_n$ with end points $x_1$ and $x_2$, the distance
-  $\dist(x_1, x_2)$ is at most $D + 8\delta + 2$. It follows that there is a
-  path $\alpha$ from $\gamma_{x_1}(\infty)$ to $\gamma_{x_2}(\infty)$ in
-  $\boundary G$ so that $p^\infty_{n+1}\composed\alpha$ admits a simplicial
-  approximation connecting $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after at most
-  $L$ subdivisions. Define $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
+  For an edge $e$ of $K_n$ connecting vertices $x_1$ and $x_2$,
+  $\dist(i^n_{n+1}(x_1), i^n_{n+1}(x_2))$ is at most $D + 4\delta + 2$. It
+  follows that there is a path $\alpha$ from $\gamma_{x_1}(\infty)$ to
+  $\gamma_{x_2}(\infty)$ in $\boundary G$ so that
+  $p^\infty_{n+1}\composed\alpha$ admits a simplicial approximation connecting
+  $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after at most $L$ subdivisions. Define
+  $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
 
   This process defines a map $i^n_{n+1}\from \Skel_1 K_n\to \Skel_1 K_{n+1}$
   with the required properties.
