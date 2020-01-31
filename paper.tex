@@ -761,10 +761,10 @@ from from~\cite{bestvinamess91}
   follows from another application of the triangle inequality.
 \end{proof}
 
-\begin{proposition}
-  Suppose that $G$ satisfies $\ddag'_{D + 4\delta+2}$. Then there exists $L$
-  such that for $n$ sufficiently large there is a map $i^n_{n+1}\from \Skel_1
-  K_n \to \Skel_1 K_{n+1}$ satisfying the following conditions:
+\begin{proposition}\label{prop:i_in_dimension_1}
+  Suppose that $G$ satisfies $\ddag'_{D + 4\delta+2}$. Then there exist $L$ and
+  $n_0$ such that for $n\geq n_0$ there is a map $i^n_{n+1}\from \Skel_1 K_n
+  \to \Skel_1 K_{n+1}$ satisfying the following conditions:
   \begin{enumerate}
     \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
       $\sd_L\Skel_1 K_n$,
@@ -776,7 +776,7 @@ from from~\cite{bestvinamess91}
 \end{proposition}
 
 \begin{proof}
-  Let $n_0$ and $L$ be the numbers given by the condition $\ddag'_{D + 8\delta
+  Let $n_0$ and $L$ be the numbers given by the condition $\ddag'_{D + 4\delta
   + 2}$ and let $n \geq n_0$.
 
   First we define $i^n_{n+1}$ on the vertex set of $K_n$. For a vertex $x$ of
@@ -799,19 +799,15 @@ from from~\cite{bestvinamess91}
 
 \section{Local simple connectedness}
 
-\begin{proposition}\label{prop:extendingaffinemaps2}
-  \todo{Proposition about extending affine maps.}
-\end{proposition}
-
 We now introduce a new condition, which should be thought of as a version of
 $\ddag_M$ one dimension higher.
 
 \begin{definition}
-  We say that $G$ satisfies $\S_M$ if there exists $k$ such that for any $n$
-  sufficiently large and any simplicial map $f\from \sd^M\boundary\Delta^2 \to
-  K_n$ that is a simplicial approximation to a map that factors through
-  $p^\infty_n \from \boundary G \to K_n$, $f$ admits an extension to $\Delta^2$
-  that is affine on $\sd^k \Delta^2$.
+  Let $\Delta$ be the standard 2-simplex.  We say that $G$ satisfies $\S_M$ if
+  there exist $L$ and $n_0$ such that for any $n\geq n_0$ and any simplicial
+  map $f\from \sd^M\boundary\Delta \to K_n$ that is a simplicial approximation
+  to a map that factors through $p^\infty_n \from \boundary G \to K_n$, $f$
+  admits an extension to $\Delta$ that is affine on $\sd^L \Delta$.
 \end{definition}
 
 Our goal in this section is to prove the following theorem.
@@ -821,57 +817,43 @@ Our goal in this section is to prove the following theorem.
   connected.
 \end{restatable}
 
+Thrououghout the rest of this section we assume that $G$ satisfies
+\todo{conditions.}
+
 \subsection{Constructing maps to $\boundary G$}
 
 We begin the proof of \cref{thm:ddagimpliesLCd} by proving the following 
-proposition.
+proposition, which extends the maps constructed in
+Proposition~\ref{prop:i_in_dimension_1}.
 
-\begin{proposition}\label{prop:ddag_implies_i}
-  Let $d \geq -1$. Suppose that $G$ satisfies the conditions $\S^{d-1}$ and
-  $\ddag^{d}$. Then there are constants $n_0$, $k$ and $\epsilon$ such that for
-  each $n\geq n_0$ there is map $i^n_{n+1}\from\Skel_{d+1} K_n \to \Skel_{d+1}
-  K_{n+1}$ such that the following conditions hold.
+\begin{proposition}\label{prop:i_in_dimension_2}
+  There are constants $n_0$ and $L$ such that for each $n\geq n_0$ there is map
+  $i^n_{n+1}\from\Skel_{d+1} K_n \to \Skel_{d+1} K_{n+1}$ such that the
+  following conditions hold.
   \begin{enumerate}
-    \item For any $x \in \Vertices(K_n)$, $\dist(x, i_{n+1}^n(x)) \leq
-      \epsilon$.
-    \item The map $i^n_{n+1}$ is affine on the subdivision $\sd^k\Skel_{d+1}
-      K_n$ of $\Skel_{d+1}K_n$.
-    \item The map $i^n_{n+1}\restricted{\Skel_d K_n}$ admits a factoring.
+    \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
+      $\sd_L\Skel_2 K_n$,
+    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
+      and
   \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-  The condition $\ddag^{-1}$ implies the infinitude of $G$, so
-  \cref{lem:near_geod_rays} is applicable. For $x \in \Vertices{K_n}$ choose an
-  infinite geodesic ray $\alpha_x$ such that $\alpha(0) = 1$ and
-  $\dist(\alpha(n), x) \leq 4\delta$. Define $i^n_{n+1}(x) =
-  \alpha_x(n+1)$. Then $i^n_{n+1}$ satisfies the first requirement with
-  $\epsilon = 4\delta+2$ and satisfies the second requirement automatically.
-
-  Furthermore, $\alpha_x(\infty) \in V_{n+1}(\alpha_x(n+1))$, so 
-  $p^\infty_{n+1}(\alpha_x(\infty))$ lies in a simplex of $K_{n+1}$ that also 
-  contains $\alpha_x(n+1)$.  Therefore the map $i^n_{n+1}$ and a simplicial 
-  approximation to the map $x \mapsto \alpha_x(\infty) \mapsto p^\infty_{n+1} 
-  (\alpha_x(\infty))$ are related by an affine homotopy, so $i^n_{n+1}$ admits a 
-  factoring. 
-
-  Now apply \cref{prop:extendingaffinemaps2} to extend $i^n_{n+1}$ from
-  $\Vertices(K_n)$ to $\Skel_{d+1} K_n$ to obtain a map with the required
-  properties.
+  \todo{Prove this}
 \end{proof}
 
-Throughout the remainder of this section we assume that $G$ satisfies $\ddag^{d-1}$ 
-and $\S^{d}$. Let $n_0$, $k$ and $\epsilon$ be the constants given in 
-\cref{prop:ddag_implies_i}, and for $n\geq n_0$ let $i^n_{n+1} 
-\from \sd^k\Skel_{d+1} K_n \to \Skel_{d+1} K_{n+1}$ be the affine map given by 
-that proposition.  For $n \geq m \geq n_0$ let $i^m_n$ be the composition 
-$i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_{d+1} K_m \to 
-\Skel_{d+1} K_n$.  This map is affine on a degree $k^{n-m}$ subdivision of 
-$\Skel_{d+1} K_m$.
+\begin{definition}
+  With the notation of Proposition~\ref{prop:i_in_dimension_2}, for $n \geq m
+  \geq n_0$ let $i^n_m \from \Skel_2 K_m \to \Skel_2 K_n$ be the composition
+  $i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_{d+1} K_m \to 
+  \Skel_{d+1} K_n$.  This map is affine on a degree $L^{n-m}$ subdivision of 
+  $\Skel_{d+1} K_m$.
+\end{definition}
 
 In what follows we require the following useful lemma.
 
 \begin{lemma}\label{lem:useful}
+  \todo{Or quasi-geodesics?}
   Let $(x_n)$ be a sequence of points in $G$ with $\dist(x_{n+1}, e) = 
   \dist(x_n, e) + 1$ and $\dist(x_{n+1}, x_n)$ bounded. Then,
   \begin{equation*}
@@ -904,7 +886,6 @@ In what follows we require the following useful lemma.
   \begin{equation*}
     \gromov{e}{\alpha_n(\infty)}{\alpha_m(\infty)} \geq i_m - C_2.
   \end{equation*}
-
   Now, by \cref{lem:boundary_gromov_product} there exists a constant $C_3$ such
   that
   \begin{equation*}
@@ -926,19 +907,19 @@ In what follows we require the following useful lemma.
   containing $i^m_n(x)$. Then, for each $n \geq m$, we have $\dist(e, y_{n+1})
   = \dist(e, y_n)$. 
 
-  We now bound the distance $\dist(y_n, y_{n+1}$. To start with, $\dist(y_n,
-  i^n_{n+1} y_n) \leq \epsilon$. Let $R$ be such that any two vertices in the
-  1-skeleton of $\sd^k \Delta^{d+1}$ are joined by a path traversing at most
-  $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$ containing
-  $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a vertex of
-  the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n, y_{n+1})
-  \leq RD$.  Putting this together,
+  We now bound the distance $\dist(y_n, y_{n+1})$. To start with, $\dist(y_n,
+  i^n_{n+1} y_n) \leq 2\delta+1$. Let $R$ be $3\cdot 2^{k-1}$, so that any two
+  vertices in the 1-skeleton of $\sd^k \Delta^{d+1}$ are joined by a path
+  traversing at most $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$
+  containing $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a
+  vertex of the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n,
+  y_{n+1}) \leq RD$.  Putting this together,
   \begin{equation*}
-      \dist(y_n, y_{n+1}) \leq \epsilon + RD
+      \dist(y_n, y_{n+1}) \leq 2\delta + 1 + RD
   \end{equation*}
 
   It follows from \cref{lem:useful} that there exists a constant $C$ depending
-  only on $\delta$, $\epsilon$ and $k$ such that $\gromov{e}{y_n}{y_m} \geq m -
+  only on $\delta$ and $k$ such that $\gromov{e}{y_n}{y_m} \geq m -
   C$.
 
   Finally, by applying the inequality in \cref{rem:dist_vs_newdist}, we deduce
@@ -1044,8 +1025,8 @@ special maps to $\boundary G$.
 \end{proposition}
 
 \begin{proof}
-  To start with, apply \cref{prop:extendingaffinemaps2} with $k = C + D$ to
-  obtain constants $k'$ and $m_0\geq n_0$ such that the conclusion of the
+  To start with, apply Proposition \todo{extending affine maps} with $k = C +
+  D$ to obtain constants $k'$ and $m_0\geq n_0$ such that the conclusion of the
   proposition holds. 
 
   Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^{d+1}$ such
@@ -1055,7 +1036,7 @@ special maps to $\boundary G$.
           \to K_n,
   \end{equation*}
   defined on a subset of the product simplicial complex $J \times [0,1]$,
-  satisfies the conditions of \cref{prop:extendingaffinemaps2}, and so admits
+  satisfies the conditions of Proposition~\todo{extending maps}, and so admits
   an affine extension $F \from \sd^{k'} (J \times [0,1]) \to K_n$. Let $h =
   i^n_\infty \composed F$, so $h$ is a homotopy from $i^n_\infty\composed f_0$
   to $i^n_\infty\composed f_1$ and it remains to prove the uniform continuity
@@ -1143,13 +1124,12 @@ with two lemmas.
   of a simplex containing $p^\infty_n(\xi)$; then $\newdist(y, p^\infty_n(\xi))$
   is bounded by $D$.
   
-  Furthermore, $\dist(y, i^n_{n+1}(y))$ is uniformly bounded by the constant
-  $\epsilon$ from \cref{prop:ddag_implies_i}, and $\newdist(i^n_{n+1}(y),
-  i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by the product of $D$ and
-  the constant $k$ appearing in \cref{prop:ddag_implies_i}. By putting all this
-  together we obtain a bound $C$ on $\newdist(i^n_{n+1}\composed
-  p^\infty_n(\xi), p^\infty_{n+1}(\xi))$, and then $\dist(x_1, x_2) \leq C +
-  2D$.
+  Furthermore, $\dist(y, i^n_{n+1}(y))$ is bounded by $2\delta+1$, and
+  $\newdist(i^n_{n+1}(y), i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by
+  the product of $D$ and the constant $k$ appearing in
+  \cref{prop:i_in_dimension_2}. By putting all this together we obtain a bound
+  $C$ on $\newdist(i^n_{n+1}\composed p^\infty_n(\xi), p^\infty_{n+1}(\xi))$,
+  and then $\dist(x_1, x_2) \leq C + 2D$.
 \end{proof}
 
 \begin{proposition}\label{prop:uniform_homotopies}
