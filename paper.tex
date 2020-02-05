@@ -828,7 +828,7 @@ Proposition~\ref{prop:i_in_dimension_1}.
 
 \begin{proposition}\label{prop:i_in_dimension_2}
   There are constants $n_0$ and $L$ such that for each $n\geq n_0$ there is map
-  $i^n_{n+1}\from\Skel_{d+1} K_n \to \Skel_{d+1} K_{n+1}$ such that the
+  $i^n_{n+1}\from\Skel_2 K_n \to \Skel_2 K_{n+1}$ such that the
   following conditions hold.
   \begin{enumerate}
     \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
@@ -845,9 +845,9 @@ Proposition~\ref{prop:i_in_dimension_1}.
 \begin{definition}
   With the notation of Proposition~\ref{prop:i_in_dimension_2}, for $n \geq m
   \geq n_0$ let $i^n_m \from \Skel_2 K_m \to \Skel_2 K_n$ be the composition
-  $i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_{d+1} K_m \to 
-  \Skel_{d+1} K_n$.  This map is affine on a degree $L^{n-m}$ subdivision of 
-  $\Skel_{d+1} K_m$.
+  $i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_2 K_m \to 
+  \Skel_2 K_n$.  This map is affine on a degree $L^{n-m}$ subdivision of 
+  $\Skel_2 K_m$.
 \end{definition}
 
 In what follows we require the following useful lemma.
@@ -895,7 +895,7 @@ In what follows we require the following useful lemma.
 \end{proof}
 
 \begin{lemma}\label{lem:linearproduct}
-  There is a constant $C$ such that if $x \in \Skel_{d+1} K_m$ then
+  There is a constant $C$ such that if $x \in \Skel_2 K_m$ then
   \begin{equation*}
     \gromov{e}{i^m_n(x)}{x} \geq m - C
   \end{equation*}
@@ -915,7 +915,7 @@ In what follows we require the following useful lemma.
   vertex of the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n,
   y_{n+1}) \leq RD$.  Putting this together,
   \begin{equation*}
-      \dist(y_n, y_{n+1}) \leq 2\delta + 1 + RD
+    \dist(y_n, y_{n+1}) \leq (2\delta + 1) + RD
   \end{equation*}
 
   It follows from \cref{lem:useful} that there exists a constant $C$ depending
@@ -930,7 +930,7 @@ In what follows we require the following useful lemma.
 \end{proof}
 
 \begin{corollary}
-  For $m \geq n_0$ and $x \in \Skel_{d+1} K_m$, the sequence
+  For $m \geq n_0$ and $x \in \Skel_2 K_m$, the sequence
   $(i^m_n(x))_{n\geq m}$ converges to a point in $\boundary G$, which we shall
   denote $i^m_\infty(x)$.
 \end{corollary}
@@ -943,7 +943,7 @@ In what follows we require the following useful lemma.
 
 \begin{lemma}\label{lem:simplexproduct}
   There is a constant $C$ such that if $m \geq n_0$ and $x$ and $y$ are in a
-  common simplex of $\Skel_{d+1} K_m$ then
+  common simplex of $\Skel_2 K_m$ then
   \begin{equation*}
     \gromov{e}{i^m_n(x)}{i^m_n(y)} \geq m - C
   \end{equation*}
@@ -967,26 +967,26 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
 
 \begin{corollary}\label{cor:visualdiameter}
   There is a constant $C$ such that for any $m\geq n_0$ and any simplex
-  $\sigma$ of $\Skel_{d+1} K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
+  $\sigma$ of $\Skel_2 K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
   respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$,
   where $a$ is the visual parameter.
 \end{corollary}
 
 \begin{proposition}\label{prop:continuouslimit}
-  The map $i^m_\infty\from \Skel_{d+1} K_m \to \boundary G$ is continuous.
+  The map $i^m_\infty\from \Skel_2 K_m \to \boundary G$ is continuous.
 \end{proposition}
 
 \begin{proof}
-  Fix $x \in \Skel_{d+1} K_m$. Let $k$ be the constant given in the definition 
+  Fix $x \in \Skel_2 K_m$. Let $k$ be the constant given in the definition 
   of the map $i$. For $n\geq 0$ let $U_n$ be the star in $\beta^{nk} 
-  \Skel_{d+1}K_m$ of the minimal simplex of $\beta^{nk}\Skel_{d+1}K_m$ 
+  \Skel_2K_m$ of the minimal simplex of $\beta^{nk}\Skel_2K_m$ 
   containing $x$. Then $U_n$ is a neighbourhood of $x$ for each $n$. 
 
   For each $n$, the restriction of $i^m_{m+n}$ to a simplex in 
-  $\beta^{nk}\Skel_{d+1}K_m$ is affine, and therefore has image contained in a 
-  simplex of $\Skel_{d+1} K_{m+n}$. The point $x$ is contained in every simplex 
+  $\beta^{nk}\Skel_2K_m$ is affine, and therefore has image contained in a 
+  simplex of $\Skel_2 K_{m+n}$. The point $x$ is contained in every simplex 
   of $U_n$, so for any $y \in U_n$ the points $i^m_{m+n}(x)$ and $i^m_{m+n}(y)$ 
-  are contained in a common simplex of $\Skel_{d+1}K_m$. Therefore, by 
+  are contained in a common simplex of $\Skel_2K_m$. Therefore, by 
   \cref{cor:visualdiameter}, there is a constant $C$ such that 
   $\vdistance(i^m_\infty(x), i^m_\infty(y)) \leq Ca^{-(m+n)}$ for every $y \in 
   U_n$.
@@ -1090,7 +1090,7 @@ with two lemmas.
   for each $n\geq m\geq n_0$. 
 
   Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
-  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_{d+1}K_m$ containing 
+  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_2K_m$ containing 
   $p^\infty_m(\xi)$, and $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$.
   It follows that there is a constant $\delta'$ depending only on $\delta$ such 
   that
