@@ -909,7 +909,7 @@ In what follows we require the following useful lemma.
 
   We now bound the distance $\dist(y_n, y_{n+1})$. To start with, $\dist(y_n,
   i^n_{n+1} y_n) \leq 2\delta+1$. Let $R$ be $3\cdot 2^{k-1}$, so that any two
-  vertices in the 1-skeleton of $\sd^k \Delta^{d+1}$ are joined by a path
+  vertices in the 1-skeleton of $\sd^k \Delta^2$ are joined by a path
   traversing at most $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$
   containing $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a
   vertex of the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n,
@@ -1008,17 +1008,17 @@ special maps to $\boundary G$.
   Let $C$ be a constant. Then there exists a number $m_0$ and a function $\mu
   \from \posreals\to\posreals$ such that $\mu(\eta)\to0$ as $\eta\to0$ with the following
   property. Let $n \geq m_0$ and let $f_0$ and $f_1$ be any maps from
-  $\boundary\Delta^{d+1}$ to $K_n$ satisfying the following conditions:
+  $\boundary\Delta^2$ to $K_n$ satisfying the following conditions:
   \begin{enumerate}
     \item the maps $f_0$ and $f_1$ are affine on some subdivision of
-      $\boundary\Delta^{d+1}$;
-    \item for any $x \in \boundary\Delta^{d+1}$, the distance 
+      $\boundary\Delta^2$;
+    \item for any $x \in \boundary\Delta^2$, the distance 
       $\newdist(f_0(x), f_1(x))$ is at most $C$;
     \item each of $f_0$ and $f_1$ admits a factoring.
   \end{enumerate}
   Then there is a homotopy $h$ from $i^n_\infty\composed f_0$ to
   $i^n_\infty\composed f_1$ satisfying a uniform continuity condition: for any
-  $x \in \boundary\Delta^{d+1}$ and any $s$ and $t$ in $[0,1]$,
+  $x \in \boundary\Delta^2$ and any $s$ and $t$ in $[0,1]$,
   \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \mu(\abs{s-t})a^{-n}.
   \end{equation*}
@@ -1029,7 +1029,7 @@ special maps to $\boundary G$.
   D$ to obtain constants $k'$ and $m_0\geq n_0$ such that the conclusion of the
   proposition holds. 
 
-  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^{d+1}$ such
+  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^2$ such
   that $f_0$ and $f_1$ are both affine on $J$. Then the map 
   \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
@@ -1063,7 +1063,7 @@ special maps to $\boundary G$.
   $\sd^{k^N}K_n$ is mapped by $i^n_{n+N}$ into a $(d+1)$-simplex of $K_{n+N}$,
   which is mapped by $i^{n+N}_\infty$ to a set of diameter at most
   $C_0a^{-n+N}$. Therefore, if $N$ is such that $\kappa(\eta) \geq k^N$ then
-  for $x \in \boundary\Delta^{d+1}$ and $\abs{s-t} < \eta$, $\rho(h(x,s),
+  for $x \in \boundary\Delta^2$ and $\abs{s-t} < \eta$, $\rho(h(x,s),
   h(x,t)) \leq 2C_0a^{-n-N}$. It follows that we may take $\mu(\eta)$ as follows:
   \begin{equation*}
     \mu(\eta) = 2C_0 a^{-\floor*{\frac{\log\kappa(\eta)}{\log k}}}.\qedhere
@@ -1135,10 +1135,10 @@ with two lemmas.
 \begin{proposition}\label{prop:uniform_homotopies}
   There exists a number $m_0$ and a function $\nu\from\posreals\to\posreals$ such
   that $\nu(\eta)\to0$ as $\eta\to0$ with the following property. Let
-  $\gamma\from\boundary\Delta^{d+1}\to\boundary G$ be a continuous map. Let $n
+  $\gamma\from\boundary\Delta^2\to\boundary G$ be a continuous map. Let $n
   \geq m_0$ and let $f$ be an affine approximation to
   $p^\infty_n\composed\gamma$. Then there is a homotopy $h$ from $\gamma$ to
-  $i^n_\infty\composed f$ such that for any $x \in \boundary\Delta^{d+1}$ and
+  $i^n_\infty\composed f$ such that for any $x \in \boundary\Delta^2$ and
   any $s$ and $t$ in $[0,1]$,
   \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t}) a^{-n}.
@@ -1149,9 +1149,9 @@ with two lemmas.
   Let $C$ be as in \cref{lem:name_this} and apply \cref{prop:basic_homotopies}
   to obtain a number $m_0\geq n_0$ and a function $\mu$. 
   
-  Let $\gamma\from\boundary\Delta^{d+1}\to\boundary G$, $n\geq m_0$ and
-  $f\from\boundary\Delta^{d+1}\to K_n$ be as in the proposition. Let $f_0 = f$,
-  and for $m > 0$ let $f_m\from\boundary\Delta^{d+1}\to K_{n+m}$ be a
+  Let $\gamma\from\boundary\Delta^2\to\boundary G$, $n\geq m_0$ and
+  $f\from\boundary\Delta^2\to K_n$ be as in the proposition. Let $f_0 = f$,
+  and for $m > 0$ let $f_m\from\boundary\Delta^2\to K_{n+m}$ be a
   simplicial approximation to $p^\infty_{n+m}\composed\gamma$. For $m \geq 0$
   let $\gamma_m = i^{m+n}_\infty\composed f_m$. For each $m\geq 0$ the
   following observations are immediate:
@@ -1160,7 +1160,7 @@ with two lemmas.
     \item the image of $f_m$ is contained in the $d$-skeleton of $K_{n+m}$, and
       so $i^{n+m}_{n+m+1}\composed f_m$ admits a factoring;
     \item by \cref{lem:name_this} we have $\newdist(i^{n+m}_{n+m+1}\composed
-      f_m(x), f_{m+1}(x)) \leq C$ for all $x \in \boundary\Delta^{d+1}$.
+      f_m(x), f_{m+1}(x)) \leq C$ for all $x \in \boundary\Delta^2$.
   \end{enumerate}
   Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
   from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
@@ -1176,7 +1176,7 @@ with two lemmas.
     \end{cases}
   \end{equation*}
   This function is clearly continuous except possibly on
-  $\boundary\Delta^{d+1}\times\{0\}$. We aim to show it is also continuous
+  $\boundary\Delta^2\times\{0\}$. We aim to show it is also continuous
   there, but first we define the function $\nu$. 
 
   Let $m \in \naturals$. We aim to bound the distance $\rho(h(x,s), h(x,t))$
@@ -1187,7 +1187,7 @@ with two lemmas.
   to guarantee that this covers all possibilities.)
 
   To begin, we bound the distance $\rho(h(x,0), h(x,t))$
-  where $x \in \boundary \Delta^{d+1}$ and $t < 2^{-m}$. Let $C'$ be the
+  where $x \in \boundary \Delta^2$ and $t < 2^{-m}$. Let $C'$ be the
   constant appearing in \cref{lem:convergestoidentity}. Then 
   \begin{equation*}
     \rho(h(x,0), h(x,2^{-m})) \leq C'a^{-m-n}.
@@ -1229,11 +1229,11 @@ with two lemmas.
   \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t})
   \end{equation*}
-  for any $x \in \boundary\Delta^{d+1}$ and $s$ and $t$ in $[0,1]$.
+  for any $x \in \boundary\Delta^2$ and $s$ and $t$ in $[0,1]$.
 
   It remains to show that $h$ is continuous at $(x,0)$ for each $x$ in
-  $\boundary\Delta^{d+1}$. Let $\epsilon > 0$ and take a neighbourhood $U$ of
-  $x$ in $\boundary\Delta^{d+1}$ such that $\rho(\gamma(x), \gamma(y)) \leq
+  $\boundary\Delta^2$. Let $\epsilon > 0$ and take a neighbourhood $U$ of
+  $x$ in $\boundary\Delta^2$ such that $\rho(\gamma(x), \gamma(y)) \leq
   \epsilon/2$ for $y$ in $U$. Let $\eta > 0$ be so that $\nu(\eta) <
   \epsilon/2$. Then for any $(y, t) \in U \times [0, \eta]$, $\rho(h(x,0),
   h(y,t)) < \epsilon$.
@@ -1248,22 +1248,22 @@ with two lemmas.
   \cref{prop:uniform_homotopies}. Let $r_0 =
   k_1a^{-m_0}$, so that, by \cref{lem:projectstoasimplex},
   $p^\infty_{m_0}\composed\gamma$ has image contained in the star of a single
-  vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta^{d+1}\to\boundary
+  vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta^2\to\boundary
   G$ with $\Diam\image(\gamma)\leq r_0$.
 
-  Let $\gamma\from\boundary\Delta^{d+1}\to\boundary G$ be such a map. Let 
+  Let $\gamma\from\boundary\Delta^2\to\boundary G$ be such a map. Let 
   \begin{equation*}
     m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0,
   \end{equation*}
   so that by \cref{lem:projectstoasimplex} $p^\infty_{m}\composed\gamma$ has
   image contained in a single vertex of $K_m$. Then a constant map
-  $\boundary\Delta^{d+1} \to K_m$ is a simplicial approximation to
+  $\boundary\Delta^2 \to K_m$ is a simplicial approximation to
   $p^\infty_m\composed\gamma$; applying \cref{prop:uniform_homotopies} to
   this map immediately gives a homotopy $h$ from $\gamma$ to the constant map.
 
   Furthermore,
   \begin{align*}
-    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta^{d+1}, s,t \in [0,1]} \rho(h(x,s), h(x,t)) \\
+    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta^2, s,t \in [0,1]} \rho(h(x,s), h(x,t)) \\
                   &\leq \Diam\image\gamma + a^{-m} \nu(1) \\
                   &\leq (1 + a\nu(1)/k_1) \Diam\image\gamma \qedhere
   \end{align*}
