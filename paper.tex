@@ -952,8 +952,8 @@ In what follows we require the following useful lemma.
 
 \begin{proof}
   The inequality of \cref{lem:linearproduct} is satisfied for each of $x$ 
-  and $y$. By~\cite{bridsonhaefliger99} there exist $\delta'$ depending only on 
-  $\delta$ such that
+  and $y$. By~\cite[Proposition III.H.1.22]{bridsonhaefliger99} there exist
+  $\delta'$ depending only on $\delta$ such that
   \begin{align*}
     \gromov{e}{i^m_n(x)}{i^m_n(y)} &\geq \min\{\gromov{e}{i^m_n(x)}{x}, 
     \gromov{e}{x}{y}, \gromov{e}{y}{i^m_n(y)}\} - 2\delta'\\
@@ -969,36 +969,34 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
   There is a constant $C$ such that for any $m\geq n_0$ and any simplex
   $\sigma$ of $\Skel_2 K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
   respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$,
-  where $a$ is the visual parameter.
+  where $a$ is the visual parameter.\qed
 \end{corollary}
 
 \begin{proposition}\label{prop:continuouslimit}
-  The map $i^m_\infty\from \Skel_2 K_m \to \boundary G$ is continuous.
+  For $m\geq n_0$ the map $i^m_\infty\from \Skel_2 K_m \to \boundary G$ is
+  continuous.
 \end{proposition}
 
 \begin{proof}
-  Fix $x \in \Skel_2 K_m$. Let $k$ be the constant given in the definition 
-  of the map $i$. For $n\geq 0$ let $U_n$ be the star in $\beta^{nk} 
-  \Skel_2K_m$ of the minimal simplex of $\beta^{nk}\Skel_2K_m$ 
-  containing $x$. Then $U_n$ is a neighbourhood of $x$ for each $n$. 
+  Fix $x \in \Skel_2 K_m$. For $n\geq 0$ let $U_n$ be the minimal subcomplex of
+  $\sd^{nk}\Skel_2 K_m$ containing a neighbourhood of $x$.
 
   For each $n$, the restriction of $i^m_{m+n}$ to a simplex in 
-  $\beta^{nk}\Skel_2K_m$ is affine, and therefore has image contained in a 
-  simplex of $\Skel_2 K_{m+n}$. The point $x$ is contained in every simplex 
+  $\sd^{nk}\Skel_2K_m$ is affine, and therefore has image contained in a 
+  simplex of $\Skel_2 K_{m+n}$. The point $x$ is contained in every maximal simplex 
   of $U_n$, so for any $y \in U_n$ the points $i^m_{m+n}(x)$ and $i^m_{m+n}(y)$ 
   are contained in a common simplex of $\Skel_2K_m$. Therefore, by 
   \cref{cor:visualdiameter}, there is a constant $C$ such that 
-  $\vdistance(i^m_\infty(x), i^m_\infty(y)) \leq Ca^{-(m+n)}$ for every $y \in 
-  U_n$.
+  $\vdistance(i^m_\infty(x), i^m_\infty(y)) \leq Ca^{-(m+n)}$ for every $n \geq
+  0$ and every $y \in U_n$.
 \end{proof}
 
 \begin{remark}
   In fact, if $K_m$ is endowed with a metric in which each simplex is 
   isometrically identified with the standard simplex of the same dimension then 
   the map $i^m_\infty$ can be shown to be H\"{o}lder continuous with exponent 
-  only depending on $\delta$ and the constants in the definition of the map $i$. 
-  We do not require this strengthening of \cref{prop:continuouslimit} 
-  here.
+  only depending on $\delta$ and $k$.  We do not require this strengthening of
+  \cref{prop:continuouslimit} here.
 \end{remark}
 
 Finally, we use the maps $i^n_\infty$ to construct homotopies between certain
@@ -1006,36 +1004,40 @@ special maps to $\boundary G$.
 
 \begin{proposition}\label{prop:basic_homotopies}
   Let $C$ be a constant. Then there exists a number $m_0$ and a function $\mu
-  \from \posreals\to\posreals$ such that $\mu(\eta)\to0$ as $\eta\to0$ with the following
-  property. Let $n \geq m_0$ and let $f_0$ and $f_1$ be any maps from
-  $\boundary\Delta^2$ to $K_n$ satisfying the following conditions:
-  \begin{enumerate}
-    \item the maps $f_0$ and $f_1$ are affine on some subdivision of
-      $\boundary\Delta^2$;
-    \item for any $x \in \boundary\Delta^2$, the distance 
-      $\newdist(f_0(x), f_1(x))$ is at most $C$;
-    \item each of $f_0$ and $f_1$ admits a factoring.
-  \end{enumerate}
-  Then there is a homotopy $h$ from $i^n_\infty\composed f_0$ to
-  $i^n_\infty\composed f_1$ satisfying a uniform continuity condition: for any
-  $x \in \boundary\Delta^2$ and any $s$ and $t$ in $[0,1]$,
+  \from \posreals\to\posreals$ such that $\mu(\eta)\to0$ as $\eta\to0$ with the
+  following property. Let $n \geq m_0$ and let $\gamma_0$ and $\gamma_1$ be
+  maps from $\boundary\Delta\to\boundary G$. Let $f_0$ and $f_1$ be simplicial
+  approximations to $p^\infty_n\composed \gamma_0$ and
+  $p^\infty_n\composed\gamma_1$. Suppose that $\newdist(f_0(x), f_1(x))\leq C$
+  for every $x \in \boundary \Delta$. Then there is a homotopy $h$ from
+  $i^n_\infty\composed f_0$ to $i^n_\infty\composed f_1$ satisfying a uniform
+  continuity condition: for any $x \in \boundary\Delta^2$ and any $s$ and $t$
+  in $[0,1]$,
   \begin{equation*}
     \rho(h(x,s), h(x,t)) \leq \mu(\abs{s-t})a^{-n}.
   \end{equation*}
 \end{proposition}
 
 \begin{proof}
-  To start with, apply Proposition \todo{extending affine maps} with $k = C +
-  D$ to obtain constants $k'$ and $m_0\geq n_0$ such that the conclusion of the
-  proposition holds. 
-
+  \todo{constant on ddag}
+  Let $G$ satisfy $\ddag'_?$ with constants $L$ and $m_0 \geq n_0$.
   Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^2$ such
-  that $f_0$ and $f_1$ are both affine on $J$. Then the map 
+  that $f_0$ and $f_1$ are both affine on $J$. Then we have a map 
   \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
           \to K_n,
   \end{equation*}
-  defined on a subset of the product simplicial complex $J \times [0,1]$,
+  defined on a subset of the product simplicial complex $J \times [0,1]$ and
+  this map is a simplicial approximation to the map $\gamma_0 \disjointunion
+  \gamma_1$ from $J\times\{0\} \disjointunion \{1\}$ to $\boundary G$. Using
+  $\ddag'_?$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x \times
+  [0,1]$ for each vertex $x$ of $J$ in such a way that the extension along each
+  edge $x\times [0,1]$, when composed with $p^\infty_n$ admits a simplicial
+  approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$ subdivisions
+  of the interval.
+
+  \todo{Continue here!}
+  ,
   satisfies the conditions of Proposition~\todo{extending maps}, and so admits
   an affine extension $F \from \sd^{k'} (J \times [0,1]) \to K_n$. Let $h =
   i^n_\infty \composed F$, so $h$ is a homotopy from $i^n_\infty\composed f_0$
