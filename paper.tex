@@ -909,7 +909,7 @@ In what follows we require the following useful lemma.
 
   We now bound the distance $\dist(y_n, y_{n+1})$. To start with, $\dist(y_n,
   i^n_{n+1} y_n) \leq 2\delta+1$. Let $R$ be $3\cdot 2^{k-1}$, so that any two
-  vertices in the 1-skeleton of $\sd^k \Delta^2$ are joined by a path
+  vertices in the 1-skeleton of $\sd^k \Delta$ are joined by a path
   traversing at most $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$
   containing $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a
   vertex of the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n,
@@ -1003,25 +1003,24 @@ Finally, we use the maps $i^n_\infty$ to construct homotopies between certain
 special maps to $\boundary G$.
 
 \begin{proposition}\label{prop:basic_homotopies}
-  Let $C$ be a constant. Then there exists a number $m_0$ and a function $\mu
-  \from \posreals\to\posreals$ such that $\mu(\eta)\to0$ as $\eta\to0$ with the
-  following property. Let $n \geq m_0$ and let $\gamma_0$ and $\gamma_1$ be
-  maps from $\boundary\Delta\to\boundary G$. Let $f_0$ and $f_1$ be simplicial
-  approximations to $p^\infty_n\composed \gamma_0$ and
+  Let $C$ be a constant. Then there exist numbers $m_0$ and $\mu$
+  with the following property. Let $n \geq m_0$ and let $\gamma_0$ and
+  $\gamma_1$ be maps from $\boundary\Delta\to\boundary G$. Let $f_0$ and $f_1$
+  be simplicial approximations to $p^\infty_n\composed \gamma_0$ and
   $p^\infty_n\composed\gamma_1$. Suppose that $\newdist(f_0(x), f_1(x))\leq C$
   for every $x \in \boundary \Delta$. Then there is a homotopy $h$ from
   $i^n_\infty\composed f_0$ to $i^n_\infty\composed f_1$ satisfying a uniform
-  continuity condition: for any $x \in \boundary\Delta^2$ and any $s$ and $t$
-  in $[0,1]$,
+  continuity condition: for any $x \in \boundary\Delta$,
   \begin{equation*}
-    \rho(h(x,s), h(x,t)) \leq \mu(\abs{s-t})a^{-n}.
+    \Diam(h(\{x\} \times [0,1])) \leq \mu a^{-n},
   \end{equation*}
+  where the diameter is taken with respect to the visual metric.
 \end{proposition}
 
 \begin{proof}
   \todo{constant on ddag}
   Let $G$ satisfy $\ddag'_?$ with constants $L$ and $m_0 \geq n_0$.
-  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta^2$ such
+  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta$ such
   that $f_0$ and $f_1$ are both affine on $J$. Then we have a map 
   \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
@@ -1029,47 +1028,23 @@ special maps to $\boundary G$.
   \end{equation*}
   defined on a subset of the product simplicial complex $J \times [0,1]$ and
   this map is a simplicial approximation to the map $\gamma_0 \disjointunion
-  \gamma_1$ from $J\times\{0\} \disjointunion \{1\}$ to $\boundary G$. Using
-  $\ddag'_?$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x \times
-  [0,1]$ for each vertex $x$ of $J$ in such a way that the extension along each
-  edge $x\times [0,1]$, when composed with $p^\infty_n$ admits a simplicial
-  approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$ subdivisions
-  of the interval.
-
-  \todo{Continue here!}
-  ,
-  satisfies the conditions of Proposition~\todo{extending maps}, and so admits
-  an affine extension $F \from \sd^{k'} (J \times [0,1]) \to K_n$. Let $h =
-  i^n_\infty \composed F$, so $h$ is a homotopy from $i^n_\infty\composed f_0$
-  to $i^n_\infty\composed f_1$ and it remains to prove the uniform continuity
+  \gamma_1$ from $J\times\{0\} \disjointunion \{1\}$ to $\boundary G$. 
+  
+  Using $\ddag'_?$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x
+  \times [0,1]$ for each vertex $x$ of $J$ in such a way that the extension
+  along each edge $x\times [0,1]$, when composed with $p^\infty_n$ admits a
+  simplicial approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$
+  subdivisions of the interval. Finally, using the condition $\S_?$, we deduce
+  that $f_0 \disjointunion f_1$ admints an extension to $J \times [0,1]$ after
+  only $k'$ barycentric subdivisions. Call the extension $F$ and let $h =
+  i^n_\infty \composed F$, so that $h$ is a homotopy from $i^n_\infty\composed
+  f_0$ to $i^n_\infty\composed f_1$. It remains to prove the bounded distance
   assertion.
 
-  Let $\eta_0$ be such that for $\eta$ at most $\eta_0$, 
-  for any $x \in \Delta^d$, for any $s$ and $t$ in $[0,1]$ with
-  $\abs{s-t} \leq \eta$, the segment $\{x\} \times [s,t]$ is contained in a
-  union of at most two $(d+1)$-simplices of $\sd^{k'}(\Delta^d \times [0,1])$.
-  We first define the modulus of continuity $\mu(\eta)$ for $\eta > \eta_0$.
-
-  Let $M$ be the number of $(d+1)$-simplices in $\sd^{k'}(\Delta^d \times
-  [0,1])$.  \Cref{cor:visualdiameter} gives a constant $C_0$ such that any
-  $(d+1)$-simplex of $K_n$ is mapped to a subset of $\boundary G$ of diameter
-  at most $C_0 a^{-n}$, and so we can take $\mu(\eta) = C_0M$ for $\eta >
-  \eta_0$.
-
-  Now, for $\eta \leq \eta_0$, there exists a maximal number $\kappa(\eta) \geq
-  0$ such that for any $x \in \Delta^d$ and any $s$ and $t$ in $[0,1]$ with
-  $\abs{s-t} \leq \eta$, the segment $\{x\} \times [s,t]$ is contained in a
-  union of at most two $(d+1)$-simplices of
-  $\sd^{\kappa(\eta)}\sd^{k'}(\Delta^d\times[0,1])$. Note that $\kappa(\eta)
-  \to \infty$ as $\eta \to 0$. Now, if $N\in\naturals$ then a $(d+1)$-simplex of
-  $\sd^{k^N}K_n$ is mapped by $i^n_{n+N}$ into a $(d+1)$-simplex of $K_{n+N}$,
-  which is mapped by $i^{n+N}_\infty$ to a set of diameter at most
-  $C_0a^{-n+N}$. Therefore, if $N$ is such that $\kappa(\eta) \geq k^N$ then
-  for $x \in \boundary\Delta^2$ and $\abs{s-t} < \eta$, $\rho(h(x,s),
-  h(x,t)) \leq 2C_0a^{-n-N}$. It follows that we may take $\mu(\eta)$ as follows:
-  \begin{equation*}
-    \mu(\eta) = 2C_0 a^{-\floor*{\frac{\log\kappa(\eta)}{\log k}}}.\qedhere
-  \end{equation*}
+  Let $M$ be the number of $2$-simplices in $\sd^{k'}([0,1]^2)$.
+  Corollary~\ref{cor:visualdiameter} gives a constant $C_0$ so that any
+  $2$-simplex is mapped by $i^n_\infty$ to a set of diameter at most $C_0
+  a^{-n}$, and so we can take $\mu = MC_0$.
 \end{proof}
 
 \subsection{Proving \Cref{thm:ddagimpliesLCd}}
@@ -1080,7 +1055,7 @@ with two lemmas.
 \begin{lemma}\label{lem:convergestoidentity}
   There is a constant $C$ such that the distance from $(i^m_\infty \composed 
   p^\infty_m)$ to the identity map $\boundary G\to\boundary G$ is at most 
-  $Ca^{-m}$ for each $m$, where $a$ is the visual parameter.
+  $Ca^{-m}$ for each $m \geq n_0$.
 \end{lemma}
 
 \begin{proof}
@@ -1135,35 +1110,28 @@ with two lemmas.
 \end{proof}
 
 \begin{proposition}\label{prop:uniform_homotopies}
-  There exists a number $m_0$ and a function $\nu\from\posreals\to\posreals$ such
-  that $\nu(\eta)\to0$ as $\eta\to0$ with the following property. Let
-  $\gamma\from\boundary\Delta^2\to\boundary G$ be a continuous map. Let $n
-  \geq m_0$ and let $f$ be an affine approximation to
-  $p^\infty_n\composed\gamma$. Then there is a homotopy $h$ from $\gamma$ to
-  $i^n_\infty\composed f$ such that for any $x \in \boundary\Delta^2$ and
-  any $s$ and $t$ in $[0,1]$,
+  There exists numbers $m_0$ and $\nu$ with the following property. Let
+  $\gamma\from\boundary\Delta\to\boundary G$ be a continuous map. Let $n \geq
+  m_0$ and let $f$ be an affine approximation to $p^\infty_n\composed\gamma$.
+  Then there is a homotopy $h$ from $\gamma$ to $i^n_\infty\composed f$ such
+  that for any $x \in \boundary\Delta$,
   \begin{equation*}
-    \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t}) a^{-n}.
+    \Diam(h(\{x\}\times [0,1])) \leq \nu a^{-n}.
   \end{equation*}
 \end{proposition}
 
 \begin{proof}
-  Let $C$ be as in \cref{lem:name_this} and apply \cref{prop:basic_homotopies}
-  to obtain a number $m_0\geq n_0$ and a function $\mu$. 
+  Apply Proposition~\ref{prop:basic_homotopies} with $C$ as in
+  Lemma~\ref{lem:name_this} to obtain numbers $m_0$ and $\mu$.
   
-  Let $\gamma\from\boundary\Delta^2\to\boundary G$, $n\geq m_0$ and
-  $f\from\boundary\Delta^2\to K_n$ be as in the proposition. Let $f_0 = f$,
-  and for $m > 0$ let $f_m\from\boundary\Delta^2\to K_{n+m}$ be a
+  Let $\gamma\from\boundary\Delta\to\boundary G$, $n\geq m_0$ and
+  $f\from\boundary\Delta\to K_n$ be as in the proposition. Let $f_0 = f$,
+  and for $m > 0$ let $f_m\from\boundary\Delta\to K_{n+m}$ be a
   simplicial approximation to $p^\infty_{n+m}\composed\gamma$. For $m \geq 0$
-  let $\gamma_m = i^{m+n}_\infty\composed f_m$. For each $m\geq 0$ the
-  following observations are immediate:
-  \begin{enumerate}
-    \item the map $f_m$ admits a factoring;
-    \item the image of $f_m$ is contained in the $d$-skeleton of $K_{n+m}$, and
-      so $i^{n+m}_{n+m+1}\composed f_m$ admits a factoring;
-    \item by \cref{lem:name_this} we have $\newdist(i^{n+m}_{n+m+1}\composed
-      f_m(x), f_{m+1}(x)) \leq C$ for all $x \in \boundary\Delta^2$.
-  \end{enumerate}
+  let $\gamma_m = i^{m+n}_\infty\composed f_m$. 
+
+  \todo{Justify the application of the proposition.}
+
   Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
   from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
   satisfying a uniform continuity condition. Define an infinite concatenation
@@ -1172,73 +1140,34 @@ with two lemmas.
     h(x,t) = 
     \begin{cases}
       \gamma(x) & \text{if } t = 0\\
-      h_n\left(x,2^{m+1}\left(t-\frac{1}{2^{m+1}}\right)\right) 
+      h_m\left(x,2^{m+1}\left(t-\frac{1}{2^{m+1}}\right)\right) 
               & \text{if $t \in \left[\frac{1}{2^{m+1}}, \frac{1}{2^m}\right]$
                     , $m\geq 0$}.
     \end{cases}
   \end{equation*}
   This function is clearly continuous except possibly on
-  $\boundary\Delta^2\times\{0\}$. We aim to show it is also continuous
-  there, but first we define the function $\nu$. 
+  $\boundary\Delta\times\{0\}$. We now show that it is continuous there, too.
 
-  Let $m \in \naturals$. We aim to bound the distance $\rho(h(x,s), h(x,t))$
-  for $\abs{s,t} \leq 2^{-m}$ independently of $n$ and the particular path
-  $\gamma$. We first treat the case when one of $s$ and $t$ is $0$, then we
-  deal with the case when $s$ and $t$ are small, and finally we treat the case
-  when $s$ and $t$ are large. (Our ``small'' and ``large'' regions intersect,
-  to guarantee that this covers all possibilities.)
-
-  To begin, we bound the distance $\rho(h(x,0), h(x,t))$
-  where $x \in \boundary \Delta^2$ and $t < 2^{-m}$. Let $C'$ be the
-  constant appearing in \cref{lem:convergestoidentity}. Then 
-  \begin{equation*}
-    \rho(h(x,0), h(x,2^{-m})) \leq C'a^{-m-n}.
-  \end{equation*}
-  Furthermore, for any $m' \in \naturals$ and any $t \in [2^{-m'-1}, 2^{-m'}]$,
-  \begin{equation*}
-    \rho(h(x,t), h(x,2^{-m'})) \leq \mu(1)a^{-m'-n}.
-  \end{equation*}
-  It follows that for $t \leq 2^{-m}$,
-  \begin{equation*}
-    \rho(h(x,0), h(x,t)) \leq a^{-n}\left(C'a^{-m} + \sum_{m' \geq m}
-          \mu(1)a^{-m'}\right).
-  \end{equation*}
-
-  Similarly, we treat the ``small'' case. Here $s$ and $t$ are \emph{small} if
-  they are at most $2^{-m/2}$. If $s$ and $t$ are both at most this large
-  then
-  \begin{equation*}
-    \rho(h(x,s), h(x,t)) \leq a^{-n} \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'}
-  \end{equation*}
-
-  Finally, if $s$ and $t$ are such that $\abs{s-t} \leq 2^{-m}$ but at least
-  one of $s$ and $t$ is greater than $2^{-m/2}$ then both $s$ and $t$ are at
-  least $2^{-m/2}$. This is the ``large'' case. It follows that 
+  Let $x \in \boundary\Delta$ and let $\epsilon > 0$. There exists $M$ such
+  that for $m \geq M$ and $y \in \boundary \Delta$, $\rho(\gamma(y),
+  \gamma_m(y)) \leq \epsilon/3$. Increasing $M$ if necessary we may assume that
   \begin{align*}
-    \rho(h(x,s), h(x,t)) &\leq a^{-n} \mu(\abs{s-t} 2^{m/2 + 1}) \\
-                         &\leq a^{-n} \mu(2^{1-m/2})
+    \sum_m \geq M \mu a^{-m-n} \leq \epsilon/3.
   \end{align*}
-  
-  Therefore for $\eta \in (2^{-m-1}, 2^{-m}]$ we define
+  Finally, let $U$ be a neighbourhood of $x$ such that $\rho(\gamma(x),
+  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and $t \in (0, 2^{-M}$,
   \begin{equation*}
-    \nu(\eta)  = \max\left\{
-      C'a^{-m} + \sum_{m' \geq m} \mu(1)a^{-m'},
-      \sum_{m' \geq \floor{m/2}} \mu(1) a^{-m'},
-      \mu(2^{1-m/2})
-    \right\},
+    \rho{h(x,0), h(y,t)} \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} +
+        \frac{\epsilon}{3} = \epsilon.
   \end{equation*}
-  and we see that $\nu(\eta) \to 0$ as $\eta \to 0$, and also that
-  \begin{equation*}
-    \rho(h(x,s), h(x,t)) \leq \nu(\abs{s-t})
-  \end{equation*}
-  for any $x \in \boundary\Delta^2$ and $s$ and $t$ in $[0,1]$.
+  Therefore $h$ is continuous.
 
-  It remains to show that $h$ is continuous at $(x,0)$ for each $x$ in
-  $\boundary\Delta^2$. Let $\epsilon > 0$ and take a neighbourhood $U$ of
-  $x$ in $\boundary\Delta^2$ such that $\rho(\gamma(x), \gamma(y)) \leq
-  \epsilon/2$ for $y$ in $U$. Let $\eta > 0$ be so that $\nu(\eta) <
-  \epsilon/2$. Then for any $(y, t) \in U \times [0, \eta]$, $\rho(h(x,0),
-  h(y,t)) < \epsilon$.
+  Finally, we immediately see that for any $x \in \boundary\Delta$,
+  \begin{equation*}
+    \Diam(h(\{x\}\times (0,1])) \leq \mu \left(\sum_{m\geq 0} a^{-m}\right)a^{-n},
+  \end{equation*}
+  and then $\Diam(h(\{x\}\times [0,1]))$ satisfies the same inequality by
+  continuity of $h$.
 \end{proof}
 
 \Cref{thm:ddagimpliesLCd} follows as a corollary of this proposition.
@@ -1250,24 +1179,24 @@ with two lemmas.
   \cref{prop:uniform_homotopies}. Let $r_0 =
   k_1a^{-m_0}$, so that, by \cref{lem:projectstoasimplex},
   $p^\infty_{m_0}\composed\gamma$ has image contained in the star of a single
-  vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta^2\to\boundary
+  vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta\to\boundary
   G$ with $\Diam\image(\gamma)\leq r_0$.
 
-  Let $\gamma\from\boundary\Delta^2\to\boundary G$ be such a map. Let 
+  Let $\gamma\from\boundary\Delta\to\boundary G$ be such a map. Let 
   \begin{equation*}
     m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0,
   \end{equation*}
   so that by \cref{lem:projectstoasimplex} $p^\infty_{m}\composed\gamma$ has
   image contained in a single vertex of $K_m$. Then a constant map
-  $\boundary\Delta^2 \to K_m$ is a simplicial approximation to
+  $\boundary\Delta \to K_m$ is a simplicial approximation to
   $p^\infty_m\composed\gamma$; applying \cref{prop:uniform_homotopies} to
   this map immediately gives a homotopy $h$ from $\gamma$ to the constant map.
 
   Furthermore,
   \begin{align*}
-    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta^2, s,t \in [0,1]} \rho(h(x,s), h(x,t)) \\
-                  &\leq \Diam\image\gamma + a^{-m} \nu(1) \\
-                  &\leq (1 + a\nu(1)/k_1) \Diam\image\gamma \qedhere
+    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta} \Diam(h(\{x\} \times [0,1])) \\
+                  &\leq \Diam\image\gamma + a^{-m} \nu \\
+                  &\leq (1 + a\nu/k_1) \Diam\image\gamma \qedhere
   \end{align*}
 \end{proof}
 
