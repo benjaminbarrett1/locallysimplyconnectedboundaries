@@ -1194,7 +1194,8 @@ with two lemmas.
 
   Furthermore,
   \begin{align*}
-    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta} \Diam(h(\{x\} \times [0,1])) \\
+    \Diam\image h &\leq \Diam\image\gamma + \sup_{x \in\boundary\Delta}
+                                    \Diam(h(\{x\} \times [0,1])) \\
                   &\leq \Diam\image\gamma + a^{-m} \nu \\
                   &\leq (1 + a\nu/k_1) \Diam\image\gamma \qedhere
   \end{align*}
@@ -1202,8 +1203,47 @@ with two lemmas.
 
 \section{Simply connected point complements}
 
-In this section we give a sufficient condition for our condition
-\todo{condition} to be satisfied.
+In this section we give a sufficient condition for the condition $\S_M$ to be
+satisfied.
+
+\begin{proposition}
+  Suppose that $\boundary G - \set\xi$ is simply connected for any point $\xi
+  \in \boundary G$. Then $\S_M$ is satisfied for all $M$.
+\end{proposition}
+
+\begin{proof}
+  Suppose that the condition is not satisfied. Then for each $i$ there exists a
+  number $n_i \geq i$, a map $\gamma_i \from \boundary\Delta \to \boundary G$
+  and a simplicial map $f_i \from \sd^M \boundary\Delta \to K_{n_i}$ that is a
+  simplicial approimxation to $p^\infty_{n_i}\composed\gamma_i$ such that $f_i$
+  does not admit an extension to $\Delta$ that is affine on $\sd^i\Delta$.
+
+  Fix a vertex $v$ of $\boundary\Delta$; then there exist group elements $g_i
+  \in G$ such that $g_i\cdot f_i(v)$ is a fixed vertex of $K$. Pass to a
+  subsequence as in Section~\ref{sec:horoball}, and to a deeper subsequence so
+  that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
+  \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
+  this map $f$. It remains to show that $f$ is nullhomotopic in $H$; then it is
+  nullhomotopic by a simplicial map, and this gives a contradiction for $i$
+  sufficiently large.
+
+  By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
+  compact set $C_0 \subset \boundary G - \set\xi$ such that $C_0$ contains the
+  image of $\gamma_i$ for every $i \geq i_0$. By
+  Lemma~\ref{lem:affinehomotopic} there exists $i_1 \geq i_0$ such that
+  $q_i\restricted{C_0}$ is affine homotopic to $q_{i_1}\restricted{C_0}$ for
+  every $i \geq i_1$.  
+  
+  Let $h$ be a nullhomotopy of $\gamma_{i_1}$ in
+  $\boundary G - \set\xi$ and let $C_1$ be a compact subset of $\boundary G -
+  \set\xi$ containing $C_0$ and the image of $h$. Let $i_2$ be so that $C_1
+  \subset U_{i_2}$.
+
+  Then $f$ is homotopic to $q_{i_1}\composed\gamma_{i_1}$, which is homotopic
+  to $q_{i_2}\composed\gamma_{i_1}$, which is homotopic by $q_{i_2}\composed h$
+  to a point.
+  \todo{would just $i_0$ and $i_1$ have been enough?}
+\end{proof}
 
 \bibliography{references}
 \end{document}
