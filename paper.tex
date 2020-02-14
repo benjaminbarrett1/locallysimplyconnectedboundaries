@@ -770,8 +770,8 @@ from from~\cite{bestvinamess91}.
       $\sd_L\Skel_1 K_n$,
     \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
       and
-    \item for each $n$, the map $i^n_{n+1}$ is affine homotopic to a map that
-      factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
+    \item for each $n$, the map $i^n_{n+1}$ is a simplicial approximation a map
+      that factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
   \end{enumerate}
 \end{proposition}
 
@@ -800,7 +800,7 @@ from from~\cite{bestvinamess91}.
 \section{Local simple connectedness}
 
 We now introduce a new condition, which should be thought of as a version of
-$\ddag_M$ one dimension higher.
+$\ddag_M$ describing connectedness one dimension higher.
 
 \begin{definition}
   Let $\Delta$ be the standard 2-simplex.  We say that $G$ satisfies $\S_M$ if
@@ -813,12 +813,12 @@ $\ddag_M$ one dimension higher.
 Our goal in this section is to prove the following theorem.
 
 \begin{restatable}{theorem}{ddagimpliesLCd}\label{thm:ddagimpliesLCd}
-  If $G$ satisfies $\S_M$ for all $M$ then $\boundary G$ is locally simply
-  connected.
+  If $G$ satisfies $\ddag'_M$ and $\S_M$ for all $M$ then $\boundary G$ is
+  locally simply connected.
 \end{restatable}
 
 Thrououghout the rest of this section we assume that $G$ satisfies
-\todo{conditions.}
+$\ddag'_M$ and $\S_M$ for all $M$.
 
 \subsection{Constructing maps to $\boundary G$}
 
@@ -838,8 +838,19 @@ Proposition~\ref{prop:i_in_dimension_1}.
   \end{enumerate}
 \end{proposition}
 
-\begin{proof}
-  \todo{Prove this}
+\begin{proof} 
+  Let $n_0$ be as in Proposition~\ref{prop:i_in_dimension_1} and for $n \geq
+  n_0$ let $i^n_{n+1} \from \Skel_1 K_n \to \Skel_1 K_{n+1}$ be the maps given
+  by that proposition, so there exists $M$ such that $i^n_{n+1}$ is a
+  simplicial map on $\sd^M\Skel_1 K_n$, and this map is a simplicial
+  approximation to a map that factors through $p^\infty_{n+1} \from \boundary G
+  \to K_{n+1}$.
+
+  Then $\S_M$ gives numbers $L$ and $n_0' \geq n_0$ such that for $n \geq
+  n_0'$, for any 2-simplex $\sigma$ of $K_n$, $i^n_{n+1}\restricted\boundary
+  \sigma$ admits an extension to $\sigma$ that is affine on $\sd^L\sigma$.
+  Gluing these extensions together extends $i^n_{n+1}$ to a map $\sd^2 K_n \to
+  \sd_2 K_{n+1}$ with the required properties.
 \end{proof}
 
 \begin{definition}
@@ -853,9 +864,8 @@ Proposition~\ref{prop:i_in_dimension_1}.
 In what follows we require the following useful lemma.
 
 \begin{lemma}\label{lem:useful}
-  \todo{Or quasi-geodesics?}
   Let $(x_n)$ be a sequence of points in $G$ with $\dist(x_{n+1}, e) = 
-  \dist(x_n, e) + 1$ and $\dist(x_{n+1}, x_n)$ bounded. Then,
+  \dist(x_n, e) + 1$ and $\dist(x_{n+1}, x_n)$ bounded. Then for $n \geq m$,
   \begin{equation*}
     \gromov{e}{x_m}{x_n} \geq \dist(e,x_m) - C
   \end{equation*}
@@ -864,34 +874,19 @@ In what follows we require the following useful lemma.
 \end{lemma}
 
 \begin{proof}
-  We estimate the Gromov product using the visual metric $\vdistance$ on 
-  $\boundary G$; then the claimed inequality follows from the triangle 
-  inequality. 
+  By the triangle inequality, for any $n$ and $m$ we have $\dist(x_n, x_m) \geq
+  \abs{n - m}$.  On the other hand, let $B$ be the bound on $\dist(x_{n+1},
+  x_n)$. Then for any $n$ and $m$ we have $\dist(x_n, x_m) \leq B\abs{n - m}$. 
+  Finally, $\dist(e, x_n) = \dist(e, x_0) + n$.
   
-  Let $i_n = \dist(x_n, e)$, so $i_n = i_0 + n$, and let 
-  $\dist(x_{n+1},x_n)$ be bounded by $C_0$. By 
-  \cref{lem:near_geod_rays} there exists a sequence $(\alpha_n)$ of 
-  geodesic rays with $\dist(\alpha_n(i_n), x_n) \leq 4\delta$. Then 
-  $\dist(\alpha_n(i_n), \alpha_{n+1}(i_{n+1})) \leq C_0 + 8\delta$. Then 
-  $\gromov{e}{\alpha_n(\infty)}{ \alpha_{n+1}(\infty)} \geq i_n - (C_0 + 
-  8\delta)/2$.
-
-  By the triangle inequality it follows that for $n\geq m$ we have the following 
-  inequality.
-  \begin{equation*}
-    \vdistance(\alpha_n(\infty), \alpha_m(\infty)) \leq C_1 a^{-i_m}
-  \end{equation*}
-  for some constants $C_1$ depending only on $\delta$ and $C_0$. Then, by
-  definition of the visual metric, there exists a constant $C_2$ such that
-  \begin{equation*}
-    \gromov{e}{\alpha_n(\infty)}{\alpha_m(\infty)} \geq i_m - C_2.
-  \end{equation*}
-  Now, by \cref{lem:boundary_gromov_product} there exists a constant $C_3$ such
-  that
-  \begin{equation*}
-    \gromov{e}{\alpha_n(i_n)}{\alpha_m(i_m)} \geq i_m - C_3,
-  \end{equation*}
-  as required.
+  It follows that the concatenation of a geodesic $[e, x_0]$ with the sequence
+  $(x_n)_{n = 0}^\infty$ is a quasi-geodesic with constants depending only on
+  $B$. Therefore by~\cite[Theorem III.H.1.7]{bridsonhaefliger99} there is a
+  number $R$ depending only on $B$ and $\delta$ such that the sequence $(x_n)$
+  is contained in an $R$-neighbourhood of a ray starting at $e$; let $(y_n)$ be
+  a sequence of points on this geodesic with $\dist(y_n, x_n) \leq R$. Then
+  $\gromov{e}{y_m}{y_n} = \min\{\dist(e, y_m), \dist(e, y_n)\}$, and the result
+  follows with $C = 5R/2$.
 \end{proof}
 
 \begin{lemma}\label{lem:linearproduct}
@@ -905,25 +900,20 @@ In what follows we require the following useful lemma.
 \begin{proof}
   For $n \geq m$, let $y_n$ be a vertex of the minimal simplex of $K_n$
   containing $i^m_n(x)$. Then, for each $n \geq m$, we have $\dist(e, y_{n+1})
-  = \dist(e, y_n)$. 
-
-  We now bound the distance $\dist(y_n, y_{n+1})$. To start with, $\dist(y_n,
-  i^n_{n+1} y_n) \leq 2\delta+1$. Let $R$ be $3\cdot 2^{k-1}$, so that any two
-  vertices in the 1-skeleton of $\sd^k \Delta$ are joined by a path
-  traversing at most $R$ edges. Let $\sigma$ be the minimal simplex of $K_n$
-  containing $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$ and $y_{n+1}$ is a
-  vertex of the image of $\sigma$ under $i^n_{n+1}$, so $\dist(i^n_{n+1} y_n,
-  y_{n+1}) \leq RD$.  Putting this together,
+  = \dist(e, y_n)$.  We now bound the distance $\dist(y_n, y_{n+1})$. To start
+  with, $\dist(y_n, i^n_{n+1} (y_n)) \leq 2\delta+1$. Let $R$ be $3\cdot
+  2^{k-1}$, so that any two vertices in the 1-skeleton of $\sd^k \Delta$ are
+  joined by a path traversing at most $R$ edges. Let $\sigma$ be the minimal
+  simplex of $K_n$ containing $i^m_n(x)$. Then $y_n$ is a vertex of $\sigma$
+  and $y_{n+1}$ is a vertex of the image of $\sigma$ under $i^n_{n+1}$, so
+  $\dist(i^n_{n+1} y_n, y_{n+1}) \leq RD$.  Putting this together,
   \begin{equation*}
     \dist(y_n, y_{n+1}) \leq (2\delta + 1) + RD
   \end{equation*}
 
   It follows from \cref{lem:useful} that there exists a constant $C$ depending
   only on $\delta$ and $k$ such that $\gromov{e}{y_n}{y_m} \geq m -
-  C$.
-
-  Finally, by applying the inequality in \cref{rem:dist_vs_newdist}, we deduce
-  that
+  C$.  By applying the inequality in \cref{rem:dist_vs_newdist}, we deduce that
   \begin{equation*}
       \gromov{e}{i^m_n(x)}{x} \geq m - C - 3D.\qedhere
   \end{equation*}
@@ -938,7 +928,9 @@ In what follows we require the following useful lemma.
 \begin{proof}
   For $n_1$ and $n_2$ at least $m$, \cref{lem:linearproduct} implies that
   $\gromov{e}{i^m_{n_1}(x)}{i^m_{n_2}(x)} \geq \min\{n_1,n_2\} - C$, which
-  tends to infinity as $n_1$ and $n_2$ tend to infinity.
+  tends to infinity as $n_1$ and $n_2$ tend to infinity. Therefore
+  $(i^m_n(x))_{n=m}^\infty$ converges to a point in $\boundary G$,
+  by~\cite[Lemma III.H.3.13]{bridsonhaefliger99}.
 \end{proof}
 
 \begin{lemma}\label{lem:simplexproduct}
@@ -957,7 +949,7 @@ In what follows we require the following useful lemma.
   \begin{align*}
     \gromov{e}{i^m_n(x)}{i^m_n(y)} &\geq \min\{\gromov{e}{i^m_n(x)}{x}, 
     \gromov{e}{x}{y}, \gromov{e}{y}{i^m_n(y)}\} - 2\delta'\\
-    &\geq \min\{m - C, m - R/2, m - C\} - 2\delta' \\
+    &\geq \min\{m - C, m - D/2, m - C\} - 2\delta' \\
     &\geq m - C'
   \end{align*}
   for some constant $C'$.
@@ -968,8 +960,7 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
 \begin{corollary}\label{cor:visualdiameter}
   There is a constant $C$ such that for any $m\geq n_0$ and any simplex
   $\sigma$ of $\Skel_2 K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
-  respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$,
-  where $a$ is the visual parameter.\qed
+  respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$.
 \end{corollary}
 
 \begin{proposition}\label{prop:continuouslimit}
@@ -992,25 +983,27 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
 \end{proof}
 
 \begin{remark}
-  In fact, if $K_m$ is endowed with a metric in which each simplex is 
-  isometrically identified with the standard simplex of the same dimension then 
-  the map $i^m_\infty$ can be shown to be H\"{o}lder continuous with exponent 
-  only depending on $\delta$ and $k$.  We do not require this strengthening of
+  In fact, if a 2-simplex of $K_m$ is metrically identified with the standard
+  2-simplex then the restriction of $i^m_\infty$ to this simplex can be shown
+  to be H\"{o}lder continuous.  We do not require this strengthening of
   \cref{prop:continuouslimit} here.
 \end{remark}
 
-Finally, we use the maps $i^n_\infty$ to construct homotopies between certain
-special maps to $\boundary G$.
+\subsection{Homotopies in $\boundary G$}
+
+We now use the maps $i^n_\infty$ to construct homotopies in $\boudndary G$. To
+begin, we prove the following proposition, which constructs homotopies between
+certain special maps.
 
 \begin{proposition}\label{prop:basic_homotopies}
-  Let $C$ be a constant. Then there exist numbers $m_0$ and $\mu$
+  Let $C$ be a positive number. Then there exist numbers $m_0$ and $\mu$
   with the following property. Let $n \geq m_0$ and let $\gamma_0$ and
   $\gamma_1$ be maps from $\boundary\Delta\to\boundary G$. Let $f_0$ and $f_1$
   be simplicial approximations to $p^\infty_n\composed \gamma_0$ and
   $p^\infty_n\composed\gamma_1$. Suppose that $\newdist(f_0(x), f_1(x))\leq C$
   for every $x \in \boundary \Delta$. Then there is a homotopy $h$ from
-  $i^n_\infty\composed f_0$ to $i^n_\infty\composed f_1$ satisfying a uniform
-  continuity condition: for any $x \in \boundary\Delta$,
+  $i^n_\infty\composed f_0$ to $i^n_\infty\composed f_1$ satisfying a bounded
+  length condition: for any $x \in \boundary\Delta$,
   \begin{equation*}
     \Diam(h(\{x\} \times [0,1])) \leq \mu a^{-n},
   \end{equation*}
@@ -1018,8 +1011,11 @@ special maps to $\boundary G$.
 \end{proposition}
 
 \begin{proof}
-  \todo{constant on ddag}
-  Let $G$ satisfy $\ddag'_?$ with constants $L$ and $m_0 \geq n_0$.
+  \todo{Think about condition for apply Sd}
+  Let $G$ satisfy $\ddag'_C$ with constants $L$ and $m_0 \geq n_0$.
+  By increasing $m_0$ we can also assume that $G$ satisfies $\S_?$ with
+  constants $L'$ and $m_0$.
+
   Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta$ such
   that $f_0$ and $f_1$ are both affine on $J$. Then we have a map 
   \begin{equation*}
@@ -1028,39 +1024,35 @@ special maps to $\boundary G$.
   \end{equation*}
   defined on a subset of the product simplicial complex $J \times [0,1]$ and
   this map is a simplicial approximation to the map $\gamma_0 \disjointunion
-  \gamma_1$ from $J\times\{0\} \disjointunion \{1\}$ to $\boundary G$. 
+  \gamma_1$ from $J\times\{0\} \disjointunion J \times\{1\}$ to $\boundary G$. 
   
-  Using $\ddag'_?$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x
+  Using $\ddag'_C$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x
   \times [0,1]$ for each vertex $x$ of $J$ in such a way that the extension
-  along each edge $x\times [0,1]$, when composed with $p^\infty_n$ admits a
+  along each edge $x\times [0,1]$, when composed with $p^\infty_n$, admits a
   simplicial approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$
   subdivisions of the interval. Finally, using the condition $\S_?$, we deduce
-  that $f_0 \disjointunion f_1$ admints an extension to $J \times [0,1]$ after
-  only $k'$ barycentric subdivisions. Call the extension $F$ and let $h =
-  i^n_\infty \composed F$, so that $h$ is a homotopy from $i^n_\infty\composed
-  f_0$ to $i^n_\infty\composed f_1$. It remains to prove the bounded distance
-  assertion.
-
-  Let $M$ be the number of $2$-simplices in $\sd^{k'}([0,1]^2)$.
-  Corollary~\ref{cor:visualdiameter} gives a constant $C_0$ so that any
-  $2$-simplex is mapped by $i^n_\infty$ to a set of diameter at most $C_0
-  a^{-n}$, and so we can take $\mu = MC_0$.
+  that $f_0 \disjointunion f_1$ admints an affine extension to $\sd^{L'}(J
+  \times [0,1])$ after Call the extension $F$ and let $h = i^n_\infty \composed
+  F$, so that $h$ is a homotopy from $i^n_\infty\composed f_0$ to
+  $i^n_\infty\composed f_1$. 
+  
+  It remains to prove the bounded length assertion.  Let $M$ be the number of
+  $2$-simplices in $\sd^{L'}([0,1]^2)$.  Corollary~\ref{cor:visualdiameter}
+  gives a constant $C_0$ so that any $2$-simplex is mapped by $i^n_\infty$ to a
+  set of diameter at most $C_0 a^{-n}$, and so we can take $\mu = MC_0$.
 \end{proof}
 
-\subsection{Proving \Cref{thm:ddagimpliesLCd}}
-
-We now use the maps $(i^n_{n+1})$ to prove \cref{thm:ddagimpliesLCd}. We begin
-with two lemmas.
+We now need two more lemmas.
 
 \begin{lemma}\label{lem:convergestoidentity}
-  There is a constant $C$ such that the distance from $(i^m_\infty \composed 
-  p^\infty_m)$ to the identity map $\boundary G\to\boundary G$ is at most 
+  There is a constant $C$ such that the distance from $i^m_\infty \composed 
+  p^\infty_m$ to the identity map $\boundary G\to\boundary G$ is at most 
   $Ca^{-m}$ for each $m \geq n_0$.
 \end{lemma}
 
 \begin{proof}
-  Let $\xi \in \boundary G$. By \cref{lem:linearproduct} there is a 
-  constant $C$ such that 
+  By \cref{lem:linearproduct} there is a constant $C$ such that  for $\xi \in
+  \boundary G$,
   \begin{equation*}
     \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
   \end{equation*} 
@@ -1077,7 +1069,7 @@ with two lemmas.
             \gromov{e}{\alpha(m)}{p^\infty_m(\xi)}, 
             \gromov{e}{p^\infty_m(\xi)}{i^m_n\composed p^\infty_m(\xi)}\} 
             - 2\delta' \\
-          &\geq \min\{m - C, m - R/2, m\} - 2\delta' \\
+          &\geq \min\{m, m - D/2, m - C\} - 2\delta' \\
           &\geq m - C'
   \end{align*}
   for some constant $C'$.
@@ -1098,21 +1090,22 @@ with two lemmas.
 \begin{proof}
   By \cref{lem:close_projections} the distances $\newdist(p^\infty_n(\xi),
   p^\infty_{n+1}(\xi))$ are bounded by $6\delta + 3 + 2D$. Let $y$ be a vertex
-  of a simplex containing $p^\infty_n(\xi)$; then $\newdist(y, p^\infty_n(\xi))$
-  is bounded by $D$.
+  of a minimal simplex containing $p^\infty_n(\xi)$; then $\newdist(y,
+  p^\infty_n(\xi))$ is bounded by $D$.
   
   Furthermore, $\dist(y, i^n_{n+1}(y))$ is bounded by $2\delta+1$, and
   $\newdist(i^n_{n+1}(y), i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by
-  the product of $D$ and the constant $k$ appearing in
-  \cref{prop:i_in_dimension_2}. By putting all this together we obtain a bound
-  $C$ on $\newdist(i^n_{n+1}\composed p^\infty_n(\xi), p^\infty_{n+1}(\xi))$,
-  and then $\dist(x_1, x_2) \leq C + 2D$.
+  the product of $D$ and the the number of 2-simpices in $\sd^L\Delta$, where
+  $L$ is the number appearing in Proposition~\ref{prop:i_in_dimension_2}.  By
+  putting all this together we obtain a bound $C$ on
+  $\newdist(i^n_{n+1}\composed p^\infty_n(\xi), p^\infty_{n+1}(\xi))$, and then
+  $\dist(x_1, x_2) \leq C + 2D$.
 \end{proof}
 
 \begin{proposition}\label{prop:uniform_homotopies}
   There exists numbers $m_0$ and $\nu$ with the following property. Let
   $\gamma\from\boundary\Delta\to\boundary G$ be a continuous map. Let $n \geq
-  m_0$ and let $f$ be an affine approximation to $p^\infty_n\composed\gamma$.
+  m_0$ and let $f$ a simplicial approximation to $p^\infty_n\composed\gamma$.
   Then there is a homotopy $h$ from $\gamma$ to $i^n_\infty\composed f$ such
   that for any $x \in \boundary\Delta$,
   \begin{equation*}
@@ -1130,7 +1123,14 @@ with two lemmas.
   simplicial approximation to $p^\infty_{n+m}\composed\gamma$. For $m \geq 0$
   let $\gamma_m = i^{m+n}_\infty\composed f_m$. 
 
-  \todo{Justify the application of the proposition.}
+  \todo{This still doesn't feel quite there yet.}
+  For each $m$ we can apply Proposition~\ref{prop:basic_homotopies} to the maps
+  $f_{m+1}$ and $i^{n+m}_{n+m+1}\composed f_m$: Lemma~\ref{lem:name_this} gives
+  the bounded distance assumption, $f_{m+1}$ is a simplicial approximation to
+  $p^\infty_{n+m+1}\composed\gamma$, and $i^{n+m}_{n+m+1}\composed f_{m+1}$ is
+  also a simplicial approximation to a map that factors through
+  $p^\infty_{n+m+1}$ because the restriction of $i^{n+m}_{n+m+1}$ to $\Skel_1
+  K_{n+m}$ has this property.
 
   Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
   from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
@@ -1151,18 +1151,17 @@ with two lemmas.
   Let $x \in \boundary\Delta$ and let $\epsilon > 0$. There exists $M$ such
   that for $m \geq M$ and $y \in \boundary \Delta$, $\rho(\gamma(y),
   \gamma_m(y)) \leq \epsilon/3$. Increasing $M$ if necessary we may assume that
-  \begin{align*}
-    \sum_m \geq M \mu a^{-m-n} \leq \epsilon/3.
-  \end{align*}
+  $\mu a^{-m-n} \leq \epsilon/3$.
   Finally, let $U$ be a neighbourhood of $x$ such that $\rho(\gamma(x),
-  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and $t \in (0, 2^{-M}$,
+  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and $t \in (0, 2^{-M}]$,
   \begin{equation*}
-    \rho{h(x,0), h(y,t)} \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} +
+    \rho(h(x,0), h(y,t)) \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} +
         \frac{\epsilon}{3} = \epsilon.
   \end{equation*}
   Therefore $h$ is continuous.
 
-  Finally, we immediately see that for any $x \in \boundary\Delta$,
+  To prove the final claim, we immediately see that for any $x \in
+  \boundary\Delta$,
   \begin{equation*}
     \Diam(h(\{x\}\times (0,1])) \leq \mu \left(\sum_{m\geq 0} a^{-m}\right)a^{-n},
   \end{equation*}
@@ -1170,7 +1169,7 @@ with two lemmas.
   continuity of $h$.
 \end{proof}
 
-\Cref{thm:ddagimpliesLCd} follows as a corollary of this proposition.
+\Cref{thm:ddagimpliesLCd} follows from this proposition:
 
 \ddagimpliesLCd*
 
@@ -1184,12 +1183,10 @@ with two lemmas.
 
   Let $\gamma\from\boundary\Delta\to\boundary G$ be such a map. Let 
   \begin{equation*}
-    m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0,
+    m = \floor{\log_a(k_1/\Diam\image\gamma)} \geq m_0.
   \end{equation*}
-  so that by \cref{lem:projectstoasimplex} $p^\infty_{m}\composed\gamma$ has
-  image contained in a single vertex of $K_m$. Then a constant map
-  $\boundary\Delta \to K_m$ is a simplicial approximation to
-  $p^\infty_m\composed\gamma$; applying \cref{prop:uniform_homotopies} to
+  Then a constant map $\boundary\Delta \to K_m$ is a simplicial approximation
+  to $p^\infty_m\composed\gamma$; applying \cref{prop:uniform_homotopies} to
   this map immediately gives a homotopy $h$ from $\gamma$ to the constant map.
 
   Furthermore,
@@ -1202,6 +1199,7 @@ with two lemmas.
 \end{proof}
 
 \section{Simply connected point complements}
+\todo{Move this section into section 3}
 
 In this section we give a sufficient condition for the condition $\S_M$ to be
 satisfied.
@@ -1214,9 +1212,9 @@ satisfied.
 \begin{proof}
   Suppose that the condition is not satisfied. Then for each $i$ there exists a
   number $n_i \geq i$, a map $\gamma_i \from \boundary\Delta \to \boundary G$
-  and a simplicial map $f_i \from \sd^M \boundary\Delta \to K_{n_i}$ that is a
-  simplicial approimxation to $p^\infty_{n_i}\composed\gamma_i$ such that $f_i$
-  does not admit an extension to $\Delta$ that is affine on $\sd^i\Delta$.
+  and a simplicial approximation $f_i \from \sd^M \boundary\Delta \to K_{n_i}$
+  to $p^\infty_{n_i}\composed\gamma_i$ such that $f_i$ does not admit an
+  extension to $\Delta$ that is affine on $\sd^i\Delta$.
 
   Fix a vertex $v$ of $\boundary\Delta$; then there exist group elements $g_i
   \in G$ such that $g_i\cdot f_i(v)$ is a fixed vertex of $K$. Pass to a
@@ -1224,25 +1222,24 @@ satisfied.
   that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
   \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
   this map $f$. It remains to show that $f$ is nullhomotopic in $H$; then it is
-  nullhomotopic by a simplicial map, and this gives a contradiction for $i$
-  sufficiently large.
+  nullhomotopic by an affine map by~\cite{zeeman64}, and this gives a
+  contradiction for $i$ sufficiently large.
 
   By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
   compact set $C_0 \subset \boundary G - \set\xi$ such that $C_0$ contains the
   image of $\gamma_i$ for every $i \geq i_0$. By
   Lemma~\ref{lem:affinehomotopic} there exists $i_1 \geq i_0$ such that
-  $q_i\restricted{C_0}$ is affine homotopic to $q_{i_1}\restricted{C_0}$ for
-  every $i \geq i_1$.  
+  $q_i\restricted{C_0}$ is homotopic to $q_{i_1}\restricted{C_0}$ for every $i
+  \geq i_1$.  
   
-  Let $h$ be a nullhomotopy of $\gamma_{i_1}$ in
-  $\boundary G - \set\xi$ and let $C_1$ be a compact subset of $\boundary G -
-  \set\xi$ containing $C_0$ and the image of $h$. Let $i_2$ be so that $C_1
-  \subset U_{i_2}$.
+  Let $h$ be a contracting homotopy of $\gamma_{i_1}$ in $\boundary G -
+  \set\xi$ and let $C_1$ be a compact subset of $\boundary G - \set\xi$
+  containing $C_0$ and the image of $h$. Let $i_2$ be so that $C_1 \subset
+  U_{i_2}$.
 
   Then $f$ is homotopic to $q_{i_1}\composed\gamma_{i_1}$, which is homotopic
   to $q_{i_2}\composed\gamma_{i_1}$, which is homotopic by $q_{i_2}\composed h$
   to a point.
-  \todo{would just $i_0$ and $i_1$ have been enough?}
 \end{proof}
 
 \bibliography{references}
