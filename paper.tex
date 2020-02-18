@@ -650,7 +650,7 @@ propositions:
   connected.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}\cite[Proposition ?]{bestvinamess91}\label{prop:BM2}
   If $\boundary G - \set\xi$ is connected for any $\xi \in \boundary G$ then
   $G$ satisfies $\ddag_M$ for any $M$.
 \end{proposition}
@@ -797,7 +797,7 @@ from from~\cite{bestvinamess91}.
   with the required properties.
 \end{proof}
 
-\section{Local simple connectedness}
+\subsection{A two-dimensional version}
 
 We now introduce a new condition, which should be thought of as a version of
 $\ddag_M$ describing connectedness one dimension higher.
@@ -809,6 +809,49 @@ $\ddag_M$ describing connectedness one dimension higher.
   to a map that factors through $p^\infty_n \from \boundary G \to K_n$, $f$
   admits an extension to $\Delta$ that is affine on $\sd^L \Delta$.
 \end{definition}
+
+We can immediately give a sufficient condition for $\S_M$ to be satisfied. This
+result is analagous to Proposition~\ref{prop:BM2}.
+
+\begin{proposition}
+  Suppose that $\boundary G - \set\xi$ is simply connected for any point $\xi
+  \in \boundary G$. Then $\S_M$ is satisfied for all $M$.
+\end{proposition}
+
+\begin{proof}
+  Suppose that the condition is not satisfied. Then for each $i$ there exists a
+  number $n_i \geq i$, a map $\gamma_i \from \boundary\Delta \to \boundary G$
+  and a simplicial approximation $f_i \from \sd^M \boundary\Delta \to K_{n_i}$
+  to $p^\infty_{n_i}\composed\gamma_i$ such that $f_i$ does not admit an
+  extension to $\Delta$ that is affine on $\sd^i\Delta$.
+
+  Fix a vertex $v$ of $\boundary\Delta$; then there exist group elements $g_i
+  \in G$ such that $g_i\cdot f_i(v)$ is a fixed vertex of $K$. Pass to a
+  subsequence as in Section~\ref{sec:horoball}, and to a deeper subsequence so
+  that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
+  \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
+  this map $f$. It remains to show that $f$ is nullhomotopic in $H$; then it is
+  nullhomotopic by an affine map by~\cite{zeeman64}, and this gives a
+  contradiction for $i$ sufficiently large.
+
+  By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
+  compact set $C_0 \subset \boundary G - \set\xi$ such that $C_0$ contains the
+  image of $\gamma_i$ for every $i \geq i_0$. By
+  Lemma~\ref{lem:affinehomotopic} there exists $i_1 \geq i_0$ such that
+  $q_i\restricted{C_0}$ is homotopic to $q_{i_1}\restricted{C_0}$ for every $i
+  \geq i_1$.  
+  
+  Let $h$ be a contracting homotopy of $\gamma_{i_1}$ in $\boundary G -
+  \set\xi$ and let $C_1$ be a compact subset of $\boundary G - \set\xi$
+  containing $C_0$ and the image of $h$. Let $i_2$ be so that $C_1 \subset
+  U_{i_2}$.
+
+  Then $f$ is homotopic to $q_{i_1}\composed\gamma_{i_1}$, which is homotopic
+  to $q_{i_2}\composed\gamma_{i_1}$, which is homotopic by $q_{i_2}\composed h$
+  to a point.
+\end{proof}
+
+\section{Local simple connectedness}
 
 Our goal in this section is to prove the following theorem.
 
@@ -991,7 +1034,7 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
 
 \subsection{Homotopies in $\boundary G$}
 
-We now use the maps $i^n_\infty$ to construct homotopies in $\boudndary G$. To
+We now use the maps $i^n_\infty$ to construct homotopies in $\boundary G$. To
 begin, we prove the following proposition, which constructs homotopies between
 certain special maps.
 
@@ -1196,50 +1239,6 @@ We now need two more lemmas.
                   &\leq \Diam\image\gamma + a^{-m} \nu \\
                   &\leq (1 + a\nu/k_1) \Diam\image\gamma \qedhere
   \end{align*}
-\end{proof}
-
-\section{Simply connected point complements}
-\todo{Move this section into section 3}
-
-In this section we give a sufficient condition for the condition $\S_M$ to be
-satisfied.
-
-\begin{proposition}
-  Suppose that $\boundary G - \set\xi$ is simply connected for any point $\xi
-  \in \boundary G$. Then $\S_M$ is satisfied for all $M$.
-\end{proposition}
-
-\begin{proof}
-  Suppose that the condition is not satisfied. Then for each $i$ there exists a
-  number $n_i \geq i$, a map $\gamma_i \from \boundary\Delta \to \boundary G$
-  and a simplicial approximation $f_i \from \sd^M \boundary\Delta \to K_{n_i}$
-  to $p^\infty_{n_i}\composed\gamma_i$ such that $f_i$ does not admit an
-  extension to $\Delta$ that is affine on $\sd^i\Delta$.
-
-  Fix a vertex $v$ of $\boundary\Delta$; then there exist group elements $g_i
-  \in G$ such that $g_i\cdot f_i(v)$ is a fixed vertex of $K$. Pass to a
-  subsequence as in Section~\ref{sec:horoball}, and to a deeper subsequence so
-  that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
-  \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
-  this map $f$. It remains to show that $f$ is nullhomotopic in $H$; then it is
-  nullhomotopic by an affine map by~\cite{zeeman64}, and this gives a
-  contradiction for $i$ sufficiently large.
-
-  By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
-  compact set $C_0 \subset \boundary G - \set\xi$ such that $C_0$ contains the
-  image of $\gamma_i$ for every $i \geq i_0$. By
-  Lemma~\ref{lem:affinehomotopic} there exists $i_1 \geq i_0$ such that
-  $q_i\restricted{C_0}$ is homotopic to $q_{i_1}\restricted{C_0}$ for every $i
-  \geq i_1$.  
-  
-  Let $h$ be a contracting homotopy of $\gamma_{i_1}$ in $\boundary G -
-  \set\xi$ and let $C_1$ be a compact subset of $\boundary G - \set\xi$
-  containing $C_0$ and the image of $h$. Let $i_2$ be so that $C_1 \subset
-  U_{i_2}$.
-
-  Then $f$ is homotopic to $q_{i_1}\composed\gamma_{i_1}$, which is homotopic
-  to $q_{i_2}\composed\gamma_{i_1}$, which is homotopic by $q_{i_2}\composed h$
-  to a point.
 \end{proof}
 
 \bibliography{references}
