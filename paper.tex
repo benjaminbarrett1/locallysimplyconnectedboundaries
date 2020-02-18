@@ -1054,13 +1054,33 @@ certain special maps.
 \end{proposition}
 
 \begin{proof}
-  \todo{Think about condition for apply Sd}
-  Let $G$ satisfy $\ddag'_C$ with constants $L$ and $m_0 \geq n_0$.
+  \todo{proof read the first htree paragraphs}
+  Let $G$ satisfy $\ddag'_{C+D}$ with constants $L$ and $m_0 \geq n_0$.
   By increasing $m_0$ we can also assume that $G$ satisfies $\S_?$ with
   constants $L'$ and $m_0$.
 
-  Let $n \geq m_0$.  Let $J$ be a subdivision of $\boundary\Delta$ such
-  that $f_0$ and $f_1$ are both affine on $J$. Then we have a map 
+  Let $n \geq m_0$ and let $f_0$ and $f_1$ be as in the statement of the
+  proposition, so there exist $k_0$ and $k_1$ such that $f_0$ is simplicial on
+  $\sd^{k_0}\boundary\Delta$ and $f_1$ is simplicial on
+  $\sd^{k_1}\boundary\Delta$. We first show that we may assume that $k_0$ and
+  $k_1$ are equal. If not, suppose $k_0 < k_1$.
+
+  Let $f_0'$ be the simplicial map on $\sd^{k_1}$ defined as follows. For each
+  edge $e$ of $\sd^{k_0}\boundary\Delta$, choose an orientation of $e$ define
+  $f_0'\restricted{\sd^{k_1-k_0}e}$ to be given by $f_0\restricted{e}$ on the
+  initial edge of $\sd^{k_1-k_0}e$ and constant equal to the image under $f_0$
+  of the terminal vertex of $e$ on the rest of $\sd^{k_1-k_0}$. Then there is a
+  homotopy from $f_0$ to $f_0'$ such that for any $x \in \boundary\Delta$, the
+  path traced by $x$ under the homotopy is contained in a single edge of $K_n$.
+  It follows that, when composed with $i^n_\infty$, this homotopy gives a
+  homotopy from $i^n_\infty\composed f_0$ to $i^n_\infty \composed f_0'$ such
+  that the path traced by any point in $\boundary\Delta$ has diameter at most
+  some multiple of $a^{-n}$ as given by Corollary~\ref{cor:visualdiameter}.
+  Therefore we may replace $f_0$ by $f_0'$ and assume that $f_0$ and $f_1$ are
+  simplicial maps on a common subdivision $J$ of $\boundary\Delta$, and
+  $\newdist(f_0(x), f_1(x))\leq C+D$ for any $x \in \boundary\Delta$.
+  
+  Then we have a map 
   \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
           \to K_n,
