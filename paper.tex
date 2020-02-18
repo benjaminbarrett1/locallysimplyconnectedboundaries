@@ -1186,15 +1186,16 @@ We now need two more lemmas.
   simplicial approximation to $p^\infty_{n+m}\composed\gamma$. For $m \geq 0$
   let $\gamma_m = i^{m+n}_\infty\composed f_m$. 
 
-  \todo{This still doesn't feel quite there yet.}
   For each $m$ we can apply Proposition~\ref{prop:basic_homotopies} to the maps
-  $f_{m+1}$ and $i^{n+m}_{n+m+1}\composed f_m$: Lemma~\ref{lem:name_this} gives
-  the bounded distance assumption, $f_{m+1}$ is a simplicial approximation to
-  $p^\infty_{n+m+1}\composed\gamma$, and $i^{n+m}_{n+m+1}\composed f_{m+1}$ is
-  also a simplicial approximation to a map that factors through
-  $p^\infty_{n+m+1}$ because the restriction of $i^{n+m}_{n+m+1}$ to $\Skel_1
-  K_{n+m}$ has this property.
-
+  $f_{m+1}$ and $i^{n+m}_{n+m+1}\composed f_m$. To see this, firstly
+  Lemma~\ref{lem:name_this} gives the uniformly bounded distance assumption.
+  Secondly, $f_{m+1}$ is a simplicial approximation to
+  $p^\infty_{n+m+1}\composed\gamma$. Finally,
+  $i^{n+m}_{n+m+1}\restricted{\Skel_1 K_{n+m}}$ is a simplicial approximation
+  to a map $p^\infty_{n+m+1}\composed j_m$ for some map $j_m\from\Skel_1
+  K_{n+m}\to \boundary G$, and then $i^{n+m}_{n+m+1}\composed g_m$ is a
+  simplicial approximation to $p^\infty_{n+m+1}\composed j_m\composed f_m$.
+  
   Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
   from $i^{n+m+1}_\infty\composed f_{m+1}$ to $i^{n+m}_\infty \composed f_m$
   satisfying a uniform continuity condition. Define an infinite concatenation
