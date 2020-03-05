@@ -6,6 +6,8 @@
 \begin{document}
 \maketitle
 
+\todo{Worry about when $p^n_m$ is not defined.}
+
 \section{The Rips complex and the Gromov boundary}\label{sec:spheres}
 
 Let $G$ be a hyperbolic group and let $S$ be a symmetric generating set for $G$.
@@ -19,18 +21,18 @@ requiring that shorter words precede longer and that words of equal length are
 ordered lexicographically. Let $D = 10^6\delta + 10^6$.
 
 \begin{definition}
-  We denote by $K(G)$ the \emph{Rips complex} of $G$; this is the simplicial
+  We denote by $K$ the \emph{Rips complex} of $G$; this is the simplicial
   complex with vertex set $G$ such that a finite set of elements of $G$ spans a
   simplex if and only if that set has diameter at most $D$ with respect to the
   word metric $d$.
 \end{definition}
 
-We will sometimes want to refer to distances between points in $K(G)$. The
-precise means by which we extend the metric on $G$ to $K(G)$ will not matter
+We will sometimes want to refer to distances between points in $K$. The
+precise means by which we extend the metric on $G$ to $K$ will not matter
 very much, so we make the following simple definition.
 
 \begin{definition}
-  For $x$ and $y$ in $K(G)$, choose vertices $x^\star$ and $y^\star$ of the
+  For $x$ and $y$ in $K$, choose vertices $x^\star$ and $y^\star$ of the
   minimal simplices containing $x$ and $y$ respectively. Then define
   $\newdist(x,y) = \dist(x^\star, y^\star)$.
 \end{definition}
@@ -48,7 +50,7 @@ very much, so we make the following simple definition.
 \end{remark}
 
 We denote by $\gromov{a}{b}{c}$ the Gromov product of $b$ and $c$ in $G \union
-\boundary$ with respect to base point $a \in G$. Using $\newdist$ we extend the
+\boundary G$ with respect to base point $a \in G$. Using $\newdist$ we extend the
 Gromov product to $K$:
 
 \begin{definition}
@@ -79,7 +81,7 @@ We now equip $K$ with a topology as follows.
 
 \subsection{An inverse system of complexes}
 
-We now define a sequence of subcomplexes in $K(G)$. We will use the topology of
+We now define a sequence of subcomplexes in $K$. We will use the topology of
 these complexes to approximate the topology of $\boundary G$. 
 
 \begin{definition}
@@ -87,16 +89,16 @@ these complexes to approximate the topology of $\boundary G$.
   set $\set{g \in G \suchthat \dist(e, g) = n}$ of elements of $G$ whose 
   distance from the identity element is $n$. 
 
-  Let $K_n$ be the full subcomplex of the Rips complex $K(G)$ with vertex set
+  Let $K_n$ be the full subcomplex of the Rips complex $K$ with vertex set
   $S_n$.
 \end{definition}
 
 \begin{definition}
   For $n \geq m$ define a map $p^n_m \from S_n \to S_m$ as follows.
-  Given an element $g$ of $S_n$ let $w_g \in S^\star$ be the lex-least 
-  representative of $g$; note that this word necessarily has length $n$.
-  Then define $p^n_m(g)$ to be the element of $G$ given by truncating $w_g$ to a 
-  word of length $m$.
+  Given an element $g$ of $S_n$ let $w_g \in S^\star$ be the lexicographically
+  first representative of $g$; note that this word in $S^\star$ necessarily has
+  length $n$.  Then define $p^n_m(g)$ to be the element of $G$ given by
+  truncating $w_g$ to a word of length $m$.
 \end{definition}
 
 \begin{lemma}\label{lem:psimplicial}
@@ -105,12 +107,14 @@ these complexes to approximate the topology of $\boundary G$.
 \end{lemma}
 
 \begin{proof}
-  Let $\set{g_1, \dotsc, g_k}$ span a simplex in $K_n$.
-  Then for $g_i$ and $g_j$ in $\set{g_1, \dotsc, g_k}$, $\dist([g_i, g_j], 
-  p^n_m(g_i)) \geq n - m - D > \delta$, so $\dist(p^n_m(g_i), [e, g_j]) \leq 
-  \delta$.  But $p^n_m(g_j) \in [e, g_j]$ and $\dist(e, p^n_m(g_i)) = 
-  \dist(e, p^n_m(g_j))$ so $\dist(p^n_m(g_i), p^n_m(g_j)) \leq 2\delta 
-  \leq D$. It follows that the diameter of $\set{p^n_m(g_1), \dotsc, 
+  Let $\set{g_1, \dotsc, g_k}$ span a simplex in $K_n$.  Then for $g_i$ and
+  $g_j$ in $\set{g_1, \dotsc, g_k}$, the distance from $p^n_m(g_i))$ to a
+  geodesic from $g_i$ to $g_j$ is at least $n - m - D$, which is greater than
+  $\delta$, so by hyperbolicity of a triangle with vertices $e$, $g_i$ and $g_j$,
+  the distance from $p^n_m(g_i)$ to any geodesic from $e$ to $g_j$ is at most
+  $\delta$. We may choose this geodesic to contain $p^n_m(g_j)$, and $\dist(e,
+  p^n_m(g_i)) = \dist(e, p^n_m(g_j))$, so $\dist(p^n_m(g_i), p^n_m(g_j)) \leq
+  2\delta \leq D$.  It follows that the diameter of $\set{p^n_m(g_1), \dotsc,
   p^n_m(g_k)}$ is at most $D$ and therefore the set spans a simplex in $K_m$.
 \end{proof}
 
@@ -121,47 +125,41 @@ of simplicial complexes.
 \subsection{Projecting from $\boundary G$}
 
 In order to define projections from $\boundary G$ into our system $(K_n)$, we
-first describe a closely related system of simplicial complexes.
+first describe a sequence of open covers of $\boundary G$.
 
 \begin{definition}
   For $x \in S_n$ let $U_n(x)$ be the set of limit points in $\boundary G$ of 
   geodesic rays $\gamma$ with $\gamma(0) = e$ and $\dist(\gamma(n), x) \leq 
   2\delta+1$.  
   
-  By~\cite{bridsonhaefliger99} $U_n(x)$ is a fundamental system of 
-  neighbourhoods in $\boundary G$ of the set of limit points in $\boundary G$ of 
-  geodesic rays $\gamma$ with $\gamma(0) = e$ and $\gamma(n) = x$, and therefore 
-  $U_n(x)$ contains an open set $V_n(x) \subset \boundary G$ containing this 
-  set. Then $\set{V_n(x)}_{x \in S_n}$ is an open cover of $\boundary G$.
-  
-  Let $L_n$ be the nerve of this cover, so $\Vertices(L_n)$ is naturally 
-  identified with a subset of $S_n$.
+  By~\cite[III.H.3.6]{bridsonhaefliger99} $U_n(x)$ is a (not necessarily open)
+  neighbourhood in $\boundary G$ of the set of limit points in $\boundary G$ of
+  geodesic rays $\gamma$ with $\gamma(0) = e$ and $\gamma(n) = x$.
 \end{definition}
 
 \begin{lemma}\label{lem:L_Ksimplicial}
-  The inclusion $\Skel_0 L_n \into \Skel_0 K_n^D$ is a simplicial map.
+  The nerve of $\{U_n(x)\}_{x \in S_n}$ is a subcomplex of $K_n$.
 \end{lemma}
 
 \begin{proof}
-  Let $g_1, \dotsc, g_k \subset \Vertices(L_n)$ span a simplex in $L_n$, so 
-  there exists a point $\xi \in \bigintersection_{i=1}^k V_n(g_i)$.  Let
-  $\gamma_1, \dotsc, \gamma_n$ be geodesic rays with $\gamma_i(0) = e$,
-  $\gamma_i(\infty) = \xi$ and $\dist(\gamma_i(n), g_i) \leq 2\delta+1$.
-  Then $\Diam\set{\gamma_i(n) \suchthat i=1, \dotsc, n} \leq 2\delta$, and it
-  follows that
+  Let $g_1, \dotsc, g_k \in S_n$ span a simplex in the nerve of
+  $\{U_n(x)\}_{x \in S_n}$, so there exists a point $\xi \in
+  \bigintersection_{i=1}^k U_n(g_i)$.  Let $\gamma_1, \dotsc, \gamma_n$ be
+  geodesic rays with $\gamma_i(0) = e$, $\gamma_i(\infty) = \xi$ and
+  $\dist(\gamma_i(n), g_i) \leq 2\delta+1$.  Then $\Diam\set{\gamma_i(n)
+  \suchthat i=1, \dotsc, n} \leq 2\delta$, and it follows that
   \begin{equation*}
     \Diam\{g_1, \dotsc, g_k\} \leq 6\delta+ 2 \leq D.\qedhere
   \end{equation*}
 \end{proof}
 
-For each $n$, fix a partition of unity subordinate to the open covering 
-\begin{equation*}
-  \set{V_n(x) \suchthat x \in S_n}
-\end{equation*} 
-of $\boundary G$. This is equivalent to a continuous map $\pi_n \from \boundary
-G \to L_n$. Let $p^\infty_n\from\boundary G\to K_n$ be the composition of
-$\pi_n$ with the simplicial map $L_n \to K_n$ given by
-\cref{lem:L_Ksimplicial}.
+\begin{definition}
+  For each $n$, fix a partition of unity subordinate to the covering
+  $\set{U_n(x)}_{x \in S_n}$ of $\boundary G$. This is gives a
+  continuous map from $\boundary G$ to the nerve of the covering. Denote by
+  $p^\infty_n\from \boundary G \to K_n$ the composition of this map with the
+  inclusion of the nerve into $K_n$, as given by Lemma~\ref{lem:L_Ksimplicial}.
+\end{definition}
 
 \begin{lemma}\label{lem:close_projections}
   Let $\xi \in \boundary G$. Then $\newdist(p^\infty_n(\xi),
@@ -183,6 +181,14 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   \cref{rem:dist_vs_newdist}.
 \end{proof}
 
+\begin{proposition}\label{prop:projectstoasimplex}
+  Let $U$ be a subset of $\boundary G$ with diameter $\rho_0$ with respect to
+  the visual metric $\rho$. Let $n \leq \log_a(k_1/\rho_0)$. Then
+  $p^\infty_n(U)$ is contained in a single simplex of $K_n$
+\end{proposition}
+
+To prove this proposition we first prove the following lemma.
+
 \begin{lemma}\label{lem:boundary_gromov_product}
   Let $\alpha_1$ and $\alpha_2$ be geodesic rays with $\alpha_1(0) =
   \alpha_2(0) = e$. Then for any $m_1$ and $m_2$,
@@ -193,7 +199,7 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
 \end{lemma}
 
 \begin{proof}
-  By~\cite{bridsonhaefliger99},
+  By~\cite[III.H.3.17]{bridsonhaefliger99},
   \begin{equation*}
     \gromov{e}{\alpha_1(\infty)}{\alpha_2(\infty)} \leq \liminf_{n_1, n_2}
         \gromov{e}{\alpha_1(n_1)}{\alpha_2(n_2)} + 2\delta.
@@ -219,7 +225,7 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   point $p_2$ on $[\alpha_1(n_1), \alpha_2(n_2)]$ within a
   distance $\delta$ of $\alpha_1(m_2)$.
   
-  If $p_1$ lies between $\alpha_2(n_2)$ and $p_1$ on $[\alpha_1(n_1),
+  If $p_1$ lies between $\alpha_2(n_2)$ and $p_2$ on $[\alpha_1(n_1),
   \alpha_2(n_2)]$ then, by considering the triangle with vertices $p_2$,
   $\alpha_2(m_2)$ and $\alpha_2(n_2)$, we see that $\dist(p_1, \alpha_2) \leq
   2\delta$. Therefore $\dist(\alpha_1(m_1), \alpha_2) \leq 3\delta$, and so
@@ -249,13 +255,7 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   which completes the proof.
 \end{proof}
 
-\begin{lemma}\label{lem:projectstoasimplex}
-  Let $U$ be a subset of $\boundary G$ with diameter $\rho_0$ with respect to
-  the visual metric. Let $n \leq \log_a(k_1/\rho_0)$. Then $p^\infty_n(U)$ is
-  contained in a single simplex of $K_n$
-\end{lemma}
-
-\begin{proof} 
+\begin{proof}[Proof of Proposition~\ref{prop:projectstoasimplex}] 
   Let $\xi_1$ and $\xi_2$ be points in $U$, so $\rho(\xi_1, \xi_2)
   \leq \rho_0$.  For $i$ equal to $1$ or $2$ let $x_i$ be a vertex of the
   minimal simplex of $K_n$ containing $p^\infty_n(\xi_i)$. Let $\alpha_i$ be a
@@ -269,12 +269,13 @@ $\pi_n$ with the simplicial map $L_n \to K_n$ given by
   \end{equation*}
   In particular,
   \begin{equation*}
-    \dist(\alpha_1(n), \alpha_2(n)) \leq \max\{6\delta, 12\delta - 2(\log(k_1/\rho_0) - n)\}
+    \dist(\alpha_1(n), \alpha_2(n)) \leq \max\{6\delta, 12\delta + 2(n - \log(k_1/\rho_0))\}
   \end{equation*}
   and the result follows.
 \end{proof}
 
 \begin{lemma}
+  \todo{Should this be used somewhere?}
   For $\xi \in \boundary G$ and $n - m \geq D + \delta$ the points $p^n_m
   \composed p^\infty_n (\xi)$ and $p^\infty_m(\xi)$ lie in a common simplex of
   $K_n^D$.
@@ -1240,7 +1241,7 @@ We now need two more lemmas.
 \begin{proof}
   To begin, let $\nu$ and $m_0 \geq n_0$ be as in
   \cref{prop:uniform_homotopies}. Let $r_0 =
-  k_1a^{-m_0}$, so that, by \cref{lem:projectstoasimplex},
+  k_1a^{-m_0}$, so that, by \cref{prop:projectstoasimplex},
   $p^\infty_{m_0}\composed\gamma$ has image contained in the star of a single
   vertex of $K_{m_0}$ for any map $\gamma\from\boundary\Delta\to\boundary
   G$ with $\Diam\image(\gamma)\leq r_0$.
