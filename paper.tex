@@ -479,28 +479,26 @@ The rest Section of~\ref{sec:horoballs} will be spent justifying this point of v
 \subsection{Projections to the horosphere}
 
 \begin{definition}
-  Let $U_i \subset \boundary G$ be the set of all points in $\boundary G -
-  \set\xi$ such that all geodesic rays from $g_i \in G$ to points in $U_i$ pass
-  through $H_i$. Let $q_i$ be the restriction of the map $g_i \composed
-  p^\infty_{n_i} \composed g_i^{-1}$ to $U_i$.
+  For each $i$, let $U_i \subset \boundary G$ be the set $\left(g_i \composed
+  p^\infty_{n_i} \composed g_i^{-1}\right)^{-1} H_i$ and let $q_i \from U_i \to
+  H_i$ be the restriction of $g_i \composed p^\infty_{n_i}\composed g_i^{-1}$
+  to this set.
 \end{definition}
 
-The following lemma is immediate from the definition of $p^\infty_i$.
+The maps $q_i$ are described by the following lemma, which is immediate from
+the definition of $p^\infty_i$.
 
 \begin{lemma}\label{lem:describing_q_i}
-  The set $q_i(U_i)$ is contained in $H_i$.
-  Furthermore, let $\zeta \in U_i$ so that $q_i(\zeta) \in H_i$.  Then
-  $q_i(\zeta)$ is contained in the minimal simplex of $H_i$ with vertex set
+  \todo{Check this version is strong enough.}
+  Let $\zeta \in \boundary G$ be a point such that
   \begin{equation*}
-    N_{2\delta+1} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
-    $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}} \intersection H_i
+    N_{2\delta+1}^{g_i\cdot S_{n_i}} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
+        $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}} \subset H_i,
   \end{equation*}
-  In particular, if $\eta$ is any geodesic ray with $\eta(0) = g_i$ and
-  $\eta(\infty) = \zeta$ then $q_i(\zeta)$ is contained in the minimal simplex
-  of $H_i$ with vertex set
-  \begin{equation*}
-    N_{4\delta + 1}(\eta(n_i)) \intersection H_i.
-  \end{equation*}
+  where $N_{2\delta+1}^{g_i\cdot S_{n_i}}$ denotes a $2\delta+1$-neighbourhood
+  in $g_i\cdot S_{n_i}$ taken with respect to the metrid $\dist$.
+  Then $\zeta \in U_i$ and $q_i(\zeta)$ is contained in the simplex of $H_i$
+  spanned by this set of vertices.
 \end{lemma}
 
 \begin{lemma}
@@ -511,16 +509,20 @@ The following lemma is immediate from the definition of $p^\infty_i$.
 \begin{proof}
   Suppose that a compact subset $C$ of $\boundary G - \set\xi$ is not contained
   in $U_i$ for infinitely many $i$. Then after passing to a subsequence there
-  exists for each $i$ a point $\zeta_i \in C\setminus U_i$, so for each $i$
-  there is a geodesic ray $\alpha_i$ from $g_i$ to $\zeta_i$ that does not pass
-  through $H_i$. After passing to a subsequence, the rays $\alpha_i$ converge uniformly on compact susbets to a bi-infinite geodesic from $\xi$ to some $\zeta \in C$ that does not meet $H$, contardicting Lemma~\ref{lem:geodesicsmeethorosphere}.
+  exists for each $i$ a point $\zeta_i \in C\setminus U_i$, so by
+  Lemma~\ref{lem:describing_q_i} for each $i$ there is a geodesic ray
+  $\alpha_i$ from $g_i$ to $\zeta_i$ that meets $N_{2\delta+1}^{g_i\cdot
+  S_{n_i}}(g_i\cdot S_{n_i} - H_i)$. After passing to a subsequence, the rays
+  $\alpha_i$ converge uniformly on compact subsets toa bi-infinite geodesic
+  from $\xi$ to some pint $\zeta \in C$ that does not meet $H$, contradicting
+  Lemma~\ref{lem:geodesicsmeethorosphere}.
 \end{proof}
 
 \begin{lemma}\label{lem:affinehomotopic}
   For any compact subset $C\subset\boundary G - \set\xi$, there exists $i_0$ 
   such that for all $i \geq i_0$ and any $\zeta \in C$, $\newdist(q_i(\zeta),
   q_{i_0}(\zeta)) \leq 10\delta + 2$, and, in particular, $q_i\restricted{C}$
-  and $q_{i_0}\restricted{C}$ are related by an affine homotopy.
+  and $q_{i_0}\restricted{C}$ are related by an homotopy.
 \end{lemma}
 
 \begin{proof}
