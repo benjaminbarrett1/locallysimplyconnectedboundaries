@@ -275,7 +275,7 @@ To prove this proposition we first prove the following lemma.
 \end{proof}
 
 \begin{lemma}
-  \todo{Should this be used somewhere?}
+  \todo{Orphaned}
   For $\xi \in \boundary G$ and $n - m \geq D + \delta$ the points $p^n_m
   \composed p^\infty_n (\xi)$ and $p^\infty_m(\xi)$ lie in a common simplex of
   $K_n^D$.
@@ -302,20 +302,20 @@ To prove this proposition we first prove the following lemma.
   2\delta + 2\delta + 2\delta+1 \leq D$.
 \end{proof}
 
-\section{Horoballs in the Rips Complex}
+\section{Horoballs in the Rips Complex}\label{sec:horoballs}
 
-In future sections we will make use of a limiting argument, which will relate
-the topology of the complement of a point in the boundary $\boundary G$ to a
-particular complex built from $K$, which we will think of as a horoball in $K$.
-In this section we prove that this construction possesses certain properties
-that we will need later.
+In Section~\ref{sec:double_dagger} we will make use of a limiting argument,
+which will relate the topology of the complement of a point in the boundary
+$\boundary G$ to a particular subcomplex of $K$, which we will think of as
+a horoball in $K$.  In this section we prove that this subcomplex possesses
+certain properties that we will apply later.
 
-\subsection{Defining the horoball}\label{sec:horoball}
+\subsection{Defining the horoball}
 
 For each $n$, let $v_n$ be a vertex of $K_n$ and let $g_n$ be an element of $G$
-taken so that $g_n\cdot v_n$ is independent of $n$.  Since $K$ is locally
-finite, we can pass to a subsequence so that now $v_i \in K_{n_i}$ satisfying
-the following conditions:
+taken so that $g_n\cdot v_n$ is a point $v \in K_n$ independent of $n$.  Since
+$K$ is locally finite, we can pass to a subsequence so that $v_i \in
+K_{n_i}$ satisfies the following conditions:
 \begin{enumerate}
   \item
     The translates by $g_i$ of large neighbourhoods of $v_i$ in the sphere
@@ -341,7 +341,7 @@ isometrically onto $H_i$.
 
 Let $H$ be the union of the complexes $H_i \subset K$. We view $H$ as a
 horosphere, the topology of which approximates that of $\boundary G - \set\xi$.
-The rest of~\ref{sec:horoball} will be spent justifying this point of view.
+The rest Section of~\ref{sec:horoballs} will be spent justifying this point of view.
 
 \subsection{Geodesics and and the horosphere}
 
@@ -350,9 +350,8 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
 \end{lemma}
 
 \begin{proof}
-  Let $\alpha$ be a bi-infinite geodesic with $\xi$ as a limit pint. Pick a
-  point $w \in f(\Vertices(J))$ and let the distance $\dist(w,\alpha)$ be
-  realised by a point $x \in \alpha$.
+  Let $\alpha$ be a bi-infinite geodesic with $\xi$ as a limit point. 
+  Let the distance $\dist(w,\alpha)$ be realised by a point $x \in \alpha$.
 
   The points $g_i$ converge to $\xi$ as $i\to\infty$, so the distances
   $\dist(x, [\xi, g_i])$ tend to infinity as $i$ tends to infinity. The
@@ -361,23 +360,23 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
   \delta$ and $y_i\to\xi$ as $i\to\infty$.  For each $i$ let $z_i$ be a point
   on $\alpha$ with $\dist(y_i, z_i) \leq \delta$.
 
-  Since $\dist(g_i, x) = n_i$ for $i$ sufficiently large and $\dist(x,y_i) \to
+  Since $\dist(g_i, v) = n_i$ for all $i$ and $\dist(x,y_i) \to
   \infty$ as $i\to\infty$, we have the following limit.
   \begin{align*}\label{eqn:zi_closer_to_gi_than_x}
-    \dist(g_i,z_i) - n_i &\leq \dist(g_i,y_i) + \delta - n_i \text{ for $i$
-                                        sufficiently large} \\
-                         &= - \dist(x,y_i) + \delta \\
-                         &\to -\infty\text{ as $i \to \infty$} \tag{$\star$}
+    n_i - \dist(g_i, z_i) & \geq n_i - \dist(g_i, y_i) - \delta \\
+                          &= n_i - \dist(g_i, x) + \dist(x, y_i) - \delta\\
+                          &\geq \dist(x, y_i) - \dist(v,x) - \delta\\
+                          &\to \infty\text{ as $i \to \infty$}\tab{$\star$}
   \end{align*}
   Therefore, for $i$ sufficiently large, there exists a point $p_i$ on $\alpha$
   such that $z_i$ lies between $\xi$ and $p_i$ on $\alpha$ and so that
-  $\dist(g_i,p_i)=n_i$. We now show that $\dist(p_i, x)$ is uniformly bounded.
+  $\dist(g_i,p_i)=n_i$. We now show that $\dist(v, p_i)$ is uniformly bounded.
 
   The limit~\eqref{eqn:zi_closer_to_gi_than_x}, taken together with the fact
-  that $\dist(g_i, x) = \dist(g_i, p_i) = n_i$, shows that the distances
-  $\dist([z_i, g_i], x)$ and $\dist([z_i, g_i], p_i)$ tend to infinity as
-  $i\to\infty$.  We now divide into cases according to which of $x$ and $p_i$
-  is closer to $z_i$.
+  that $\dist(g_i, p_i) = n_i$ and $\dist(g_i, x) \geq n_i - \dist(x, v)$,
+  shows that the distances $\dist([z_i, g_i], x)$ and $\dist([z_i, g_i], p_i)$
+  tend to infinity as $i\to\infty$.  We now divide into cases according to
+  which of $x$ and $p_i$ is closer to $z_i$.
   \begin{enumerate}
     \item If $x$ is between $z_i$ and $p_i$ on $\alpha$ then by considering a
       geodesic triangle with vertices $g_i$, $z_i$ and $p_i$ we see that for
@@ -398,7 +397,7 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
       \end{equation*}
   \end{enumerate}
 
-  Either way, $\dist(w, p_i) \leq \dist(x,w) + 2\delta$. In summary, we have
+  Either way, $\dist(v, p_i) \leq \dist(v, x) + 2\delta$. In summary, we have
   shown that for $i$ sufficiently large there is a point $p_i\in\alpha$ with
   $\dist(g_i,p_i)=n_i$ and $\dist(p_i,f(\Vertices J))$ bounded by $\dist(x,w) +
   2\delta$. Then $p_i \in H_i$ whenever $i$ is at least $\dist(x,w) + 2\delta$.
@@ -413,51 +412,51 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
 \begin{proof}
   Let $\alpha$ be any bi-infinite geodesic with $\alpha(-\infty)=\xi$ and 
   $\alpha(\infty)\in C$. Let $x \in \alpha \intersection H$. Since $C$ is
-  compact, there exists a point $v \in \alpha$, between $\xi$ and $x$ on
+  compact, there exists a point $w \in \alpha$, between $\xi$ and $x$ on
   $\alpha$, such for that any bi-infinite geodesic $\beta$ with
   $\beta(-\infty)$ in $C$ and $\beta(\infty) = \alpha(\infty)$, $\beta$ does
   not meet the $100\delta$-neighbourhood of the sub-ray of $\alpha$ between
-  $\xi$ and $v$: otherwise a limiting argument shows that $\xi$ is in $C$.
+  $\xi$ and $w$: otherwise a limiting argument shows that $\xi$ is in $C$.
 
-  Since $g_i \to \xi$, the distance $\dist(v, [\xi, g_i]) \to \infty$ as
+  Since $g_i \to \xi$, the distance $\dist(w, [\xi, g_i]) \to \infty$ as
   $i\to\infty$. The triangle with vertices $\xi$, $g_i$ and $x$ is
   $\delta$-slim, so the geodesic path from $g_i$ to $x$ passes within a
-  distance $\delta$ of $v$ for $i$ large enough. Therefore, since $\dist(g_i,
+  distance $\delta$ of $w$ for $i$ large enough. Therefore, since $\dist(g_i,
   x) = n_i$ for $i$ large enough, the following inequality holds for all $i$
   large enough.
   \begin{equation*}
-    0 \leq \dist(g_i, v) + \dist(v, x) - n_i \leq 2\delta.
+    0 \leq \dist(g_i, w) + \dist(w, x) - n_i \leq 2\delta.
   \end{equation*}
 
   Let $\alpha'$ be a bi-infinite geodesic with $\alpha'(-\infty) = \xi$ and
   $\alpha'(\infty) \in C$ and let $x' \in \alpha' \intersection H$. The ideal
   triangle with vertices $\xi$, $\alpha(\infty)$ and $\alpha'(\infty)$ is
-  $\delta$-slim, so the subray of $\alpha$ between $\xi$ and $v$ is contained
-  in a $\delta$-neighbourhood of $\alpha'$.  Let $v' \in \alpha'$ be a point
-  with $\dist(v, v') \leq \delta$. 
+  $\delta$-slim, so the subray of $\alpha$ between $\xi$ and $w$ is contained
+  in a $\delta$-neighbourhood of $\alpha'$.  Let $w' \in \alpha'$ be a point
+  with $\dist(w, w') \leq \delta$. 
   
-  We split into cases according to the order of $\xi$, $v'$ and $x'$ on
+  We split into cases according to the order of $\xi$, $w'$ and $x'$ on
   $\alpha'$.
   \begin{enumerate}
     \item
-      First we suppose that $v'$ is between $x'$ and $\xi$ on $\alpha'$. Then as
+      First we suppose that $w'$ is between $x'$ and $\xi$ on $\alpha'$. Then as
       in the argument above, for $i$ sufficiently large we have the following
       inequality:
       \begin{equation*}
-        0 \leq \dist(g_i, v') + \dist(v', x') - n_i \leq 2\delta.
+        0 \leq \dist(g_i, w') + \dist(w', x') - n_i \leq 2\delta.
       \end{equation*}
       And therefore,
       \begin{equation*}
-        -2\delta \leq \dist(g_i, v) + \dist(v, x') - n_i \leq 4\delta.
+        -2\delta \leq \dist(g_i, w) + \dist(w, x') - n_i \leq 4\delta.
       \end{equation*}
       Finally, putting these inequalities together,
       \begin{equation*}
-        \dist(v,x') \leq \dist(v,x) + 4\delta,
+        \dist(x, x') \leq 2\dist(w, x) + 4\delta,
       \end{equation*}
-      and thus we can uniformly bound this distance in this case.
+      and so we uniformly bound this distance in this case.
     \item
-      Alternatively, $x'$ is between $v'$ and $\xi$ on $\alpha'$ and so (since
-      the triangle with vertices $\xi$, $v$ and $v'$ is $\delta$-slim) $x'$ is
+      Alternatively, $x'$ is between $w'$ and $\xi$ on $\alpha'$ and so (since
+      the triangle with vertices $\xi$, $w$ and $w'$ is $\delta$-slim) $x'$ is
       within a distance $2\delta$ of the geodesic ray from $x$ to $\xi$. By
       considering the triangle with vertices $\xi$, $g_i$ and $x$ for $i$ large
       enough, a geodesic segment from $g_i$ to $x$ passes within a distance
@@ -472,6 +471,9 @@ The rest of~\ref{sec:horoball} will be spent justifying this point of view.
         \dist(x,x') \leq 6\delta.\qedhere
       \end{equation*}
   \end{enumerate}
+  Either way, $\dist(x, x')$ is bounded over all points $x'$ in the
+  intersections between $H$ and geodesics with one end point equal to $\xi$ and
+  the other in $C$.
 \end{proof}
 
 \subsection{Projections to the horosphere}
@@ -629,7 +631,7 @@ The following lemma is immediate from the definition of $p^\infty_i$.
   follows by lemma~\ref{lem:describing_q_i}. 
 \end{proof}
 
-\section{The double dagger condition}
+\section{The double dagger condition}\label{sec:double_dagger}
 
 We begin this section by recalling work of Bestvina and Mess, Bowditch, and
 Swarup, which characterise the hyperbolic groups with locally path connected
