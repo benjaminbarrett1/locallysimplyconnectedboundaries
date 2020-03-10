@@ -406,7 +406,7 @@ The rest Section of~\ref{sec:horoballs} will be spent justifying this point of v
   2\delta$. Then $p_i \in H_i$ whenever $i$ is at least $\dist(x,w) + 2\delta$.
 \end{proof}
 
-\begin{lemma}\label{lem:boundedintersection}
+\begin{lemma}\label{lem:bounded_intersection}
   Let $C$ be a compact subset of $\boundary G - \set\xi$. Then the set of points 
   of intersection between $H$ and bi-infinite geodesics with one end point equal 
   to $\xi$ and the other in $C$ is bounded.
@@ -488,8 +488,7 @@ The rest Section of~\ref{sec:horoballs} will be spent justifying this point of v
   to this set.
 \end{definition}
 
-The maps $q_i$ are described by the following lemma, which is immediate from
-the definition of $p^\infty_i$.
+The maps $q_i$ are described by the following lemma.
 
 \begin{lemma}\label{lem:describing_q_i}
   Let $\zeta \in \boundary G$ be a point such that
@@ -503,20 +502,28 @@ the definition of $p^\infty_i$.
   spanned by this set of vertices.
 \end{lemma}
 
+\begin{proof}
+  This is immediate from the definition of the maps $p^\infty_{n_i}$. Note that
+  the set has diameter at most $6\delta+1$, so does indeed span a simplex.
+\end{proof}
+
 \begin{lemma}
   Every compact subset of $\boundary G - \set\xi$ is contained in $U_i$ for 
   $i$ sufficiently large.
 \end{lemma} 
 
 \begin{proof}
+  \todo{Check the claim about neighbourhoods being equal.}
   Suppose that a compact subset $C$ of $\boundary G - \set\xi$ is not contained
   in $U_i$ for infinitely many $i$. Then after passing to a subsequence there
   exists for each $i$ a point $\zeta_i \in C\setminus U_i$, so by
   Lemma~\ref{lem:describing_q_i} for each $i$ there is a geodesic ray
   $\alpha_i$ from $g_i$ to $\zeta_i$ that meets $N_{2\delta+1}^{g_i\cdot
-  S_{n_i}}(g_i\cdot S_{n_i} - H_i)$. After passing to a subsequence, the rays
-  $\alpha_i$ converge uniformly on compact subsets to a bi-infinite geodesic
-  from $\xi$ to some pint $\zeta \in C$ that does not meet $H$, contradicting
+  S_{n_i}}(g_i\cdot S_{n_i} - H_i)$, and so does not meet $H_i\intersection
+  N_{i-4\delta-1}(v)$, which is equal to $H \intersection N_{i-4\delta-1}(v)$.
+  After passing to a subsequence, the rays $\alpha_i$ converge uniformly on
+  compact subsets to a bi-infinite geodesic from $\xi$ to some point $\zeta \in
+  C$ that does not meet $H$, contradicting
   Lemma~\ref{lem:geodesicsmeethorosphere}.
 \end{proof}
 
@@ -568,7 +575,6 @@ the definition of $p^\infty_i$.
   4\delta$, and we know that $\dist(x', z_i') > 5\delta$, so $\dist(x', [z_i',
   w_i]) > \delta$ and therefore $\dist(x', \eta_i) \leq \delta$.
 
-  \todo{Is the lemma strong enough?}
   In summary, any geodesic ray from $g_i$ to $\zeta$ passes within a distance 
   $\delta$ of $x'$, for $i\geq i_0$. Furthermore, $\dist(g_i,x') = n_i$, so 
   $\dist(\eta_i(n_i), x')\leq 2\delta$. It follows from the description of
@@ -634,7 +640,6 @@ the definition of $p^\infty_i$.
   z_2]) > \delta$ and so by considering a triangle with vertices $g_i$, $z_1$
   and $z_2$, $\dist(\gamma_1(n_i), \gamma_2(n_i)) \leq 2\delta$. The result
   follows by lemma~\ref{lem:describing_q_i}. 
-  \todo{Is the lemma strong enough?}
 \end{proof}
 
 \section{The double dagger condition}\label{sec:double_dagger}
