@@ -429,7 +429,7 @@ The rest Section of~\ref{sec:horoballs} will be spent justifying this point of v
   Let $\alpha'$ be a bi-infinite geodesic with $\alpha'(-\infty) = \xi$ and
   $\alpha'(\infty) \in C$ and let $x' \in \alpha' \intersection H$. The ideal
   triangle with vertices $\xi$, $\alpha(\infty)$ and $\alpha'(\infty)$ is
-  $\delta$-slim, so the subray of $\alpha$ between $\xi$ and $w$ is contained
+  $\delta$-slim, so the sub-ray of $\alpha$ between $\xi$ and $w$ is contained
   in a $\delta$-neighbourhood of $\alpha'$.  Let $w' \in \alpha'$ be a point
   with $\dist(w, w') \leq \delta$. 
   
@@ -510,7 +510,7 @@ the definition of $p^\infty_i$.
   Lemma~\ref{lem:describing_q_i} for each $i$ there is a geodesic ray
   $\alpha_i$ from $g_i$ to $\zeta_i$ that meets $N_{2\delta+1}^{g_i\cdot
   S_{n_i}}(g_i\cdot S_{n_i} - H_i)$. After passing to a subsequence, the rays
-  $\alpha_i$ converge uniformly on compact subsets toa bi-infinite geodesic
+  $\alpha_i$ converge uniformly on compact subsets to a bi-infinite geodesic
   from $\xi$ to some pint $\zeta \in C$ that does not meet $H$, contradicting
   Lemma~\ref{lem:geodesicsmeethorosphere}.
 \end{proof}
@@ -525,11 +525,11 @@ the definition of $p^\infty_i$.
 \begin{proof}
   Let $B\subset H$ be a bounded set containing all points where geodesics with
   one limit point equal to $\xi$ and the other in $C$ meet $H$; this set exists
-  by \cref{lem:boundedintersection}.
+  by \cref{lem:bounded_intersection}.
 
   Fix $\alpha$ to be some geodesic with $\alpha(-\infty)=\xi$ and
   $\alpha(\infty)\in C$ and let $x$ be a point of intersection between $\alpha$
-  and $B$. Since the triangle with vertcies $x$, $g_i$ and $\xi$ is
+  and $B$. Since the triangle with vertices $x$, $g_i$ and $\xi$ is
   $\delta$-slim, and $\dist(x, [\xi, g_i]) \to \infty$ as $i\to\infty$, for
   each $i$ there exists a point $y_i$ on $[g_i, x]$ with $\dist(y_i, \alpha)
   \leq \delta$ and so that $y_i \to \xi$ as $i\to\infty$. Let $z_i \in \alpha$
@@ -555,7 +555,7 @@ the definition of $p^\infty_i$.
   $z_i'$ on $\alpha'$ between $\xi$ and $x'$ with $\dist(z_i, z_i') \leq
   \delta$. Then $\dist(y_i', z_i') \leq 3\delta$.
 
-  Since $\dist(z_i', x') > 2\delta$, the distance from $y_i'$ to the subray of
+  Since $\dist(z_i', x') > 2\delta$, the distance from $y_i'$ to the sub-ray of
   $\alpha'$ from $x'$ to $\zeta$ is greater than $\delta$. Therefore by
   considering a triangle with vertices $g_i$, $x'$ and $\zeta$ we see that
   there exists a point $w_i$ on a geodesic ray $\eta_i$ from $g_i$ to $\zeta$
@@ -714,7 +714,7 @@ higher dimensional connectivity.
 
   Now, $g_i\cdot \zeta_1^i$ and $g_i\cdot\zeta_2^i$ map by $q_i$ to points in
   simplices adjacent to $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} we
-  can pass to a subsequence so that the sequences $g_i\cdot \zeta_1^i$ anl
+  can pass to a subsequence so that the sequences $g_i\cdot \zeta_1^i$ and
   $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$ in $\boundary
   G - \set\xi$ as $i \to \infty$.
   
@@ -815,7 +815,7 @@ $\ddag_M$ describing connectedness one dimension higher.
 \end{definition}
 
 We can immediately give a sufficient condition for $\S_M$ to be satisfied. This
-result is analagous to Proposition~\ref{prop:BM2}.
+result is analogous to Proposition~\ref{prop:BM2}.
 
 \begin{proposition}
   Suppose that $\boundary G - \set\xi$ is simply connected for any point $\xi
@@ -834,8 +834,8 @@ result is analagous to Proposition~\ref{prop:BM2}.
   subsequence as in Section~\ref{sec:horoball}, and to a deeper subsequence so
   that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
   \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
-  this map $f$. It remains to show that $f$ is nullhomotopic in $H$; then it is
-  nullhomotopic by an affine map by~\cite{zeeman64}, and this gives a
+  this map $f$. It remains to show that $f$ is null-homotopic in $H$; then it is
+  null-homotopic by an affine map by~\cite{zeeman64}, and this gives a
   contradiction for $i$ sufficiently large.
 
   By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
@@ -864,7 +864,7 @@ Our goal in this section is to prove the following theorem.
   locally simply connected.
 \end{restatable}
 
-Thrououghout the rest of this section we assume that $G$ satisfies
+Throughout the rest of this section we assume that $G$ satisfies
 $\ddag'_M$ and $\S_M$ for all $M$.
 
 \subsection{Constructing maps to $\boundary G$}
@@ -1098,7 +1098,7 @@ certain special maps.
   along each edge $x\times [0,1]$, when composed with $p^\infty_n$, admits a
   simplicial approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$
   subdivisions of the interval. Finally, using the condition $\S_?$, we deduce
-  that $f_0 \disjointunion f_1$ admints an affine extension to $\sd^{L'}(J
+  that $f_0 \disjointunion f_1$ admits an affine extension to $\sd^{L'}(J
   \times [0,1])$ after Call the extension $F$ and let $h = i^n_\infty \composed
   F$, so that $h$ is a homotopy from $i^n_\infty\composed f_0$ to
   $i^n_\infty\composed f_1$. 
@@ -1162,7 +1162,7 @@ We now need two more lemmas.
   
   Furthermore, $\dist(y, i^n_{n+1}(y))$ is bounded by $2\delta+1$, and
   $\newdist(i^n_{n+1}(y), i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by
-  the product of $D$ and the the number of 2-simpices in $\sd^L\Delta$, where
+  the product of $D$ and the the number of 2-simplices in $\sd^L\Delta$, where
   $L$ is the number appearing in Proposition~\ref{prop:i_in_dimension_2}.  By
   putting all this together we obtain a bound $C$ on
   $\newdist(i^n_{n+1}\composed p^\infty_n(\xi), p^\infty_{n+1}(\xi))$, and then
