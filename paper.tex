@@ -8,15 +8,22 @@
 
 \todo{Affine vs simplicial}
 \todo{Write introduction}
-\todo{Hyperbolicity conventions}
-\todo{Proofread section 3}
+\todo{Proofread all}
 
 \section{The Rips complex and the Gromov boundary}\label{sec:spheres}
 
-Let $G$ be a hyperbolic group and let $S$ be a symmetric generating set for $G$.
-Let $\delta \geq 0$ be such that the Cayley graph of $G$ with respect to $S$ is 
-$\delta$-hyperbolic. Let $\dist(\cdot, \cdot)$ be the natural metric on the
-Cayley graph.
+\subsection{Hyperbolic groups and the Rips complex}
+
+Let $G$ be a hyperbolic group and let $S$ be a symmetric generating set for
+$G$.  Let $\dist(\cdot, \cdot)$ be the natural metric on the Cayley graph of
+$G$ with respect to $S$; on $G$ this metric agrees with the word metric. 
+
+Let $\delta \geq 0$ be such that the Cayley graph of $G$ with respect to $S$ is
+$\delta$-hyperbolic, meaning that all geodesic triangles in the Cayley graph of
+$G$ are $\delta$-thin. To ameliorate the growth of constants later on we in
+fact assume that all \emph{ideal} triangles (with vertices in $G \union
+\boundary G$) are $\delta$-hyperbolic; this can be guaranteed by multiplying
+$\delta$ by $4$.
 
 Fix an ordering on $S$. Let $S^\star$ be the free monoid on 
 $S$; order $S^\star$ by the lex-least ordering: this ordering is defined by 
@@ -277,34 +284,6 @@ To prove this proposition we first prove the following lemma.
   and the result follows.
 \end{proof}
 
-\begin{lemma}
-  \todo{Orphaned}
-  For $\xi \in \boundary G$ and $n - m \geq D + \delta$ the points $p^n_m
-  \composed p^\infty_n (\xi)$ and $p^\infty_m(\xi)$ lie in a common simplex of
-  $K_n^D$.
-\end{lemma}
-
-\begin{proof}
-  By definition, $p^\infty_m(\xi)$ is contained in the simplex spanned by the set
-  $\set{g \in S_m \suchthat \xi \in V_m(g)}$ and $p^n_m\composed p^\infty_n(\xi)$ is
-  contained in the simplex spanned by $\{p^n_m(g) \suchthat g \in S_n \text{
-  and } \xi \in V_n(g)\}$.  We show that the union
-  \begin{equation*}
-    \set{g \in S_m \suchthat \xi \in V_m(g)} \union \{p^n_m(g) \suchthat g \in S_n \text{ and } \xi \in V_n(g)\}
-  \end{equation*}
-  of these sets spans a simplex in $K_n$; this simplex then contains
-  $p^\infty_m(\xi)$ and $p^n_m\composed p^\infty_n(\xi)$.  It is sufficient to
-  prove that if $\xi \in V_m(g_1) \intersection V_n(g_2)$ for $g_1 \in S_m$ and
-  $g_2 \in S_n$ then $\dist(g_1, p^n_m(g_2)) \leq D$.
-
-  For $i = 1$ or $2$ let $\gamma_i$ be a geodesic ray with $\gamma_i(0) = e$ and
-  $\gamma_i(\infty) = \xi$ such that $\dist(g_1, \gamma_1(m)) \leq 2\delta
-  + 1$ and $\dist(g_2, \gamma_2(n)) \leq 2\delta+1$.  As in
-  \cref{lem:psimplicial}, $\dist(p^n_m(g_2), \gamma_2(m)) \leq
-  2\delta$, since $n-m \geq 3\delta+1$.  Then $\dist(p^n_m(g_2), g_1) \leq
-  2\delta + 2\delta + 2\delta+1 \leq D$.
-\end{proof}
-
 \section{Horoballs in the Rips Complex}\label{sec:horoball}
 
 In Section~\ref{sec:double_dagger} we will make use of a limiting argument,
@@ -526,7 +505,7 @@ The maps $q_i$ are described by the following lemma.
   For any compact subset $C\subset\boundary G - \set\xi$, there exists $i_0$ 
   such that for all $i \geq i_0$ and any $\zeta \in C$, $\newdist(q_i(\zeta),
   q_{i_0}(\zeta)) \leq 10\delta + 2$, and, in particular, $q_i\restricted{C}$
-  and $q_{i_0}\restricted{C}$ are related by an homotopy.
+  and $q_{i_0}\restricted{C}$ are homotopic.
 \end{lemma}
 
 \begin{proof}
@@ -576,7 +555,7 @@ The maps $q_i$ are described by the following lemma.
   $q_i$ in \cref{lem:describing_q_i} that $q_i(\zeta)$ is contained in a
   simplex with all vertices within a distance $4\delta+1$ of $x'$. The set of
   all such vertices spans a simplex, so, in particular, $q_i\restricted{C}$ and
-  $q_{i_0}\restricted{C}$ are related by an affine homotopy for $i \geq i_0$. 
+  $q_{i_0}\restricted{C}$ are homotopic for $i \geq i_0$. 
 \end{proof}
 
 \begin{lemma}\label{lem:propermaps} 
