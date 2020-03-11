@@ -305,7 +305,7 @@ To prove this proposition we first prove the following lemma.
   2\delta + 2\delta + 2\delta+1 \leq D$.
 \end{proof}
 
-\section{Horoballs in the Rips Complex}\label{sec:horoballs}
+\section{Horoballs in the Rips Complex}\label{sec:horoball}
 
 In Section~\ref{sec:double_dagger} we will make use of a limiting argument,
 which will relate the topology of the complement of a point in the boundary
@@ -324,8 +324,7 @@ K_{n_i}$ satisfies the following conditions:
     The translates by $g_i$ of large neighbourhoods of $v_i$ in the sphere
     $S_{n_i} \subset G$ are equal: for any $i \geq j$,
     \begin{equation*}
-      g_i\left(N_j(v_i) \intersection S_{n_i}\right) 
-            = g_j\left(N_j(v_j) \intersection S_{n_j}\right).
+      N_j(v) \intersection g_i(S_{n_i}) = N_j(v) \intersection g_j(S_{n_j})
     \end{equation*}
     (Here $N$ denotes a neighbourhood taken with respect to the word metric on
     $G$.)
@@ -334,17 +333,14 @@ K_{n_i}$ satisfies the following conditions:
     $\xi \in \boundary G$ as $i\to\infty$.
 \end{enumerate}
 
-Let $H_i$ be the full subcomplex of $K$ with vertex set
-\begin{equation*}
-  g_i\left(N_i(v_i) \intersection S_{n_i}\right);
-\end{equation*}
-notice that $H_i$ contains $H_j$ for $i \geq j$, and also that $g_i$ maps the
-full subcomplex of $K_{n_i}$ with vertex set $N_i(v_i) \intersection S_{n_i}$
-isometrically onto $H_i$. 
+Let $H_i$ be the full subcomplex of $K$ with vertex set $N_i(v) \intersection
+g_i(S_{n_i})$; notice that $H_i$ contains $H_j$ for $i \geq j$, and also that
+$g_i$ maps the full subcomplex of $K_{n_i}$ with vertex set $N_i(v_i)
+\intersection S_{n_i}$ isometrically onto $H_i$. 
 
 Let $H$ be the union of the complexes $H_i \subset K$. We view $H$ as a
 horosphere, the topology of which approximates that of $\boundary G - \set\xi$.
-The rest Section of~\ref{sec:horoballs} will be spent justifying this point of view.
+The rest Section of~\ref{sec:horoball} will be spent justifying this point of view.
 
 \subsection{Geodesics and and the horosphere}
 
@@ -513,7 +509,6 @@ The maps $q_i$ are described by the following lemma.
 \end{lemma} 
 
 \begin{proof}
-  \todo{Check the claim about neighbourhoods being equal.}
   Suppose that a compact subset $C$ of $\boundary G - \set\xi$ is not contained
   in $U_i$ for infinitely many $i$. Then after passing to a subsequence there
   exists for each $i$ a point $\zeta_i \in C\setminus U_i$, so by
