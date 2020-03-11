@@ -6,8 +6,7 @@
 \begin{document}
 \maketitle
 
-\todo{Affine vs simplicial}
-\todo{Proofread all}
+\todo{Proof-read all}
 
 \section{Introduction}
 
@@ -798,18 +797,36 @@ $\ddag_M$ describing connectedness one dimension higher.
   there exist $L$ and $n_0$ such that for any $n\geq n_0$ and any simplicial
   map $f\from \sd^M\boundary\Delta \to K_n$ that is a simplicial approximation
   to a map that factors through $p^\infty_n \from \boundary G \to K_n$, $f$
-  admits an extension to $\Delta$ that is affine on $\sd^L \Delta$.
+  admits an extension to $\Delta$ that is affine on $\sd^L \Delta$. (We say
+  that a map between simplicial complexes is affine if its restriction to any
+  simplex of the domain is affine.)
 \end{definition}
 
-We can immediately give a sufficient condition for $\S_M$ to be satisfied. This
-result is analogous to Proposition~\ref{prop:BM2}.
+We now give a sufficient condition for $\S_M$ to be satisfied. This result is
+analogous to Proposition~\ref{prop:BM2}.
 
-\begin{proposition}
+\begin{proposition}\label{prop:sufficient_condition}
   Suppose that $\boundary G - \set\xi$ is simply connected for any point $\xi
   \in \boundary G$. Then $\S_M$ is satisfied for all $M$.
 \end{proposition}
 
+We will use the following lemma:
+
+\begin{lemma}\label{lem:relative_approximation}
+  Let $X$ be a simplicial complex and let $f\from\sd^M\boundary\Delta\to X$ be
+  a simplicial map. Suppose that $f$ admits a continuous extension to $\Delta$.
+  Then there exists $L$ such that $f$ admits an extension to $\Delta$ that is
+  affine on $\sd^L\Delta$. 
+\end{lemma}
+
 \begin{proof}
+  This follows from the main theorem of~\cite{zeeman64}: note that the degree
+  $L$ subdivision of a complex can be obtained from any degree $L$ relative
+  subdivision by further subdividing some simplices, so any map that is affine
+  on the relative subdivision is also affine on the full subdivision.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:sufficient_condition}]
   Suppose that the condition is not satisfied. Then for each $i$ there exists a
   number $n_i \geq i$, a map $\gamma_i \from \boundary\Delta \to \boundary G$
   and a simplicial approximation $f_i \from \sd^M \boundary\Delta \to K_{n_i}$
@@ -822,8 +839,8 @@ result is analogous to Proposition~\ref{prop:BM2}.
   that $g_i\cdot f_i(w)$ is independent of $i$ for all vertices $w \in \sd^M
   \boundary\Delta$. Then the map $g_i\composed f_i$ is independent of $i$; call
   this map $f$. It remains to show that $f$ is null-homotopic in $H$; then it is
-  null-homotopic by an affine map by~\cite{zeeman64}, and this gives a
-  contradiction for $i$ sufficiently large.
+  null-homotopic by an affine map by Lemma~\ref{lem:relative_approximation},
+  and this gives a contradiction for $i$ sufficiently large.
 
   By Lemma~\ref{lem:propermaps} there exists $i_0$ and a 
   compact set $C_0 \subset \boundary G - \set\xi$ such that $C_0$ contains the
