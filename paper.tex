@@ -1063,9 +1063,10 @@ certain special maps.
   $\gamma_1$ be maps from $\boundary\Delta\to\boundary G$. Let $f_0$ and $f_1$
   be simplicial approximations to $p^\infty_n\composed \gamma_0$ and
   $p^\infty_n\composed\gamma_1$. Suppose that $\newdist(f_0(x), f_1(x))\leq C$
-  for every $x \in \boundary \Delta$. Then there is a homotopy $h$ from
-  $i^n_\infty\composed f_0$ to $i^n_\infty\composed f_1$ satisfying a bounded
-  length condition: for any $x \in \boundary\Delta$,
+  for all $x \in \boundary \Delta$. Then there is a homotopy
+  $h\from\boundary\Delta\times[0,1]\to\boundary G$ from $i^n_\infty\composed
+  f_0$ to $i^n_\infty\composed f_1$ satisfying a bounded length condition: for
+  any $x \in \boundary\Delta$,
   \begin{equation*}
     \Diam(h(\{x\} \times [0,1])) \leq \mu a^{-n},
   \end{equation*}
@@ -1073,55 +1074,62 @@ certain special maps.
 \end{proposition}
 
 \begin{proof}
-  \todo{proof read the first three paragraphs}
   Let $G$ satisfy $\ddag'_{C+D}$ with constants $L$ and $m_0 \geq n_0$.
-  By increasing $m_0$ we can also assume that $G$ satisfies $\S_?$ with
-  constants $L'$ and $m_0$.
+  Let $M$ be such that $3\cdot2^M \geq 2L+2$, so that $\sd^M\boundary\Delta$
+  has at least $2L+2$ edges.  By increasing $m_0$ we can also assume that $G$
+  satisfies $\S_M$ with constants $L'$ and $m_0$.
 
   Let $n \geq m_0$ and let $f_0$ and $f_1$ be as in the statement of the
   proposition, so there exist $k_0$ and $k_1$ such that $f_0$ is simplicial on
   $\sd^{k_0}\boundary\Delta$ and $f_1$ is simplicial on
   $\sd^{k_1}\boundary\Delta$. We first show that we may assume that $k_0$ and
-  $k_1$ are equal. If not, suppose $k_0 < k_1$.
+  $k_1$ are equal, at the cost of increasing the distance between $f_0$ and
+  $f_1$ slightly. If they are not already equal, assume $k_0 < k_1$.
 
   Let $f_0'$ be the simplicial map on $\sd^{k_1}$ defined as follows. For each
-  edge $e$ of $\sd^{k_0}\boundary\Delta$, choose an orientation of $e$ define
-  $f_0'\restricted{\sd^{k_1-k_0}e}$ to be given by $f_0\restricted{e}$ on the
-  initial edge of $\sd^{k_1-k_0}e$ and constant equal to the image under $f_0$
-  of the terminal vertex of $e$ on the rest of $\sd^{k_1-k_0}$. Then there is a
-  homotopy from $f_0$ to $f_0'$ such that for any $x \in \boundary\Delta$, the
-  path traced by $x$ under the homotopy is contained in a single edge of $K_n$.
-  It follows that, when composed with $i^n_\infty$, this homotopy gives a
-  homotopy from $i^n_\infty\composed f_0$ to $i^n_\infty \composed f_0'$ such
-  that the path traced by any point in $\boundary\Delta$ has diameter at most
-  some multiple of $a^{-n}$ as given by Corollary~\ref{cor:visualdiameter}.
-  Therefore we may replace $f_0$ by $f_0'$ and assume that $f_0$ and $f_1$ are
-  simplicial maps on a common subdivision $J$ of $\boundary\Delta$, and
-  $\newdist(f_0(x), f_1(x))\leq C+D$ for any $x \in \boundary\Delta$.
+  edge $I$ of $\sd^{k_0}\boundary\Delta$, choose an orientation of $I$ and
+  define $f_0'\restricted{\sd^{k_1-k_0}I}$ to be given by $f_0\restricted{I}$
+  on the initial edge of $\sd^{k_1-k_0}I$ and constant equal to the image under
+  $f_0$ of the terminal vertex of $I$ on the rest of $\sd^{k_1-k_0}I$. Then
+  there is a homotopy from $f_0$ to $f_0'$ such that for any $x \in
+  \boundary\Delta$, the path traced by $x$ under the homotopy is contained in a
+  single edge of $K_n$.  It follows that, when composed with $i^n_\infty$, this
+  homotopy gives a homotopy from $i^n_\infty\composed f_0$ to $i^n_\infty
+  \composed f_0'$ such that the path traced by any point in $\boundary\Delta$
+  has diameter at most some multiple of $a^{-n}$ as given by
+  Corollary~\ref{cor:visualdiameter}.  Notice also that $f_0'$ is still a
+  simplicial approximation to $p^\infty_n\composed\gamma_0$.  Therefore we may
+  replace $f_0$ by $f_0'$ and assume that $f_0$ and $f_1$ are simplicial maps
+  on a common subdivision $J$ of $\boundary\Delta$, where now $\newdist(f_0(x),
+  f_1(x))\leq C+D$ for any $x \in \boundary\Delta$.
   
   Then we have a map 
   \begin{equation*}
     f_0 \disjointunion f_1 \from J \times \{0\} \disjointunion J \times \{1\}
           \to K_n,
   \end{equation*}
-  defined on a subset of the product simplicial complex $J \times [0,1]$ and
-  this map is a simplicial approximation to the map $\gamma_0 \disjointunion
-  \gamma_1$ from $J\times\{0\} \disjointunion J \times\{1\}$ to $\boundary G$. 
+  the domain of which is a simplicial complex that we think of as a subspace of
+  the topological space $\boundary\Delta\times[0,1]$. This map is a
+  simplicial approximation to the map $\gamma_0 \disjointunion \gamma_1$ from
+  $J\times\{0\} \disjointunion J \times\{1\}$ to $\boundary G$. 
   
-  Using $\ddag'_C$ we can extend $\gamma_0\disjointunion\gamma_1$ along $x
-  \times [0,1]$ for each vertex $x$ of $J$ in such a way that the extension
-  along each edge $x\times [0,1]$, when composed with $p^\infty_n$, admits a
-  simplicial approximation connecting $f_0(x)$ to $f_1(x)$ after at most $L$
-  subdivisions of the interval. Finally, using the condition $\S_?$, we deduce
-  that $f_0 \disjointunion f_1$ admits an affine extension to $\sd^{L'}(J
-  \times [0,1])$ after Call the extension $F$ and let $h = i^n_\infty \composed
-  F$, so that $h$ is a homotopy from $i^n_\infty\composed f_0$ to
-  $i^n_\infty\composed f_1$. 
+  Using $\ddag'_{C+D}$ we can extend $\gamma_0\disjointunion\gamma_1$ to a simplicial map
+  \begin{equation*}
+    J\times\{0\} \union(\Vert J \times \sd^L [0,1]) \union J\times\{1\} \to K_n,
+  \end{equation*}
+  again thinking of the domain of this map as a subspace of
+  $\boundary\Delta\times[0,1]$ in the same way. Each component of the
+  complement of this subspace in $\boundary\Delta\times[0,1]$ is a $2$-cell
+  whose boundary is an edge path of length $2L+2$. Identifying this edge path
+  with a copy of $\sd^M\boundary\Delta$ with some edges collapsed to a point,
+  we can use the condition $\S_M$ to extend the map to the full $2$-simplex
+  $\Delta$ in such a way that it is affine on $\sd^{L'}\Delta$, and use this
+  extension to extend the map to all of $\boundary\Delta\times[0,1]$.
   
-  It remains to prove the bounded length assertion.  Let $M$ be the number of
-  $2$-simplices in $\sd^{L'}([0,1]^2)$.  Corollary~\ref{cor:visualdiameter}
-  gives a constant $C_0$ so that any $2$-simplex is mapped by $i^n_\infty$ to a
-  set of diameter at most $C_0 a^{-n}$, and so we can take $\mu = MC_0$.
+  It remains to prove the bounded length assertion.  Let $N$ be the number of
+  $2$-simplices in $\sd^M\Delta$.  Corollary~\ref{cor:visualdiameter} gives a
+  constant $C_0$ so that any $2$-simplex is mapped by $i^n_\infty$ to a set of
+  diameter at most $C_0 a^{-n}$, and so we can take $\mu = NC_0$.
 \end{proof}
 
 We now need two more lemmas.
