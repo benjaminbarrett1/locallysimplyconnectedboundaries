@@ -17,8 +17,8 @@
 \subsection{Hyperbolic groups and the Rips complex}
 
 Let $G$ be a hyperbolic group and let $S$ be a symmetric generating set for
-$G$.  Let $\dist(\cdot, \cdot)$ be the natural metric on the Cayley graph of
-$G$ with respect to $S$; on $G$ this metric agrees with the word metric. 
+$G$. Let $\dist(\cdot, \cdot)$ be the natural metric on the Cayley graph of $G$
+with respect to $S$; on $G$ this metric agrees with the word metric. 
 
 Let $\delta \geq 0$ be such that the Cayley graph of $G$ with respect to $S$ is
 $\delta$-hyperbolic, meaning that all geodesic triangles in the Cayley graph of
@@ -46,7 +46,7 @@ very much, so we make the following simple definition.
 \begin{definition}
   For $x$ and $y$ in $K$, choose vertices $x^\star$ and $y^\star$ of the
   minimal simplices containing $x$ and $y$ respectively. Then define
-  $\newdist(x,y) = \dist(x^\star, y^\star)$.
+  $\newdist(x,y) = \dist(x^\star, y^\star)$.  
 \end{definition}
 
 \begin{remark}\label{rem:dist_vs_newdist}
@@ -62,8 +62,8 @@ very much, so we make the following simple definition.
 \end{remark}
 
 We denote by $\gromov{a}{b}{c}$ the Gromov product of $b$ and $c$ in $G \union
-\boundary G$ with respect to base point $a \in G$. Using $\newdist$ we extend the
-Gromov product to $K$:
+\boundary G$ with respect to base point $a \in G$. Using $\newdist$ we extend
+the Gromov product to $K$:
 
 \begin{definition}
   Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
@@ -634,7 +634,9 @@ The maps $q_i$ are described by the following lemma.
 We begin this section by recalling work of Bestvina and Mess, Bowditch, and
 Swarup, which characterise the hyperbolic groups with locally path connected
 boundary. In~\cite{bestvinamess91}, Bestvina and Mess introduce the following
-condition that a hyperbolic group might satisfy.
+condition that a hyperbolic group might satisfy. (Regarding the constants,
+note that with our convention that ideal triangles are $\delta$-hyperbolic,
+$C$ in the cited paper can be taken to be equal to $\delta$.)
 
 \begin{definition}
   We say that $G$ satisfies $\ddag_M$ if there exists a number $L$ such that,
@@ -647,12 +649,12 @@ This property is linked to the connectedness of $\boundary G$ by the following
 propositions:
 
 \begin{proposition}\cite[Proposition 3.2]{bestvinamess91}
-  If $G$ satisfies $\ddag_{11\delta + 3}$ then $\boundary G$ is locally path
+  If $G$ satisfies $\ddag_{8\delta + 3}$ then $\boundary G$ is locally path
   connected.
 \end{proposition}
 
-\begin{proposition}\cite[Proposition ?]{bestvinamess91}\label{prop:BM2}
-  If $\boundary G - \set\xi$ is connected for any $\xi \in \boundary G$ then
+\begin{proposition}\cite[Proposition 3.3]{bestvinamess91}\label{prop:BM2}
+  If $\boundary G - \set\xi$ is connected for all $\xi \in \boundary G$ then
   $G$ satisfies $\ddag_M$ for any $M$.
 \end{proposition}
 
@@ -671,21 +673,21 @@ $\boundary G$ is locally path connected if and only if it is connected.
 In this section we introduce a related condition. This condition is stronger
 than $\ddag_M$, but, using Bestvina and Mess's result, we show that it holds
 under the same assumption. This condition reinterprets the paths in $\ddag_M$
-as paths in the complexes $K_n$, with the additional assumption that these
-paths approximate paths that factor through the projection map $p^\infty_n$.
-This interpretation gives a more systematic method for constructing paths in
-$\boundary G$ from paths in the spheres $K_n$, and permits a generalisation to
-higher dimensional connectivity.
+as edge paths in the complexes $K_n$, with the additional assumption that
+these paths approximate paths that factor through the projection map
+$p^\infty_n$. This interpretation strengthens the link between
+path-connectedness of the boundary and connectedness of the complexes $K_n$.
 
 \begin{definition}
-  We say that $G$ satisfies $\ddag'_M$ if there exist numbers $L$ and $n_0$ such that,
-  for any $n \geq n_0$, any $\zeta_1$ and $\zeta_2$ in $\boundary G$
-  such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$, and
-  any vertices $x_1$ and $x_2$ of $K_n$ adjacent to $p^\infty_n(\zeta_1)$ and
-  $p^\infty_n(\zeta_2)$, there is a path $\alpha\from I\to \boundary G$ from
-  $\zeta_1$ to $\zeta_2$ in $\boundary G$ such that $p^\infty_n\composed\alpha$
-  admits a simplicial approximation connecting $x_1$ to $x_2$ in $K_n$ after at
-  most $L$ barycentric subdivisions of $I$.
+  We say that $G$ satisfies $\ddag'_M$ if there exist numbers $L$ and $n_0$
+  such that, for any $n \geq n_0$, any $\zeta_1$ and $\zeta_2$ in $\boundary
+  G$ such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$,
+  and any vertices $x_1$ and $x_2$ of the minimal simplices of $K_n$
+  containing $p^\infty_n(\zeta_1)$ and $p^\infty_n(\zeta_2)$, there is a path
+  $\alpha\from I\to \boundary G$ from $\zeta_1$ to $\zeta_2$ in $\boundary G$
+  such that $p^\infty_n\composed\alpha$ admits a simplicial approximation
+  connecting $x_1$ to $x_2$ in $K_n$ after at most $L$ barycentric
+  subdivisions of $I$.
 \end{definition}
 
 \begin{proposition}
@@ -696,7 +698,7 @@ higher dimensional connectivity.
 \begin{proof}
   Suppose $\ddag'_M$ does not hold. Then for any $i$ there exists a number $n_i
   \geq i$, points $\zeta_1^i$ and $\zeta_2^i$ in $\boundary G$ and vertices
-  $x_1^i$ and $y_1^i$ of $K_{n_i}$ adjacent in $K_{n_i}$ to
+  $x_1^i$ and $y_1^i$ of the minimal simplex of $K_{n_i}$ containing 
   $p^\infty_{n_i}(\zeta^i_1)$ and $p^\infty_{n_i}(\zeta^i_2)$ such that there
   is no path $\alpha$ from $\zeta_1^i$ to $\zeta_2^i$ in $\boundary G$ where
   $p^\infty_{n_i}\composed\alpha$ admits a simplicial approximation after at
@@ -706,25 +708,24 @@ higher dimensional connectivity.
   $x_1$ for all $i$ vertices and pass to a subsequence as in
   Section~\ref{sec:horoball}, so that $g_i\to\xi$ as $i \to\infty$. Since
   $\dist(x_1^i, x_2^i)$ is bounded we can pass to a deeper subsequence so that
-  $g_i\cdot x_2^i$ is constant equal to $x_2$ for all $i$, and $x_2$ is
-  contained in $H_i$ for all $i$. 
+  $g_i\cdot x_2^i$ is constant equal to some vertex $x_2$ for all $i$, and
+  $x_2$ is contained in $H_i$ for all $i$. 
 
   Now, $g_i\cdot \zeta_1^i$ and $g_i\cdot\zeta_2^i$ map by $q_i$ to points in
-  simplices adjacent to $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} we
+  simplices containing $x_1$ and $x_2$, so by Lemma~\ref{lem:propermaps} we
   can pass to a subsequence so that the sequences $g_i\cdot \zeta_1^i$ and
   $g_i\cdot\zeta_2^i$ converge to points $\zeta_1$ and $\zeta_2$ in $\boundary
   G - \set\xi$ as $i \to \infty$.
   
   Let $C$ be a compact subset of $\boundary G - \set\xi$ containing a path
   $\beta$ from $\zeta_1$ to $\zeta_2$ and also a neighbourhood of each of the
-  points $\zeta_1$ and $\zeta_2$. By Lemma~\ref{lem:uniform_continuity} and
-  compactness of $C$, there exists $\epsilon > 0$ and $i_0 \in \naturals$ such
-  that for subset $V$ of $C$ of diameter at most $\epsilon$ and any $i \geq
-  i_0$, $q_i(V)$ has diameter (with respect to $\newdist$) at most $6\delta+2$.
-  By increasing $i_0$ we may also assume that $\zeta_1^i$ and $\zeta_2^i$ are
-  contained in $C$ for $i \geq i_0$. By decreasing $\epsilon$ we may assume
-  that the $\epsilon$-neighbourhoods of $\zeta_1$ and $\zeta_2$ are contained
-  in $C$. 
+  points $\zeta_1$ and $\zeta_2$. By Lemma~\ref{lem:uniform_continuity}, there
+  exists $\epsilon > 0$ and $i_0 \in \naturals$ such that for subset $V$ of
+  $C$ of diameter at most $\epsilon$ and any $i \geq i_0$, $q_i(V)$ has
+  diameter (with respect to $\newdist$) at most $6\delta+2$. By increasing
+  $i_0$ we may also assume that $\zeta_1^i$ and $\zeta_2^i$ are contained in
+  $C$ for $i \geq i_0$. By decreasing $\epsilon$ we may assume that the
+  $\epsilon$-neighbourhoods of $\zeta_1$ and $\zeta_2$ are contained in $C$. 
 
   Since $\boundary G$ is locally path connected, for $j$ equal to $1$ or $2$
   there exists a neighbourhood of $\zeta_j$ such that any point in this
@@ -755,11 +756,12 @@ from from~\cite{bestvinamess91}.
 \end{lemma}
 
 \begin{proof}
-  For the first claim, see~\cite{bestvinamess91}. For the second, let $p$ be a 
-  point on $\alpha$ such that $\dist(x, p) \leq \delta$. Then the triangle 
-  inequality shows that $\abs{\dist(e,p) - \dist(e,x)} \leq \delta$, and 
-  so $\dist(p, \alpha(\dist(e,x))) \leq \delta$. Then the result 
-  follows from another application of the triangle inequality.
+  For the first claim, see~\cite{bestvinamess91} and recall that ideal
+  triangles are assumed to be $\delta$-hyperbolic. For the second, let $p$ be
+  a point on $\alpha$ such that $\dist(x, p) \leq \delta$. Then the triangle
+  inequality shows that $\abs{\dist(e,p) - \dist(e,x)} \leq \delta$, and so
+  $\dist(p, \alpha(\dist(e,x))) \leq \delta$. Then the result follows from
+  another application of the triangle inequality.
 \end{proof}
 
 \begin{proposition}\label{prop:i_in_dimension_1}
@@ -767,7 +769,7 @@ from from~\cite{bestvinamess91}.
   $n_0$ such that for $n\geq n_0$ there is a map $i^n_{n+1}\from \Skel_1 K_n
   \to \Skel_1 K_{n+1}$ satisfying the following conditions:
   \begin{enumerate}
-    \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
+    \item for each $n$, $i^n_{n+1}$ is a simplicial map on the subdivision
       $\sd_L\Skel_1 K_n$,
     \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
       and
@@ -787,12 +789,12 @@ from from~\cite{bestvinamess91}.
   \leq 2\delta + 1$, as required by the second condition.
 
   For an edge $e$ of $K_n$ connecting vertices $x_1$ and $x_2$,
-  $\dist(i^n_{n+1}(x_1), i^n_{n+1}(x_2))$ is at most $D + 4\delta + 2$. It
-  follows that there is a path $\alpha$ from $\gamma_{x_1}(\infty)$ to
-  $\gamma_{x_2}(\infty)$ in $\boundary G$ so that
-  $p^\infty_{n+1}\composed\alpha$ admits a simplicial approximation connecting
-  $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after at most $L$ subdivisions. Define
-  $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
+  $\dist(i^n_{n+1}(x_1), i^n_{n+1}(x_2))$ is at most $2(2\delta + 1) + D = D +
+  4\delta + 2$. It follows from $\ddag'_{D+4\delta+2}$ that there is a path
+  $\alpha$ from $\gamma_{x_1}(\infty)$ to $\gamma_{x_2}(\infty)$ in $\boundary
+  G$ so that $p^\infty_{n+1}\composed\alpha$ admits a simplicial approximation
+  connecting $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after $L$ subdivisions.
+  Define $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
 
   This process defines a map $i^n_{n+1}\from \Skel_1 K_n\to \Skel_1 K_{n+1}$
   with the required properties.
@@ -1244,7 +1246,8 @@ We now need two more lemmas.
   \gamma_m(y)) \leq \epsilon/3$. Increasing $M$ if necessary we may assume that
   $\mu a^{-m-n} \leq \epsilon/3$.
   Finally, let $U$ be a neighbourhood of $x$ such that $\rho(\gamma(x),
-  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and $t \in (0, 2^{-M}]$,
+  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and 
+  $t \in (0, 2^{-M}]$,
   \begin{equation*}
     \rho(h(x,0), h(y,t)) \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} +
         \frac{\epsilon}{3} = \epsilon.
@@ -1254,7 +1257,8 @@ We now need two more lemmas.
   To prove the final claim, we immediately see that for any $x \in
   \boundary\Delta$,
   \begin{equation*}
-    \Diam(h(\{x\}\times (0,1])) \leq \mu \left(\sum_{m\geq 0} a^{-m}\right)a^{-n},
+    \Diam(h(\{x\}\times (0,1])) 
+            \leq \mu \left(\sum_{m\geq 0} a^{-m}\right)a^{-n},
   \end{equation*}
   and then $\Diam(h(\{x\}\times [0,1]))$ satisfies the same inequality by
   continuity of $h$.
