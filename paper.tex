@@ -10,7 +10,64 @@
 
 \section{Introduction}
 
-\todo{Write introduction}
+\begin{enumerate}
+  \item Introduce boundaries. What are they, why are they important.
+  \item Kapovich's question. Not much flexibility, not very many restrictions
+    either.
+  \item Partial answers.
+\end{enumerate}
+
+The goal of this paper is to prove the following theorem, which restricts the
+local complexity of the boundary of a hyperbolic group in terms of its global
+complexity.
+
+\begin{theorem}\label{thm:main_theorem}
+  Let $G$ be a one-ended hyperbolic group. Then $\boundary G$ is locally simply
+  connected if and only if $\boundary G - \set\xi$ is simply connected for any
+  point $\xi \in \boundary G$.
+\end{theorem}
+
+In Section~\ref{sec:spheres} we use the Rips complex of a group $G$ to build a
+sequence of simplicial complexes $(K_n)_{n \geq 0}$ that give successively
+better approximations to the boundary $\boundary G$. These simplicial complexes
+are spheres in the Rips complex. There exist natural simplicial maps
+$p^n_m\from K_n\to K_m$ for $n - m$ large enough, and there exist natural
+continuous maps $p^\infty_n\from\boundary G \to K_n$ for all $n$.  The
+remainder of Section~\ref{sec:spheres} will be spent proving quantitative
+statements about these maps.
+
+In Section~\ref{sec:horoball} we prove a compactness result: given a sequence
+of vertices $v_n \in K_n$, there exist group elements $g_n$ and a subcomplex
+$H$ of the Rips complex such that translation by $g_n$ maps a large
+neighbourhood in $K_n$ of $v_n$ onto a large neighbourhood in $H$ of $g_n\cdot
+v_n$.  We may further assume that $(g_n)$ converges to a point $\xi \in
+\boundary G$, and then we think of $H$ as a horoball in $G$ asymptotic to
+$\xi$. We then spend the remainder of Section~\ref{sec:horoball} describing
+projection maps $\boundary G - \set\xi \to H$.
+
+In Section~\ref{sec:double_dagger} we begin by recalling the so-called
+double-dagger condition $\ddag$ of Bestvina and Mess. This condition is
+guaranteed to hold if $\boundary G$ does not contain a cut point, and implies
+that $\boundary G$ is locally path connected. We then modify the condition to
+allow for easier generalisation, and introduce a new condition $\S$, which we
+will see to be related the local simple connectedness of $\boundary G$. Using
+the compactness results from Section~\ref{sec:horoball} we show that this
+condition is satisfied whenever we have that $\boundary G - \set\xi$ is simply
+connected for any $\xi$ in $\boundary G$.
+
+Then, in Section~\ref{sec:local_simple_connectedness} we show that our new
+condition $\S$ implies the local simple connectedness of $\boundary G$. We
+begin by using $\S$ to construct a sequence of maps $(i^n_\infty)_n$ from the
+2-skeleton of $K_n$ to $\boundary G$. These maps can be thought of as
+approximate sections of $p^\infty_n$, in that $i^n_\infty\composed p^\infty_n$
+converges uniformly to the identity map $\boundary G \to \boundary G$ as $n$
+tends to $\infty$. By controlling the diameter of the image under $i^n_\infty$
+of a simplex in $K_n$ we are able to prove the local simple connectedness of
+$\boundary G$.
+
+Finally, in Section~\ref{sec:conclusion} we put the results of the previous
+sections together to prove Theorem~\ref{thm:main_theorem}, and conclude the
+paper with some questions about strengthenings and generalisations.
 
 \section{The Rips complex and the Gromov boundary}\label{sec:spheres}
 
@@ -22,7 +79,7 @@ with respect to $S$; on $G$ this metric agrees with the word metric.
 
 Let $\delta \geq 0$ be such that the Cayley graph of $G$ with respect to $S$ is
 $\delta$-hyperbolic, meaning that all geodesic triangles in the Cayley graph of
-$G$ are $\delta$-thin. To ameliorate the growth of constants later on we in
+$G$ are $\delta$-thin. To reduce the growth of constants later on we in
 fact assume that all \emph{ideal} triangles (with vertices in $G \union
 \boundary G$) are $\delta$-hyperbolic; this can be guaranteed by multiplying
 $\delta$ by $4$.
@@ -872,11 +929,11 @@ We will use the following lemma:
   to a point.
 \end{proof}
 
-\section{Local simple connectedness}
+\section{Local simple connectedness}\label{sec:local_simple_connectedness}
 
 Our goal in this section is to prove the following theorem.
 
-\begin{restatable}{theorem}{ddagimpliesLCd}\label{thm:ddagimpliesLCd}
+\begin{restatable}{theorem}{ddagimpliesLCtwo}\label{thm:ddagimpliesLCtwo}
   If $G$ satisfies $\ddag'_M$ and $\S_M$ for all $M$ then $\boundary G$ is
   locally simply connected.
 \end{restatable}
@@ -886,7 +943,7 @@ $\ddag'_M$ and $\S_M$ for all $M$.
 
 \subsection{Constructing maps to $\boundary G$}
 
-We begin the proof of \cref{thm:ddagimpliesLCd} by proving the following 
+We begin the proof of \cref{thm:ddagimpliesLCtwo} by proving the following 
 proposition, which extends the maps constructed in
 Proposition~\ref{prop:i_in_dimension_1}.
 
@@ -1264,9 +1321,9 @@ We now need two more lemmas.
   continuity of $h$.
 \end{proof}
 
-\Cref{thm:ddagimpliesLCd} follows from this proposition:
+\Cref{thm:ddagimpliesLCtwo} follows from this proposition:
 
-\ddagimpliesLCd*
+\ddagimpliesLCtwo*
 
 \begin{proof}
   To begin, let $\nu$ and $m_0 \geq n_0$ be as in
@@ -1292,6 +1349,73 @@ We now need two more lemmas.
                   &\leq (1 + a\nu/k_1) \Diam\image\gamma \qedhere
   \end{align*}
 \end{proof}
+
+\section{Conclusion}\label{sec:conclusion}
+
+The results of Sections~\ref{sec:double_dagger}
+and~\ref{sec:local_simple_connectedness} together imply one direction of
+Theorem~\ref{thm:main_theorem}; we now complete the proof of this theorem.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main_theorem}]
+  If $G$ is a one-ended hyperbolic group such that $\boundary G - \set\xi$ is
+  simply connected for any $\xi \in \boundary G$, then the condition $\S_M$ is
+  satisfied for any $M$ by Proposition~\ref{prop:sufficient_condition}. It
+  follows that $\boundary G$ is locally simply connected by
+  Theorem~\ref{thm:ddagimpliesLCtwo}.
+
+  For the converse, suppose that $\boundary G$ is connected and $\boundary$ 
+  is locally simply connected. Let $\xi$ be a point in $\boundary G$ and let
+  $\gamma\from S^1\to\boundary G - \set\xi$ be a continuous map. 
+
+  The point $\xi$ is a conical limit point for the action of $G$ on $\boundary
+  G$, so there exist points $\zeta_-$ and $\zeta_+$ in $\boundary G$ and a
+  sequence $(g_n)_{n = 1}^\infty$ of elements of $G$ such that:
+  \begin{enumerate}
+    \item the sequence $g_n\cdot\xi$ converges to $\zeta_-$ as $n$ tends to
+      infinity, and
+    \item the sequence $(g_n)$, considered as continuous maps from $\boundary
+      G$ to $\boundary G$, converges uniformly on compact subsets of $\boundary
+      G - \set\xi$ to the constant map with image $\zeta_+$.
+  \end{enumerate}
+  See~\cite{bowditch99c} for further explanation of this property.
+
+  Let $U$ be a neighbourhood of $\zeta_+$ such that the closure of $U$ does not
+  contain $\zeta_-$ and let $V$ be a neighbourhood of $\zeta_+$ contained in
+  $U$ such that any map from the circle to $V$ is nullhomotopic in $U$. Then by
+  the properties of the sequence $(g_n)$ described above, there exists an
+  element $g_n$ such that $g_n\cdot\xi \notin U$ and $g_n\composed\gamma$ has
+  image in $V$. Then $g_n\composed\gamma$ admits a contracting homotopy with
+  image in $U$, and the image of this homotopy under $g_n^{-1}$ is a
+  contracting homotopy of $\gamma$ with image contaed in $\boundary G -
+  \set\xi$.
+\end{proof}
+
+If $G$ is a group such that $\boundary G - \set\xi$ is disconnected for some
+point $\xi$ in $\boundary G$, arguments due to Bowditch~\cite{bowditch98b} and
+Swarup~\cite{swarup96} build an action of $G$ on a tree-like space to show that
+$\boundary G$ is disconnected. It follows that $\boundary G$ is locally path
+connected if and only if either $G$ is one- or two-ended. No such argument is
+available in the higher dimensional case, but on the other hand no known
+example of a boundary of a hyperblic group contradicts the corresponding
+assertion. Therefore the following questions are natural.
+
+\begin{question} Is there a one-ended hyperbolic group $G$ such that $\boundary
+  G$ is simply connected but not locally simply connected? Conversely, if
+  $\boundary G$ is locally simply connected but not simply connected, does it
+  follow that $\boundary G$ is a circle and $G$ is virtually Fuchsian?
+\end{question}
+
+It is also natural to ask whether the theorem of this paper generalises to
+higher dimensions. The difficulty is in generalising the proof of
+Proposion~\ref{prop:sufficient_condition}: given a sequence of maps from $S^0$
+to $\boundary G$ we pass to a uniformly convergent subsequence, but this is not
+possible for higher dimensional spheres without controlling the modulus of
+continuity of the maps.
+
+\begin{question} Suppose that $\boundary G - \set\xi$ is $k$-connected for any
+  point $\xi \in \boundary G$. Does it follow that $\boundary G$ is
+  locally-$k$-connected?
+\end{question}
 
 \bibliography{references}
 \end{document}
