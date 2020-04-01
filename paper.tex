@@ -6,20 +6,58 @@
 \begin{document}
 \maketitle
 
-\todo{Proof-read all}
+\todo{Proof-read section 3 onwards}
 
 \section{Introduction}
 
-\begin{enumerate}
-  \item Introduce boundaries. What are they, why are they important.
-  \item Kapovich's question. Not much flexibility, not very many restrictions
-    either.
-  \item Partial answers.
-\end{enumerate}
+If a group acts geometrically on a proper hyperbolic space then, following
+Gromov~\cite{gromov87}, we say that the group is hyperbolic, and quasi-isometry
+invariants of the space can be thought of as invariants of the group. One
+particularly powerful quasi-isometry invariant that can be used in
+this way is the Gromov boundary of the space. This is the set of geodesic rays
+in the space eminating from a fixed base point, where rays are defined to be
+equivalent if they remain a bounded distance apart. In this way one can define
+the boundary $\boundary G$ of a hyperbolic group $G$.
+
+The boundary of a hyperbolic group is useful as a quasi-isometry invariant of
+the group: if groups $G_1$ and $G_2$ are quasi-isometric then $\boundary G_1
+\isom \boundary G_2$. Furthermore, certain topological properties of the
+boundary translate directly into algebraic properties of the group. By a
+theorem of Stallings~\cite{stallings68}, $\boundary G$ is disconnected if and
+only if $G$ admits a splitting as an amalgamated product or HNN extension over
+a finite subgroup. A theorem of Bowditch further characterises splittings over
+virtually cyclic subgroups: if $\boundary G$ is connected then $G$ splits over
+a virtually cyclic subgroup if and only if $\boundary G$ can be separated by
+the removal of a pair of points. Sometimes the topology of $\boundary G$
+determines $G$ even more precisely: if $\boundary G$ is homeomorphic to a
+circle then the Convergence Group Theorem of Tukia, Casson, Jungreis and
+Gabai~\cite{tukia88,cassonjungreis94,gabai92} tells us that $G$ contains a
+surface group at finite index.
+
+In~\cite{gromov87}, Gromov showed that the boundary of a hyperbolic group is a
+compact metric space with finite topological dimension. Beyond these basic
+properties, and excepting the case when $G$ is the fundamental group of a
+negatively curved smooth manifold, in which case $\boundary G$ is a sphere,
+boundaries of hyperbolic groups tend to be wild, fractal-like objects.
+In~\cite{kapovichkleiner00}, Kapovich and Kleiner ask the following question.
+
+\begin{question}\cite[Question A]{kapovichkleiner00}
+  Which topological spaces are boundaries of hyperbolic groups?
+\end{question}
+
+On the one hand, finding concrete examples of spaces arising as boundaries has
+proved difficult, but on the other, relatively few restrictions on the topology
+of the boundary are known. One restriction of particular importance is a
+theorem of Bestvina and Mess~\cite{bestvinamess91}, which states that if
+$\boundary G$ is connected and is not disconnected by the removal of any single
+point then $\boundary G$ is locally path connected. Combined with a result of
+Bowditch~\cite{bowditch98b} and Swarup~\cite{swarup96}, this implies that
+$\boundary G$ is locally path connected whenever it is connected.
 
 The goal of this paper is to prove the following theorem, which restricts the
 local complexity of the boundary of a hyperbolic group in terms of its global
-complexity.
+complexity in a similar way to the theorem of Bestvina and Mess described
+above.
 
 \begin{theorem}\label{thm:main_theorem}
   Let $G$ be a one-ended hyperbolic group. Then $\boundary G$ is locally simply
@@ -27,14 +65,15 @@ complexity.
   point $\xi \in \boundary G$.
 \end{theorem}
 
-In Section~\ref{sec:spheres} we use the Rips complex of a group $G$ to build a
-sequence of simplicial complexes $(K_n)_{n \geq 0}$ that give successively
-better approximations to the boundary $\boundary G$. These simplicial complexes
-are spheres in the Rips complex. There exist natural simplicial maps
-$p^n_m\from K_n\to K_m$ for $n - m$ large enough, and there exist natural
-continuous maps $p^\infty_n\from\boundary G \to K_n$ for all $n$.  The
-remainder of Section~\ref{sec:spheres} will be spent proving quantitative
-statements about these maps.
+The paper is structured as follows. In Section~\ref{sec:spheres} we use the
+Rips complex of the group $G$ to build a sequence $(K_n)_{n \geq 0}$ of
+simplicial complexes that give successively better approximations to the
+boundary $\boundary G$. These simplicial complexes are spheres in the Rips
+complex. There exist natural simplicial maps $p^n_m\from K_n\to K_m$ for $n -
+m$ large enough, and there exist natural continuous maps
+$p^\infty_n\from\boundary G \to K_n$ for all $n$.  The remainder of
+Section~\ref{sec:spheres} will be spent proving quantitative statements about
+these maps.
 
 In Section~\ref{sec:horoball} we prove a compactness result: given a sequence
 of vertices $v_n \in K_n$, there exist group elements $g_n$ and a subcomplex
@@ -43,21 +82,23 @@ neighbourhood in $K_n$ of $v_n$ onto a large neighbourhood in $H$ of $g_n\cdot
 v_n$.  We may further assume that $(g_n)$ converges to a point $\xi \in
 \boundary G$, and then we think of $H$ as a horoball in $G$ asymptotic to
 $\xi$. We then spend the remainder of Section~\ref{sec:horoball} describing
-projection maps $\boundary G - \set\xi \to H$.
+projection maps $\boundary G - \set\xi \to H$. This relates the topology of
+$\boundary G - \set\xi$ to that of $H$, and hence to the topology of large
+balls in $K_n$ for $n$ sufficiently large.
 
 In Section~\ref{sec:double_dagger} we begin by recalling the so-called
-double-dagger condition $\ddag$ of Bestvina and Mess. This condition is
+double-dagger condition $\ddag_M$ of Bestvina and Mess. This condition is
 guaranteed to hold if $\boundary G$ does not contain a cut point, and implies
 that $\boundary G$ is locally path connected. We then modify the condition to
-allow for easier generalisation, and introduce a new condition $\S$, which we
+allow for easier generalisation, and introduce a new condition $\S_M$, which we
 will see to be related the local simple connectedness of $\boundary G$. Using
 the compactness results from Section~\ref{sec:horoball} we show that this
 condition is satisfied whenever we have that $\boundary G - \set\xi$ is simply
 connected for any $\xi$ in $\boundary G$.
 
 Then, in Section~\ref{sec:local_simple_connectedness} we show that our new
-condition $\S$ implies the local simple connectedness of $\boundary G$. We
-begin by using $\S$ to construct a sequence of maps $(i^n_\infty)_n$ from the
+condition $\S_M$ implies the local simple connectedness of $\boundary G$. We
+begin by using $\S_M$ to construct a sequence of maps $(i^n_\infty)_n$ from the
 2-skeleton of $K_n$ to $\boundary G$. These maps can be thought of as
 approximate sections of $p^\infty_n$, in that $i^n_\infty\composed p^\infty_n$
 converges uniformly to the identity map $\boundary G \to \boundary G$ as $n$
@@ -74,26 +115,37 @@ paper with some questions about strengthenings and generalisations.
 \subsection{Hyperbolic groups and the Rips complex}
 
 Let $G$ be a hyperbolic group and let $S$ be a symmetric generating set for
-$G$. Let $\dist(\cdot, \cdot)$ be the natural metric on the Cayley graph of $G$
-with respect to $S$; on $G$ this metric agrees with the word metric. 
+$G$. Let $e$ be the identity element of $G$, which we use as a base point. Let
+$\dist(\cdot, \cdot)$ be the length metric on the Cayley graph of $G$ with
+respect to $S$ obtained by setting all edges to have length $1$; on $G$ this
+metric agrees with the word metric. 
 
-Let $\delta \geq 0$ be such that the Cayley graph of $G$ with respect to $S$ is
-$\delta$-hyperbolic, meaning that all geodesic triangles in the Cayley graph of
-$G$ are $\delta$-thin. To reduce the growth of constants later on we in
-fact assume that all \emph{ideal} triangles (with vertices in $G \union
-\boundary G$) are $\delta$-hyperbolic; this can be guaranteed by multiplying
-$\delta$ by $4$.
+Let $\delta \geq 0$ be large enough to ensure that the Cayley graph of $G$ with
+respect to $S$ is $\delta$-hyperbolic, meaning that all geodesic triangles in
+the Cayley graph of $G$ are $\delta$-slim. (This means that each edge of each
+triangle is contained in the $\delta$-neighbourhood of the union of the other
+two edges.) Let $\boundary G$ be the boundary of the group, which can be
+identified with the Gromov boundary of the Cayley graph of $G$. To reduce the
+growth of constants later on we in fact assume that all \emph{ideal} triangles
+(with vertices in $G \union \boundary G$) are $\delta$-hyperbolic; this can be
+guaranteed by multiplying $\delta$ by $4$.  
 
-Fix an ordering on $S$. Let $S^\star$ be the free monoid on 
-$S$; order $S^\star$ by the lex-least ordering: this ordering is defined by 
-requiring that shorter words precede longer and that words of equal length are 
-ordered lexicographically. Let $D = 10^6\delta + 10^6$.
+Given points $x$ and $y$ in $G \union \boundary G$ we will often denote by
+$[x,y]$ a geodesic from $x$ to $y$, thought of as a subset of the Cayley graph
+together with its boundary. Geodesics in hyperbolic spaces are not necessarily
+unique, so this notation will stand for a choice of geodesic, but the choice
+will not matter.
+
+Throughout this and subsequent sections we use~\cite{bridsonhaefliger99} as a
+reference for fundamental properties of hyperbolic spaces. The reader is
+referred to~\cite{benaklikapovich00} for a useful survey on boundaries of
+hyperbolic groups.
 
 \begin{definition}
-  We denote by $K$ the \emph{Rips complex} of $G$; this is the simplicial
-  complex with vertex set $G$ such that a finite set of elements of $G$ spans a
-  simplex if and only if that set has diameter at most $D$ with respect to the
-  word metric $d$.
+  Let $D = 10^6\delta + 10^6$.  We denote by $K$ the \emph{Rips complex} of
+  $G$; this is the simplicial complex with vertex set $G$ such that a finite
+  set of elements of $G$ spans a simplex if and only if that set has diameter
+  at most $D$ with respect to the word metric $d$.
 \end{definition}
 
 We will sometimes want to refer to distances between points in $K$. The
@@ -107,12 +159,15 @@ very much, so we make the following simple definition.
 \end{definition}
 
 \begin{remark}\label{rem:dist_vs_newdist}
-  The extended metric $\newdist$ is not a metric, but this will not cause a
-  problem.
+  The extended ``metric'' $\newdist$ is not a metric, since it only satisifes
+  the triangle inequality up to a bounded additive error, but this will not
+  cause a problem.
 
-  Notice that $\newdist$ agrees with $\dist$ on $G$, and for any $x$ and $y$ in
-  $K$, if $x^\star$ and $y^\star$ are \emph{any} vertices of simplices
-  containing $x$ and $y$ respectively, then
+  Notice that $\newdist$ agrees with $\dist$ on $G$, and also that the choice
+  of vertices $x^\star$ and $y\star$ in the definition does not matter very
+  much: for any $x$ and $y$ in $K$, if $x^\star$ and $y^\star$ are an
+  alternative choice of vertices of simplices containing $x$ and $y$
+  respectively, then
   \begin{equation*}
     \abs{\newdist(x,y) - \dist(x^\star, y^\star)} \leq 2D
   \end{equation*}
@@ -123,6 +178,7 @@ We denote by $\gromov{a}{b}{c}$ the Gromov product of $b$ and $c$ in $G \union
 the Gromov product to $K$:
 
 \begin{definition}
+  \todo{Extend to the boundary}
   Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
   $\gromov{x}{y}{z}$ of $x$, $y$ and $z$} as follows.
   \begin{equation*}
@@ -131,7 +187,7 @@ the Gromov product to $K$:
   \end{equation*}
 \end{definition}
 
-We now equip $K$ with a topology as follows.
+We now equip $K \union \boundary G$ with a topology as follows.
 
 \begin{definition}
   We define a topology on $K \union \boundary G$ by describing a neighbourhood
@@ -174,9 +230,14 @@ these complexes to approximate the topology of $\boundary G$.
 \end{definition}
 
 \begin{definition}
+  Fix an ordering on $S$. Let $S^\star$ be the free monoid on 
+  $S$; order $S^\star$ by the lex-least ordering: this ordering is defined by 
+  requiring that shorter words precede longer and that words of equal length are 
+  ordered lexicographically. 
+
   For $n \geq m$ define a map $p^n_m \from S_n \to S_m$ as follows.
-  Given an element $g$ of $S_n$ let $w_g \in S^\star$ be the lexicographically
-  first representative of $g$; note that this word in $S^\star$ necessarily has
+  Given an element $g$ of $S_n$ let $w_g \in S^\star$ be the lex-least
+  representative of $g$; note that this word in $S^\star$ necessarily has
   length $n$.  Then define $p^n_m(g)$ to be the element of $G$ given by
   truncating $w_g$ to a word of length $m$.
 \end{definition}
@@ -187,8 +248,8 @@ these complexes to approximate the topology of $\boundary G$.
 \end{lemma}
 
 \begin{proof}
-  Let $\set{g_1, \dotsc, g_k}$ span a simplex in $K_n$.  Then for $g_i$ and
-  $g_j$ in $\set{g_1, \dotsc, g_k}$, the distance from $p^n_m(g_i))$ to a
+  Let $\set{g_1, \dotsc, g_k}$ span a simplex in $K_n$.  Then for $i$ and
+  $j$ in $\set{1, \dotsc, k}$, the distance from $p^n_m(g_i)$ to any
   geodesic from $g_i$ to $g_j$ is at least $n - m - D$, which is greater than
   $\delta$, so by hyperbolicity of a triangle with vertices $e$, $g_i$ and $g_j$,
   the distance from $p^n_m(g_i)$ to any geodesic from $e$ to $g_j$ is at most
@@ -198,14 +259,16 @@ these complexes to approximate the topology of $\boundary G$.
   p^n_m(g_k)}$ is at most $D$ and therefore the set spans a simplex in $K_m$.
 \end{proof}
 
-Note that $p^m_l \composed p^n_m = p^n_l$ whenever these maps are defined, and 
-therefore $(\set{K_n}_n, \{p^n_m\}_{n - m > D + \delta})$ is an inverse system 
-of simplicial complexes.
+\begin{remark}
+  Note that $p^m_l \composed p^n_m = p^n_l$ whenever these maps are defined, and 
+  therefore $(\set{K_n}_n, \{p^n_m\}_{n - m > D + \delta})$ is an inverse system 
+  of simplicial complexes.
+\end{remark}
 
 \subsection{Projecting from $\boundary G$}
 
 In order to define projections from $\boundary G$ into our system $(K_n)$, we
-first describe a sequence of open covers of $\boundary G$.
+first describe a sequence of covers of $\boundary G$.
 
 \begin{definition}
   For $x \in S_n$ let $U_n(x)$ be the set of limit points in $\boundary G$ of 
@@ -235,7 +298,7 @@ first describe a sequence of open covers of $\boundary G$.
 
 \begin{definition}
   For each $n$, fix a partition of unity subordinate to the covering
-  $\set{U_n(x)}_{x \in S_n}$ of $\boundary G$. This is gives a
+  $\set{U_n(x)}_{x \in S_n}$ of $\boundary G$. Equivalently, this is a
   continuous map from $\boundary G$ to the nerve of the covering. Denote by
   $p^\infty_n\from \boundary G \to K_n$ the composition of this map with the
   inclusion of the nerve into $K_n$, as given by Lemma~\ref{lem:L_Ksimplicial}.
@@ -254,9 +317,10 @@ first describe a sequence of open covers of $\boundary G$.
   $\dist(\gamma_1(n), x_1) \leq 2\delta+1$ and $\dist(\gamma_2(n+1),
   x_2) \leq 2\delta+1$.
 
-  Then let $y_1 = \gamma_1(n)$ and $y_2 = \gamma_2(n+1)$. We have
-  $\dist(y_1, \gamma_2) \leq 2\delta$, so by the triangle inequality
-  $\dist(y_1, y_2) \leq 4\delta +1$. It follows that $\dist(x_1, x_2)
+  Then let $y_1 = \gamma_1(n)$ and $y_2 = \gamma_2(n+1)$. By considering the
+  degenerate triangle with edges $\gamma_1$ and $\gamma_2$,
+  $\dist(y_1, \gamma_2) \leq \delta$, so by the triangle inequality
+  $\dist(y_1, y_2) \leq 2\delta +1$. It follows that $\dist(x_1, x_2)
   \leq 6\delta+3$, and so the claimed inequality holds by
   \cref{rem:dist_vs_newdist}.
 \end{proof}
@@ -301,14 +365,15 @@ To prove this proposition we first prove the following lemma.
       &\geq \min\{m_1, m_2\} - \delta
   \end{align*} 
   and the result follows. Otherwise $p_1$ is on $[\alpha_1(n_1),
-  \alpha_2(n_2)]$. Similarly either the claimed result holds, or there is a
-  point $p_2$ on $[\alpha_1(n_1), \alpha_2(n_2)]$ within a
-  distance $\delta$ of $\alpha_1(m_2)$.
+  \alpha_2(n_2)]$. Similarly either the claimed inequality holds, or there is a
+  point $p_2$ on $[\alpha_1(n_1), \alpha_2(n_2)]$ within a distance $\delta$ of
+  $\alpha_1(m_2)$.
   
   If $p_1$ lies between $\alpha_2(n_2)$ and $p_2$ on $[\alpha_1(n_1),
   \alpha_2(n_2)]$ then, by considering the triangle with vertices $p_2$,
   $\alpha_2(m_2)$ and $\alpha_2(n_2)$, we see that $\dist(p_1, \alpha_2) \leq
-  2\delta$. Therefore $\dist(\alpha_1(m_1), \alpha_2) \leq 3\delta$, and so
+  2\delta$. Therefore $\dist(\alpha_1(m_1), \alpha_2) \leq 3\delta$, and so by
+  a repetition of the argument used earlier,
   \begin{equation*}
     \gromov{e}{\alpha_1(m_1)}{\alpha_2(m_2)} \geq \min\{m_1, m_2\} - 3\delta
   \end{equation*}
@@ -326,7 +391,7 @@ To prove this proposition we first prove the following lemma.
            &\mathllap{{}={}}\left(\dist(\alpha_1(m_1), \alpha_1(n_1)) - \dist(\alpha_1(m_1), p_1)\right) \\
            &+ \left(\dist(\alpha_1(m_1), \alpha_2(m_2)) - \dist(p_1, p_2)\right) \\
            &+ \left(\dist(\alpha_2(m_2), \alpha_2(n_2)) - \dist(p_2, \alpha_2(m_2))\right) \\
-           &\mathllap{{}\leq{}} \delta+2\delta+\delta=4\delta 
+           &\mathllap{{}\leq{}} \delta+2\delta+\delta=4\delta.
   \end{align*}
   It follows that
   \begin{equation*}
@@ -351,7 +416,7 @@ To prove this proposition we first prove the following lemma.
   \begin{equation*}
     \dist(\alpha_1(n), \alpha_2(n)) \leq \max\{6\delta, 12\delta + 2(n - \log(k_1/\rho_0))\}
   \end{equation*}
-  and the result follows.
+  and the result follows since $D \geq 12\delta$.
 \end{proof}
 
 \section{Horoballs in the Rips Complex}\label{sec:horoball}
