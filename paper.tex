@@ -464,8 +464,11 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
 
 \subsection{Geodesics and the horosphere}
 
-\begin{lemma}\label{lem:geodesicsmeethorosphere}
+\begin{lemma}\label{lem:nonempty_intersection}
   Every bi-infinite geodesic with one end point equal to $\xi$ meets $H$.
+  Furthermore, the intersection between the geodesic and $H$ is contained in a
+  ball with centre $v$ and radius depending only on $\delta$ and the distance
+  from the $v$ to the geodesic.
 \end{lemma}
 
 \begin{proof}
@@ -496,8 +499,11 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
   The limit~\eqref{eqn:zi_closer_to_gi_than_x}, taken together with the fact
   that $\dist(g_i, p_i) = n_i$ and $\dist(g_i, x) \geq n_i - \dist(x, v)$,
   shows that the distances $\dist([z_i, g_i], x)$ and $\dist([z_i, g_i], p_i)$
-  tend to infinity as $i\to\infty$.  We now divide into cases according to
-  which of $x$ and $p_i$ is closer to $z_i$.
+  tend to infinity as $i\to\infty$. Let $i_0$ be so that both distances are
+  greater than $\delta$ for $i\geq i_0$.
+
+  We now assume $i \geq i_0$ and divide into cases according to which of $x$
+  and $p_i$ is closer to $z_i$.
   \begin{enumerate}
     \item If $x$ is between $z_i$ and $p_i$ on $\alpha$ then by considering a
       geodesic triangle with vertices $g_i$, $z_i$ and $p_i$ we see that for
@@ -518,11 +524,19 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
       \end{equation*}
   \end{enumerate}
 
-  Either way, $\dist(v, p_i) \leq 2\dist(x, v) + 2\delta$. In summary, we have
-  shown that for $i$ sufficiently large there is a point $p_i\in\alpha$ with
-  $\dist(g_i,p_i)=n_i$ and $\dist(v, p_i)$ bounded by $2\dist(x,w) +
-  2\delta$. Then $p_i \in H_i \intersection \alpha$ whenever $i$ is at least
-  $2\dist(x,w) + 2\delta$. 
+  Either way, $\dist(v, p_i) \leq 2\dist(x, v) + 2\delta$ for $i \geq i_0$. In
+  summary, we have shown that for $i$ sufficiently large there is a point
+  $p_i\in\alpha$ with $\dist(g_i,p_i)=n_i$ and $\dist(v, p_i)$ bounded by
+  $2\dist(x,w) + 2\delta$. Then $p_i \in H_i \intersection \alpha$ whenever $i$
+  is at least $2\dist(x,w) + 2\delta$. Therefore the intersection is non-empty. 
+
+  To see that it is bounded, let $p \in H \intersection \alpha$. Since $z_i \to
+  \xi$ as $i\to \infty$, $z_i$ is between $\xi$ and $p$ on $\alpha$ for $i$
+  sufficiently large. Fix $i \geq i_0$ so that this is true and also so that $p
+  \in H_i$, so $\dist(g_i, p) = n_i$. Then the point $p$ has the properties
+  assumed of $p_i$, so the argument above shows that $\dist(p, v) \leq
+  2\dist(x,v) + 2\delta$. Therefore the intersection $H \intersection \alpha$
+  is bounded.
 \end{proof}
 
 \begin{lemma}\label{lem:bounded_intersection}
@@ -532,70 +546,25 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
 \end{lemma}
 
 \begin{proof}
-  Let $\alpha$ be any bi-infinite geodesic with $\alpha(-\infty)=\xi$ and 
-  $\alpha(\infty)\in C$. Let $x \in \alpha \intersection H$. Since $C$ is
-  compact, there exists a point $w \in \alpha$, between $\xi$ and $x$ on
-  $\alpha$, such for that any bi-infinite geodesic $\beta$ with
-  $\beta(-\infty)$ in $C$ and $\beta(\infty) = \alpha(\infty)$, $\beta$ does
-  not meet the $100\delta$-neighbourhood of the sub-ray of $\alpha$ between
-  $\xi$ and $w$: otherwise a limiting argument shows that $\xi$ is in $C$.
+  By Lemma~\ref{lem:nonempty_intersection} it is sufficient to show that
+  $\dist(v, \alpha)$ is bounded as $\alpha$ ranges over all bi-infinite
+  geodesics with one end point equal to $\xi$ and the other in $C$.
 
-  Since $g_i \to \xi$, the distance $\dist(w, [\xi, g_i]) \to \infty$ as
-  $i\to\infty$. The triangle with vertices $\xi$, $g_i$ and $x$ is
-  $\delta$-slim, so the geodesic path from $g_i$ to $x$ passes within a
-  distance $\delta$ of $w$ for $i$ large enough. Therefore, since $\dist(g_i,
-  x) = n_i$ for $i$ large enough, the following inequality holds for all $i$
-  large enough.
-  \begin{equation*}
-    0 \leq \dist(g_i, w) + \dist(w, x) - n_i \leq 2\delta.
-  \end{equation*}
-
-  Let $\alpha'$ be a bi-infinite geodesic with $\alpha'(-\infty) = \xi$ and
-  $\alpha'(\infty) \in C$ and let $x' \in \alpha' \intersection H$. The ideal
-  triangle with vertices $\xi$, $\alpha(\infty)$ and $\alpha'(\infty)$ is
-  $\delta$-slim, so the sub-ray of $\alpha$ between $\xi$ and $w$ is contained
-  in a $\delta$-neighbourhood of $\alpha'$.  Let $w' \in \alpha'$ be a point
-  with $\dist(w, w') \leq \delta$. 
-  
-  We split into cases according to the order of $\xi$, $w'$ and $x'$ on
-  $\alpha'$.
-  \begin{enumerate}
-    \item
-      First we suppose that $w'$ is between $x'$ and $\xi$ on $\alpha'$. Then as
-      in the argument above, for $i$ sufficiently large we have the following
-      inequality:
-      \begin{equation*}
-        0 \leq \dist(g_i, w') + \dist(w', x') - n_i \leq 2\delta.
-      \end{equation*}
-      And therefore,
-      \begin{equation*}
-        -2\delta \leq \dist(g_i, w) + \dist(w, x') - n_i \leq 4\delta.
-      \end{equation*}
-      Finally, putting these inequalities together,
-      \begin{equation*}
-        \dist(x, x') \leq 2\dist(w, x) + 4\delta,
-      \end{equation*}
-      and so we uniformly bound this distance in this case.
-    \item
-      Alternatively, $x'$ is between $w'$ and $\xi$ on $\alpha'$ and so (since
-      the triangle with vertices $\xi$, $w$ and $w'$ is $\delta$-slim) $x'$ is
-      within a distance $2\delta$ of the geodesic ray from $x$ to $\xi$. By
-      considering the triangle with vertices $\xi$, $g_i$ and $x$ for $i$ large
-      enough, a geodesic segment from $g_i$ to $x$ passes within a distance
-      $3\delta$ of $x'$. Therefore we have the following inequality for all $i$
-      sufficiently large:
-      \begin{equation*}
-        0 \leq \dist(g_i, x') + \dist(x', x) - \dist(g_i, x) \leq 6\delta.
-      \end{equation*}
-      Finally, for $i$ sufficiently large, $\dist(g_i, x') = \dist(g_i, x) = n_i$,
-      so
-      \begin{equation*}
-        \dist(x,x') \leq 6\delta.\qedhere
-      \end{equation*}
-  \end{enumerate}
-  Either way, $\dist(x, x')$ is bounded over all points $x'$ in the
-  intersections between $H$ and geodesics with one end point equal to $\xi$ and
-  the other in $C$.
+  Let $\beta$ be a geodesic ray from $v$ to $\xi$. Suppose that there is a
+  sequence $\zeta_i$ of points in $C$ with $\dist(v, [\xi, \zeta_i]) = m_i$
+  where $m_i \to \infty$ as $i\to \infty$. Let $\beta_i$ be a geodesic ray from
+  $v$ to $\zeta_i$. Let $p_i$ be a point on $\beta$ with $\dist(p_i, v) = m_i -
+  \delta - 1$, so $\dist(p_i, [\xi, \zeta_i]) > \delta$. Then by hyperbolicity
+  of the triangle with edges $\beta$, $\beta_i$ and $[\xi, \zeta_i]$ there is a
+  point $q_i \in \beta_i$ with $\dist(p_i, q_i) = \delta$. Then $\dist(v, q_i)
+  \geq \dist(v, p_i) - \delta$. Therefore,
+  \begin{align*}
+    \gromov{v}{\xi}{\zeta_i} &\geq \gromov{v}{p_i}{q_i} \\
+                             &\geq \dist(v, p_i) - \delta\\
+                             &\to \infty \text{ as $i\to\infty$},
+  \end{align*}
+  so $\zeta_i\to\xi$ as $i\to\infty$. But $C$ is a compact subset of $\boundary
+  G - \set\xi$, so we reach a contradiction.
 \end{proof}
 
 \subsection{Projections to the horosphere}
@@ -642,7 +611,7 @@ The maps $q_i$ are described by the following lemma.
   After passing to a subsequence, the rays $\alpha_i$ converge uniformly on
   compact subsets to a bi-infinite geodesic from $\xi$ to some point $\zeta \in
   C$ that does not meet $H$, contradicting
-  Lemma~\ref{lem:geodesicsmeethorosphere}.
+  Lemma~\ref{lem:nonempty_intersection}.
 \end{proof}
 
 \begin{lemma}\label{lem:affinehomotopic}
