@@ -120,6 +120,17 @@ $\dist(\cdot, \cdot)$ be the length metric on the Cayley graph of $G$ with
 respect to $S$ obtained by setting all edges to have length $1$; on $G$ this
 metric agrees with the word metric. 
 
+We call an isometric embedding of an interval into the Cayley graph a
+\emph{geodesic}. If the interval is $(-\infty, \infty)$ we call the geodesic a
+\emph{bi-infinite geodesic}; if the interval is $[0, \infty)$ we call it a
+\emph{geodesic ray.} A bi-infinite geodesic has two ideal end points in
+$\boundary G$, while a geodesic ray has one end point in $G$ and one ideal end
+point in $\boundary G$.  Given points $x$ and $y$ in $G \union \boundary G$ we
+will often denote by $[x,y]$ a geodesic from $x$ to $y$, thought of as a subset
+of the Cayley graph together with its boundary. Geodesics in hyperbolic spaces
+are not necessarily unique, so this notation will stand for a choice of
+geodesic, but the choice will not matter.
+
 Let $\delta \geq 0$ be large enough to ensure that the Cayley graph of $G$ with
 respect to $S$ is $\delta$-hyperbolic, meaning that all geodesic triangles in
 the Cayley graph of $G$ are $\delta$-slim. (This means that each edge of each
@@ -129,12 +140,6 @@ identified with the Gromov boundary of the Cayley graph of $G$. To reduce the
 growth of constants later on we in fact assume that all \emph{ideal} triangles
 (with vertices in $G \union \boundary G$) are $\delta$-hyperbolic; this can be
 guaranteed by multiplying $\delta$ by $4$.  
-
-Given points $x$ and $y$ in $G \union \boundary G$ we will often denote by
-$[x,y]$ a geodesic from $x$ to $y$, thought of as a subset of the Cayley graph
-together with its boundary. Geodesics in hyperbolic spaces are not necessarily
-unique, so this notation will stand for a choice of geodesic, but the choice
-will not matter.
 
 Throughout this and subsequent sections we use~\cite{bridsonhaefliger99} as a
 reference for fundamental properties of hyperbolic spaces. The reader is
@@ -419,13 +424,13 @@ To prove this proposition we first prove the following lemma.
   and the result follows since $D \geq 12\delta$.
 \end{proof}
 
-\section{Horoballs in the Rips Complex}\label{sec:horoball}
+\section{Horoballs in the Rips complex}\label{sec:horoball}
 
-In Section~\ref{sec:double_dagger} we will make use of a limiting argument,
-which will relate the topology of the complement of a point in the boundary
-$\boundary G$ to a particular subcomplex of $K$, which we will think of as
-a horoball in $K$.  In this section we prove that this subcomplex possesses
-certain properties that we will apply later.
+In Section~\ref{sec:double_dagger} we will use a limiting argument, which will
+relate the topology of the complement of a point in the boundary $\boundary G$
+to a particular subcomplex of $K$, which we will think of as a horoball in $K$.
+In this section we prove that this subcomplex possesses the properties that we
+will apply later.
 
 \subsection{Defining the horoball}
 
@@ -443,8 +448,9 @@ K_{n_i}$ satisfies the following conditions:
     (Here $N$ denotes a neighbourhood taken with respect to the word metric on
     $G$.)
   \item
-    The sequence $g_i = g_i\cdot 1$ of vertices of $K$ converges to a point
-    $\xi \in \boundary G$ as $i\to\infty$.
+    The sequence $(g_i)_{i=1}^\infty$ of group elements, considered also as a
+    sequence of vertices of $K$, converges to a point $\xi \in \boundary G$ as
+    $i\to\infty$.
 \end{enumerate}
 
 Let $H_i$ be the full subcomplex of $K$ with vertex set $N_i(v) \intersection
@@ -452,19 +458,19 @@ g_i(S_{n_i})$; notice that $H_i$ contains $H_j$ for $i \geq j$, and also that
 $g_i$ maps the full subcomplex of $K_{n_i}$ with vertex set $N_i(v_i)
 \intersection S_{n_i}$ isometrically onto $H_i$. 
 
-Let $H$ be the union of the complexes $H_i \subset K$. We view $H$ as a
+Let $H$ be the union of the subcomplexes $H_i \subset K$. We view $H$ as a
 horosphere, the topology of which approximates that of $\boundary G - \set\xi$.
 The rest Section of~\ref{sec:horoball} will be spent justifying this point of view.
 
-\subsection{Geodesics and and the horosphere}
+\subsection{Geodesics and the horosphere}
 
 \begin{lemma}\label{lem:geodesicsmeethorosphere}
-  Every bi-infinite geodesic with $\xi$ in its limit set meets $H$.
+  Every bi-infinite geodesic with one end point equal to $\xi$ meets $H$.
 \end{lemma}
 
 \begin{proof}
-  Let $\alpha$ be a bi-infinite geodesic with $\xi$ as a limit point. 
-  Let the distance $\dist(w,\alpha)$ be realised by a point $x \in \alpha$.
+  Let $\alpha$ be a bi-infinite geodesic with $\xi$ as an end point.  Let the
+  distance $\dist(v,\alpha)$ be realised by a point $x \in \alpha$.
 
   The points $g_i$ converge to $\xi$ as $i\to\infty$, so the distances
   $\dist(x, [\xi, g_i])$ tend to infinity as $i$ tends to infinity. The
@@ -478,10 +484,12 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
   \begin{align*}\label{eqn:zi_closer_to_gi_than_x}
     n_i - \dist(g_i, z_i) & \geq n_i - \dist(g_i, y_i) - \delta \\
                           &= n_i - \dist(g_i, x) + \dist(x, y_i) - \delta\\
-                          &\geq \dist(x, y_i) - \dist(v,x) - \delta\\
+                          &\geq n_i - \dist(g_i, v) - \dist(x, v) + \dist(x,y_i) - \delta\\
+                          &= \dist(x,y_i) - \dist(x,v) - \delta\\
                           &\to \infty\text{ as $i \to \infty$}\tag{$\star$}
   \end{align*}
-  Therefore, for $i$ sufficiently large, there exists a point $p_i$ on $\alpha$
+  In particular, $n_i > \dist(g_i, z_i)$ for $i$ sufficiently large, so for
+  $i$ sufficiently large, there exists a point $p_i$ on $\alpha$
   such that $z_i$ lies between $\xi$ and $p_i$ on $\alpha$ and so that
   $\dist(g_i,p_i)=n_i$. We now show that $\dist(v, p_i)$ is uniformly bounded.
 
@@ -501,19 +509,20 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
                         &\leq \dist(g_i,p_i)-\dist(x,p_i)+2\delta.
       \end{align*}
       It follows that $\dist(x,p_i) \leq \dist(g_i,p_i)-\dist(g_i,x)+2\delta
-      = 2\delta$.
+      \leq \dist(x, v) + 2\delta$.
     \item If $p_i$ is between $z_i$ and $x$ on $\alpha$ then by an identical 
       argument with the r\^oles of $x$ and $p_i$ reversed we can similarly 
       deduce that 
       \begin{equation*}
-        \dist(x,p_i)\leq\dist(g_i,x) - \dist(g_i,p_i) + 2\delta =2\delta.
+        \dist(x,p_i)\leq\dist(g_i,x) - \dist(g_i,p_i) + 2\delta \leq  \dist(x,v) + 2\delta.
       \end{equation*}
   \end{enumerate}
 
-  Either way, $\dist(v, p_i) \leq \dist(v, x) + 2\delta$. In summary, we have
+  Either way, $\dist(v, p_i) \leq 2\dist(x, v) + 2\delta$. In summary, we have
   shown that for $i$ sufficiently large there is a point $p_i\in\alpha$ with
-  $\dist(g_i,p_i)=n_i$ and $\dist(p_i,f(\Vertices J))$ bounded by $\dist(x,w) +
-  2\delta$. Then $p_i \in H_i$ whenever $i$ is at least $\dist(x,w) + 2\delta$.
+  $\dist(g_i,p_i)=n_i$ and $\dist(v, p_i)$ bounded by $2\dist(x,w) +
+  2\delta$. Then $p_i \in H_i \intersection \alpha$ whenever $i$ is at least
+  $2\dist(x,w) + 2\delta$. 
 \end{proof}
 
 \begin{lemma}\label{lem:bounded_intersection}
