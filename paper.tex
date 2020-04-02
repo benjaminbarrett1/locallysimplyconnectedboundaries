@@ -568,13 +568,13 @@ The rest Section of~\ref{sec:horoball} will be spent justifying this point of vi
   G - \set\xi$, so we reach a contradiction.
 \end{proof}
 
-\subsection{Projections to the horosphere}
+\subsection{Projections from the boundary to the horosphere}
 
 \begin{definition}
   For each $i$, let $U_i \subset \boundary G$ be the set $\left(g_i \composed
   p^\infty_{n_i} \composed g_i^{-1}\right)^{-1} H_i$ and let $q_i \from U_i \to
   H_i$ be the restriction of $g_i \composed p^\infty_{n_i}\composed g_i^{-1}$
-  to this set.
+  to $U_i$.
 \end{definition}
 
 The maps $q_i$ are described by the following lemma.
@@ -583,12 +583,12 @@ The maps $q_i$ are described by the following lemma.
   Let $\zeta \in \boundary G$ be a point such that
   \begin{equation*}
     N_{2\delta+1}^{g_i\cdot S_{n_i}} \set{\eta(n_i)\suchthat\text{$\eta$ a geodesic ray with
-        $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}} \subset H_i,
+        $\eta(0) = g_i$ and $\eta(\infty) = \zeta$}}
   \end{equation*}
-  where $N_{2\delta+1}^{g_i\cdot S_{n_i}}$ denotes a $2\delta+1$-neighbourhood
-  in $g_i\cdot S_{n_i}$ taken with respect to the metric $\dist$.
-  Then $\zeta \in U_i$ and $q_i(\zeta)$ is contained in the simplex of $H_i$
-  spanned by this set of vertices.
+  is contained in $H_i$, where $N_{2\delta+1}^{g_i\cdot S_{n_i}}$ denotes a
+  $2\delta+1$-neighbourhood in $g_i\cdot S_{n_i}$ taken with respect to the
+  word metric $\dist$.  Then $\zeta \in U_i$ and $q_i(\zeta)$ is contained in
+  the simplex of $H_i$ spanned by this set of vertices.
 \end{lemma}
 
 \begin{proof}
@@ -609,9 +609,9 @@ The maps $q_i$ are described by the following lemma.
   $\alpha_i$ from $g_i$ to $\zeta_i$ that meets $N_{2\delta+1}^{g_i\cdot
   S_{n_i}}(g_i\cdot S_{n_i} - H_i)$, and so does not meet $H_i\intersection
   N_{i-4\delta-1}(v)$, which is equal to $H \intersection N_{i-4\delta-1}(v)$.
-  After passing to a subsequence, the rays $\alpha_i$ converge uniformly on
-  compact subsets to a bi-infinite geodesic from $\xi$ to some point $\zeta \in
-  C$ that does not meet $H$, contradicting
+  After passing to a subsequence and reparametrising, the rays $\alpha_i$
+  converge uniformly on compact subsets to a bi-infinite geodesic from $\xi$ to
+  some point $\zeta \in C$ that does not meet $H$, contradicting
   Lemma~\ref{lem:nonempty_intersection}.
 \end{proof}
 
@@ -623,14 +623,14 @@ The maps $q_i$ are described by the following lemma.
 \end{lemma}
 
 \begin{proof}
-  Let $B\subset H$ be a bounded set containing all points where geodesics with
-  one limit point equal to $\xi$ and the other in $C$ meet $H$; this set exists
-  by \cref{lem:bounded_intersection}.
+  Let $B\subset H$ be the set of points of intersection between $H$ and
+  geodesics with one end point equal to $\xi$ and the other in $C$; this set is
+  bounded by Lemma~\ref{lem:bounded_intersection}.
 
   Fix $\alpha$ to be some geodesic with $\alpha(-\infty)=\xi$ and
   $\alpha(\infty)\in C$ and let $x$ be a point of intersection between $\alpha$
-  and $B$. Since the triangle with vertices $x$, $g_i$ and $\xi$ is
-  $\delta$-slim, and $\dist(x, [\xi, g_i]) \to \infty$ as $i\to\infty$, for
+  and $H$, so $x \in B$.  Since the triangle with vertices $x$, $g_i$ and $\xi$
+  is $\delta$-slim, and $\dist(x, [\xi, g_i]) \to \infty$ as $i\to\infty$, for
   each $i$ there exists a point $y_i$ on $[g_i, x]$ with $\dist(y_i, \alpha)
   \leq \delta$ and so that $y_i \to \xi$ as $i\to\infty$. Let $z_i \in \alpha$
   be such that $\dist(y_i, z_i)\leq\delta$.
@@ -703,11 +703,10 @@ The maps $q_i$ are described by the following lemma.
   distance between the sub-ray of $\alpha$ from $x$ to $\zeta$ and the set $H$
   is at least $9\delta+2$.
 
-  Let $V$ be the following set. It is easy to check that this is a
-  neighbourhood of $\zeta$.
+  Let $V$ be the following neighbourhood of $\zeta$.
   \begin{equation*}
     V = \set{\beta(\infty) \suchthat \text{$\beta$ a geodesic with
-            $\beta(-\infty) = \xi$ and $\dist(\beta, x) \leq 3\delta+1$}}
+            $\beta(-\infty) = \xi$ and $\dist(\beta, x) \leq 3\delta+1$}}.
   \end{equation*}
   The neighbourhood $V$ is relatively compact in $\boundary G - \set\xi$ so
   we may take $i_0$ such that $V \subset U_i$ for $i \geq i_0$. Enlarge $i_0$
@@ -735,9 +734,10 @@ The maps $q_i$ are described by the following lemma.
 We begin this section by recalling work of Bestvina and Mess, Bowditch, and
 Swarup, which characterise the hyperbolic groups with locally path connected
 boundary. In~\cite{bestvinamess91}, Bestvina and Mess introduce the following
-condition that a hyperbolic group might satisfy. (Regarding the constants,
-note that with our convention that ideal triangles are $\delta$-hyperbolic,
-$C$ in the cited paper can be taken to be equal to $\delta$.)
+condition that a hyperbolic group might satisfy. (When comparing the constants
+appearing in our definition of the condition with that in the cited paper, note
+that with our convention that ideal triangles are $\delta$-hyperbolic, Bestvina
+and Mess's constant $C$ can be taken to be equal to $\delta$.)
 
 \begin{definition}
   We say that $G$ satisfies $\ddag_M$ if there exists a number $L$ such that,
@@ -769,26 +769,27 @@ $\boundary G$ is locally path connected if and only if it is connected.
   point.
 \end{theorem}
 
-\subsection{An modified condition}
+\subsection{A modified condition}
 
-In this section we introduce a related condition. This condition is stronger
-than $\ddag_M$, but, using Bestvina and Mess's result, we show that it holds
-under the same assumption. This condition reinterprets the paths in $\ddag_M$
-as edge paths in the complexes $K_n$, with the additional assumption that
-these paths approximate paths that factor through the projection map
+In this section we introduce a related condition. This condition appears
+stronger than $\ddag_M$, but, using Bestvina and Mess's result, we show that it
+holds under the same assumption. This condition reinterprets the paths in
+$\ddag_M$ as edge paths in the complexes $K_n$, with the additional assumption
+that these paths approximate paths that factor through the projection map
 $p^\infty_n$. This interpretation strengthens the link between
 path-connectedness of the boundary and connectedness of the complexes $K_n$.
 
 \begin{definition}
+  Let $I$ be the interval $[0,1]$, which we identify with a 1-simplex.  
+
   We say that $G$ satisfies $\ddag'_M$ if there exist numbers $L$ and $n_0$
-  such that, for any $n \geq n_0$, any $\zeta_1$ and $\zeta_2$ in $\boundary
-  G$ such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$,
-  and any vertices $x_1$ and $x_2$ of the minimal simplices of $K_n$
-  containing $p^\infty_n(\zeta_1)$ and $p^\infty_n(\zeta_2)$, there is a path
-  $\alpha\from I\to \boundary G$ from $\zeta_1$ to $\zeta_2$ in $\boundary G$
-  such that $p^\infty_n\composed\alpha$ admits a simplicial approximation
-  connecting $x_1$ to $x_2$ in $K_n$ after at most $L$ barycentric
-  subdivisions of $I$.
+  such that, for any $n \geq n_0$, any $\zeta_1$ and $\zeta_2$ in $\boundary G$
+  such that $\newdist(p^\infty_n(\zeta_1), p^\infty_n(\zeta_2)) \leq M$, and
+  any vertices $x_1$ and $x_2$ of simplices of $K_n$ containing
+  $p^\infty_n(\zeta_1)$ and $p^\infty_n(\zeta_2)$, there is a path $\alpha\from
+  I\to \boundary G$ from $\zeta_1$ to $\zeta_2$ in $\boundary G$ such that
+  $p^\infty_n\composed\alpha$ admits a simplicial approximation connecting
+  $x_1$ to $x_2$ in $K_n$ after at most $L$ barycentric subdivisions of $I$.
 \end{definition}
 
 \begin{proposition}
@@ -799,11 +800,12 @@ path-connectedness of the boundary and connectedness of the complexes $K_n$.
 \begin{proof}
   Suppose $\ddag'_M$ does not hold. Then for any $i$ there exists a number $n_i
   \geq i$, points $\zeta_1^i$ and $\zeta_2^i$ in $\boundary G$ and vertices
-  $x_1^i$ and $y_1^i$ of the minimal simplex of $K_{n_i}$ containing 
-  $p^\infty_{n_i}(\zeta^i_1)$ and $p^\infty_{n_i}(\zeta^i_2)$ such that there
-  is no path $\alpha$ from $\zeta_1^i$ to $\zeta_2^i$ in $\boundary G$ where
-  $p^\infty_{n_i}\composed\alpha$ admits a simplicial approximation after at
-  most $i$ barycentric subdivisions of the interval.
+  $x_1^i$ and $y_1^i$ of simplices of $K_{n_i}$ containing
+  $p^\infty_{n_i}(\zeta^i_1)$ and $p^\infty_{n_i}(\zeta^i_2)$ such that
+  $\newdist(p^\infty_{n_i}(\zeta^i_1), p^\infty_{n_i}(\zeta^i_2)) \leq M$ and
+  there is no path $\alpha$ from $\zeta_1^i$ to $\zeta_2^i$ in $\boundary G$
+  where $p^\infty_{n_i}\composed\alpha$ admits a simplicial approximation after
+  at most $i$ barycentric subdivisions of the interval.
 
   Take group elements $g_i$ such that $g_i\cdot x_1^i$ is equal to some vertex
   $x_1$ for all $i$ vertices and pass to a subsequence as in
@@ -833,16 +835,17 @@ path-connectedness of the boundary and connectedness of the complexes $K_n$.
   neighbourhood is joined to $\zeta_j$ by a path contained in the
   $\epsilon$-neighbourhood of $\zeta_j$. Now increase $i_0$ to ensure that
   $\zeta_1^i$ and $\zeta_2^i$ are contained in these neighbourhoods for $i \geq
-  i_0$. Let $\alpha_1^j$ be a path in the ball of radius $\epsilon$ centred at
-  $\zeta_j$ connecting $\zeta_j^i$ to $\zeta_j$.
+  i_0$. For $j=1$ and $j=2$ let $\alpha_1^j$ be a path in the ball of radius
+  $\epsilon$ centred at $\zeta_j$ connecting $\zeta_j^i$ to $\zeta_j$.
 
   Then the concatenation $\alpha^i\from[0,1]\to \boundary G$ of $\alpha_1^i$,
   $\beta$ and $\alpha_2^i$ gives a path in $C$ from $\zeta_1^i$ to $\zeta_2^i$
   such that $I$ can be covered by boundedly many open intervals, each of which
   has image under $\alpha^i$ with diameter at most $\epsilon$. It follows that
-  the composition of $\alpha^i$ with $q_i$ is a path that admits a simplicial
-  approximation connecting $x_1$ to $x_2$ after boundedly many subdivisions of
-  the interval. For $i \geq i_0$ large enough this gives a contradiction.
+  the composition of $\alpha^i$ with $q_i$ is a path in $H$ that admits a
+  simplicial approximation connecting $x_1$ to $x_2$ after boundedly many
+  subdivisions of the interval. For $i \geq i_0$ large enough this gives a
+  contradiction.
 \end{proof}
 
 Using this property we define maps $i^n_{n+1}\from \Skel_1 K_n$ to
@@ -889,31 +892,32 @@ from from~\cite{bestvinamess91}.
   containing $p^\infty_{n+1}(\gamma_n(\infty))$. Then $\dist(x, i^n_{n+1}(x))
   \leq 2\delta + 1$, as required by the second condition.
 
-  For an edge $e$ of $K_n$ connecting vertices $x_1$ and $x_2$,
+  For an edge $I$ of $K_n$ connecting vertices $x_1$ and $x_2$,
   $\dist(i^n_{n+1}(x_1), i^n_{n+1}(x_2))$ is at most $2(2\delta + 1) + D = D +
   4\delta + 2$. It follows from $\ddag'_{D+4\delta+2}$ that there is a path
   $\alpha$ from $\gamma_{x_1}(\infty)$ to $\gamma_{x_2}(\infty)$ in $\boundary
   G$ so that $p^\infty_{n+1}\composed\alpha$ admits a simplicial approximation
   connecting $i^n_{n+1}(x_1)$ to $i^n_{n+1}(x_2)$ after $L$ subdivisions.
-  Define $i^n_{n+1}$ to be this simplicial map on $\sd^L e$.
+  Define $i^n_{n+1}$ to be this simplicial map on $\sd^L I$.
 
   This process defines a map $i^n_{n+1}\from \Skel_1 K_n\to \Skel_1 K_{n+1}$
   with the required properties.
 \end{proof}
 
-\subsection{A two-dimensional version}
+\subsection{Extending maps from the boundary of a 2-simplex}
 
 We now introduce a new condition, which should be thought of as a version of
 $\ddag_M$ describing connectedness one dimension higher.
 
 \begin{definition}
-  Let $\Delta$ be the standard 2-simplex.  We say that $G$ satisfies $\S_M$ if
-  there exist $L$ and $n_0$ such that for any $n\geq n_0$ and any simplicial
-  map $f\from \sd^M\boundary\Delta \to K_n$ that is a simplicial approximation
-  to a map that factors through $p^\infty_n \from \boundary G \to K_n$, $f$
-  admits an extension to $\Delta$ that is affine on $\sd^L \Delta$. (We say
-  that a map between simplicial complexes is affine if its restriction to any
-  simplex of the domain is affine.)
+  Let $\Delta$ be the standard 2-simplex. 
+
+  We say that $G$ satisfies $\S_M$ if there exist $L$ and $n_0$ such that for
+  any $n\geq n_0$ and any simplicial map $f\from \sd^M\boundary\Delta \to K_n$
+  that is a simplicial approximation to a map that factors through $p^\infty_n
+  \from \boundary G \to K_n$, $f$ admits an extension to $\Delta$ that is
+  affine on $\sd^L \Delta$. (We say that a map between simplicial complexes is
+  affine if its restriction to any simplex of the domain is affine.)
 \end{definition}
 
 We now give a sufficient condition for $\S_M$ to be satisfied. This result is
@@ -936,8 +940,8 @@ We will use the following lemma:
 \begin{proof}
   This follows from the main theorem of~\cite{zeeman64}: note that the degree
   $L$ subdivision of a complex can be obtained from any degree $L$ relative
-  subdivision by further subdividing some simplices, so any map that is affine
-  on the relative subdivision is also affine on the full subdivision.
+  subdivision by further subdividing some simplices, so any map that is a
+  simplicial map on the relative subdivision is affine on the full subdivision.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:sufficient_condition}]
