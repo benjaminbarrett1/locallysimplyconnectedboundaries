@@ -997,13 +997,11 @@ Proposition~\ref{prop:i_in_dimension_1}.
 
 \begin{proposition}\label{prop:i_in_dimension_2}
   There are constants $n_0$ and $L$ such that for each $n\geq n_0$ there is map
-  $i^n_{n+1}\from\Skel_2 K_n \to \Skel_2 K_{n+1}$ such that the
-  following conditions hold.
+  $i^n_{n+1}\from\Skel_2 K_n \to \Skel_2 K_{n+1}$ with the following properties.
   \begin{enumerate}
-    \item for each $n$, $i^n_{n+1}$ is an affine map on the subdivision
-      $\sd_L\Skel_2 K_n$,
-    \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
-      and
+    \item For each $n$, $i^n_{n+1}$ is an affine map on the subdivision
+      $\sd_L\Skel_2 K_n$.
+    \item For any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$.
   \end{enumerate}
 \end{proposition}
 
@@ -1011,23 +1009,23 @@ Proposition~\ref{prop:i_in_dimension_1}.
   Let $n_0$ be as in Proposition~\ref{prop:i_in_dimension_1} and for $n \geq
   n_0$ let $i^n_{n+1} \from \Skel_1 K_n \to \Skel_1 K_{n+1}$ be the maps given
   by that proposition, so there exists $M$ such that $i^n_{n+1}$ is a
-  simplicial map on $\sd^M\Skel_1 K_n$, and this map is a simplicial
+  simplicial map on $\sd^L\Skel_1 K_n$, and this map is a simplicial
   approximation to a map that factors through $p^\infty_{n+1} \from \boundary G
   \to K_{n+1}$.
 
-  Then $\S_M$ gives numbers $L$ and $n_0' \geq n_0$ such that for $n \geq
-  n_0'$, for any 2-simplex $\sigma$ of $K_n$, $i^n_{n+1}\restricted\boundary
-  \sigma$ admits an extension to $\sigma$ that is affine on $\sd^L\sigma$.
-  Gluing these extensions together extends $i^n_{n+1}$ to a map $\sd^2 K_n \to
-  \sd_2 K_{n+1}$ with the required properties.
+  Then $\S_L$ gives numbers $L'$ and $n_0' \geq n_0$ such that for $n \geq
+  n_0'$, for any 2-simplex $\sigma$ of $K_n$, $i^n_{n+1}\restricted{\boundary
+  \sigma}$ admits an extension to $\sigma$ that is affine on $\sd^{L'}\sigma$.
+  Gluing these extensions together extends $i^n_{n+1}$ to a map $\Skel_2 K_n \to
+  \Skel_2 K_{n+1}$ with the required properties.
 \end{proof}
 
 \begin{definition}
   With the notation of Proposition~\ref{prop:i_in_dimension_2}, for $n \geq m
-  \geq n_0$ let $i^n_m \from \Skel_2 K_m \to \Skel_2 K_n$ be the composition
+  \geq n_0$ let $i^m_n \from \Skel_2 K_m \to \Skel_2 K_n$ be the composition
   $i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_2 K_m \to 
-  \Skel_2 K_n$.  This map is affine on a degree $L^{n-m}$ subdivision of 
-  $\Skel_2 K_m$.
+  \Skel_2 K_n$.  This map is affine on the degree $L^{n-m}$ barycentric
+  subdivision of $\Skel_2 K_m$.
 \end{definition}
 
 In what follows we require the following useful lemma.
