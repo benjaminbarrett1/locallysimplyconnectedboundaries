@@ -1024,7 +1024,7 @@ Proposition~\ref{prop:i_in_dimension_1}.
   With the notation of Proposition~\ref{prop:i_in_dimension_2}, for $n \geq m
   \geq n_0$ let $i^m_n \from \Skel_2 K_m \to \Skel_2 K_n$ be the composition
   $i^{n-1}_n \composed \dotsb \composed i^m_{m+1} \from \Skel_2 K_m \to 
-  \Skel_2 K_n$.  This map is affine on the degree $L^{n-m}$ barycentric
+  \Skel_2 K_n$.  This map is affine on the degree $(n-m)L$ barycentric
   subdivision of $\Skel_2 K_m$.
 \end{definition}
 
@@ -1050,10 +1050,10 @@ In what follows we require the following useful lemma.
   $(x_n)_{n = 0}^\infty$ is a quasi-geodesic with constants depending only on
   $B$. Therefore by~\cite[Theorem III.H.1.7]{bridsonhaefliger99} there is a
   number $R$ depending only on $B$ and $\delta$ such that the sequence $(x_n)$
-  is contained in an $R$-neighbourhood of a ray starting at $e$; let $(y_n)$ be
-  a sequence of points on this geodesic with $\dist(y_n, x_n) \leq R$. Then
-  $\gromov{e}{y_m}{y_n} = \min\{\dist(e, y_m), \dist(e, y_n)\}$, and the result
-  follows with $C = 5R/2$.
+  is contained in an $R$-neighbourhood of a geodesic ray starting at $e$; let
+  $(y_n)$ be a sequence of points on this geodesic with $\dist(y_n, x_n) \leq
+  R$. Then $\gromov{e}{y_m}{y_n} = \min\{\dist(e, y_m), \dist(e, y_n)\}$, and
+  the result follows with $C = 5R/2$.
 \end{proof}
 
 \begin{lemma}\label{lem:linearproduct}
@@ -1128,6 +1128,7 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
   There is a constant $C$ such that for any $m\geq n_0$ and any simplex
   $\sigma$ of $\Skel_2 K_m$, the diameter of $i^m_{\infty}(\sigma)$ with
   respect to the visual metric $\vdistance$ is bounded above by $Ca^{-m}$.
+  \qed
 \end{corollary}
 
 \begin{proposition}\label{prop:continuouslimit}
@@ -1137,7 +1138,9 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
 
 \begin{proof}
   Fix $x \in \Skel_2 K_m$. For $n\geq 0$ let $U_n$ be the minimal subcomplex of
-  $\sd^{nk}\Skel_2 K_m$ containing a neighbourhood of $x$.
+  $\sd^{nk}\Skel_2 K_m$ containing a neighbourhood of $x$. Note that the
+  collection $(U_n)_{n \geq 0}$ is a neighbourhood basis for $x$ in $\Skel_2
+  K_m$.
 
   For each $n$, the restriction of $i^m_{m+n}$ to a simplex in 
   $\sd^{nk}\Skel_2K_m$ is affine, and therefore has image contained in a 
