@@ -792,7 +792,7 @@ path-connectedness of the boundary and connectedness of the complexes $K_n$.
   $x_1$ to $x_2$ in $K_n$ after at most $L$ barycentric subdivisions of $I$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prop:sufficient_for_ddag_p}
   If $\boundary G - \set\xi$ is path connected then $G$ satisfies $\ddag'_M$
   for any $M$.
 \end{proposition}
@@ -1159,6 +1159,44 @@ The following corollary immediately follows from \cref{lem:simplexproduct}.
   \cref{prop:continuouslimit} here.
 \end{remark}
 
+We complete our description of the maps $i^n_\infty$ with the following lemma,
+which can be thought of as saying that $i^n_\infty$ is an approximate section
+of the map $p^\infty_n$.
+
+\begin{lemma}\label{lem:convergestoidentity}
+  There is a constant $C$ such that the distance from $i^m_\infty \composed 
+  p^\infty_m$ to the identity map $\boundary G\to\boundary G$ is at most 
+  $Ca^{-m}$ for each $m \geq n_0$.
+\end{lemma}
+
+\begin{proof}
+  By \cref{lem:linearproduct} there is a constant $C$ such that  for $\xi \in
+  \boundary G$,
+  \begin{equation*}
+    \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
+  \end{equation*} 
+  for each $n\geq m\geq n_0$. 
+
+  Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
+  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_2K_m$ containing 
+  $p^\infty_m(\xi)$, and $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$.
+  It follows that there is a constant $\delta'$ depending only on $\delta$ such 
+  that
+  \begin{align*}
+    \mathrlap{\gromov{e}{\alpha(n)}{i^m_n\composed p^\infty_m(\xi)}}\quad\quad &\\
+          & \geq \min\{\gromov{e}{\alpha(n)}{\alpha(m)}, 
+            \gromov{e}{\alpha(m)}{p^\infty_m(\xi)}, 
+            \gromov{e}{p^\infty_m(\xi)}{i^m_n\composed p^\infty_m(\xi)}\} 
+            - 2\delta' \\
+          &\geq \min\{m, m - D/2, m - C\} - 2\delta' \\
+          &\geq m - C'
+  \end{align*}
+  for some constant $C'$.
+
+  Therefore $\gromov{e}{\xi}{i^m_\infty\composed p^\infty_m(\xi)} \geq m - C'$, 
+  from which the claim follows.
+\end{proof}
+
 \subsection{Homotopies in $\boundary G$}
 
 We now use the maps $i^n_\infty$ to construct homotopies in $\boundary G$. To
@@ -1183,8 +1221,8 @@ certain special maps.
 
 \begin{proof}
   Let $G$ satisfy $\ddag'_{C+D}$ with constants $L$ and $m_0 \geq n_0$.
-  Let $M$ be such that $3\cdot2^M \geq 2L+2$, so that $\sd^M\boundary\Delta$
-  has at least $2L+2$ edges.  By increasing $m_0$ we can also assume that $G$
+  Let $M$ be such that $3\cdot2^M \geq 2^L+2$, so that $\sd^M\boundary\Delta$
+  has at least $2^L+2$ edges.  By increasing $m_0$ we can also assume that $G$
   satisfies $\S_M$ with constants $L'$ and $m_0$.
 
   Let $n \geq m_0$ and let $f_0$ and $f_1$ be as in the statement of the
@@ -1221,14 +1259,15 @@ certain special maps.
   simplicial approximation to the map $\gamma_0 \disjointunion \gamma_1$ from
   $J\times\{0\} \disjointunion J \times\{1\}$ to $\boundary G$. 
   
-  Using $\ddag'_{C+D}$ we can extend $\gamma_0\disjointunion\gamma_1$ to a simplicial map
+  Using $\ddag'_{C+D}$ we can extend $\gamma_0\disjointunion\gamma_1$ to a
+  simplicial map
   \begin{equation*}
-    J\times\{0\} \union(\Vert J \times \sd^L [0,1]) \union J\times\{1\} \to K_n,
+    J\times\{0\} \union(\Skel_0 J \times \sd^L [0,1]) \union J\times\{1\} \to K_n,
   \end{equation*}
   again thinking of the domain of this map as a subspace of
   $\boundary\Delta\times[0,1]$ in the same way. Each component of the
   complement of this subspace in $\boundary\Delta\times[0,1]$ is a $2$-cell
-  whose boundary is an edge path of length $2L+2$. Identifying this edge path
+  whose boundary is an edge path of length $2^L+2$. Identifying this edge path
   with a copy of $\sd^M\boundary\Delta$ with some edges collapsed to a point,
   we can use the condition $\S_M$ to extend the map to the full $2$-simplex
   $\Delta$ in such a way that it is affine on $\sd^{L'}\Delta$, and use this
@@ -1240,41 +1279,21 @@ certain special maps.
   diameter at most $C_0 a^{-n}$, and so we can take $\mu = NC_0$.
 \end{proof}
 
-We now need two more lemmas.
+The following proposition extends the family of maps between which we can build
+homotopies.
 
-\begin{lemma}\label{lem:convergestoidentity}
-  There is a constant $C$ such that the distance from $i^m_\infty \composed 
-  p^\infty_m$ to the identity map $\boundary G\to\boundary G$ is at most 
-  $Ca^{-m}$ for each $m \geq n_0$.
-\end{lemma}
-
-\begin{proof}
-  By \cref{lem:linearproduct} there is a constant $C$ such that  for $\xi \in
-  \boundary G$,
+\begin{proposition}\label{prop:uniform_homotopies}
+  There exists numbers $m_0$ and $\nu$ with the following property. Let
+  $\gamma\from\boundary\Delta\to\boundary G$ be a continuous map. Let $n \geq
+  m_0$ and let $f$ a simplicial approximation to $p^\infty_n\composed\gamma$.
+  Then there is a homotopy $h$ from $\gamma$ to $i^n_\infty\composed f$ such
+  that for any $x \in \boundary\Delta$,
   \begin{equation*}
-    \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
-  \end{equation*} 
-  for each $n\geq m\geq n_0$. 
+    \Diam(h(\{x\}\times [0,1])) \leq \nu a^{-n}.
+  \end{equation*}
+\end{proposition}
 
-  Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
-  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_2K_m$ containing 
-  $p^\infty_m(\xi)$, and $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$.
-  It follows that there is a constant $\delta'$ depending only on $\delta$ such 
-  that
-  \begin{align*}
-    \mathrlap{\gromov{e}{\alpha(n)}{i^m_n\composed p^\infty_m(\xi)}}\quad\quad &\\
-          & \geq \min\{\gromov{e}{\alpha(n)}{\alpha(m)}, 
-            \gromov{e}{\alpha(m)}{p^\infty_m(\xi)}, 
-            \gromov{e}{p^\infty_m(\xi)}{i^m_n\composed p^\infty_m(\xi)}\} 
-            - 2\delta' \\
-          &\geq \min\{m, m - D/2, m - C\} - 2\delta' \\
-          &\geq m - C'
-  \end{align*}
-  for some constant $C'$.
-
-  Therefore $\gromov{e}{\xi}{i^m_\infty\composed p^\infty_m(\xi)} \geq m - C'$, 
-  from which the claim follows.
-\end{proof}
+To prove this proposition, we use the following lemma.
 
 \begin{lemma}\label{lem:name_this}
   There is a number $C$ such that, for any $\xi \in \boundary G$ and any $n
@@ -1288,8 +1307,7 @@ We now need two more lemmas.
 \begin{proof}
   By \cref{lem:close_projections} the distances $\newdist(p^\infty_n(\xi),
   p^\infty_{n+1}(\xi))$ are bounded by $6\delta + 3 + 2D$. Let $y$ be a vertex
-  of a minimal simplex containing $p^\infty_n(\xi)$; then $\newdist(y,
-  p^\infty_n(\xi))$ is bounded by $D$.
+  of a minimal simplex containing $p^\infty_n(\xi)$.
   
   Furthermore, $\dist(y, i^n_{n+1}(y))$ is bounded by $2\delta+1$, and
   $\newdist(i^n_{n+1}(y), i^n_{n+1}\composed p^\infty_n (\xi))$ is bounded by
@@ -1300,18 +1318,7 @@ We now need two more lemmas.
   $\dist(x_1, x_2) \leq C + 2D$.
 \end{proof}
 
-\begin{proposition}\label{prop:uniform_homotopies}
-  There exists numbers $m_0$ and $\nu$ with the following property. Let
-  $\gamma\from\boundary\Delta\to\boundary G$ be a continuous map. Let $n \geq
-  m_0$ and let $f$ a simplicial approximation to $p^\infty_n\composed\gamma$.
-  Then there is a homotopy $h$ from $\gamma$ to $i^n_\infty\composed f$ such
-  that for any $x \in \boundary\Delta$,
-  \begin{equation*}
-    \Diam(h(\{x\}\times [0,1])) \leq \nu a^{-n}.
-  \end{equation*}
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of Proposition~\ref{prop:uniform_homotopies}]
   Apply Proposition~\ref{prop:basic_homotopies} with $C$ as in
   Lemma~\ref{lem:name_this} to obtain numbers $m_0$ and $\mu$.
   
@@ -1328,7 +1335,7 @@ We now need two more lemmas.
   $p^\infty_{n+m+1}\composed\gamma$. Finally,
   $i^{n+m}_{n+m+1}\restricted{\Skel_1 K_{n+m}}$ is a simplicial approximation
   to a map $p^\infty_{n+m+1}\composed j_m$ for some map $j_m\from\Skel_1
-  K_{n+m}\to \boundary G$, and then $i^{n+m}_{n+m+1}\composed g_m$ is a
+  K_{n+m}\to \boundary G$, and then $i^{n+m}_{n+m+1}\composed f_m$ is a
   simplicial approximation to $p^\infty_{n+m+1}\composed j_m\composed f_m$.
   
   Therefore, for each $m$, \cref{prop:basic_homotopies} gives a homotopy $h_m$
@@ -1347,13 +1354,13 @@ We now need two more lemmas.
   This function is clearly continuous except possibly on
   $\boundary\Delta\times\{0\}$. We now show that it is continuous there, too.
 
-  Let $x \in \boundary\Delta$ and let $\epsilon > 0$. There exists $M$ such
-  that for $m \geq M$ and $y \in \boundary \Delta$, $\rho(\gamma(y),
-  \gamma_m(y)) \leq \epsilon/3$. Increasing $M$ if necessary we may assume that
-  $\mu a^{-m-n} \leq \epsilon/3$.
-  Finally, let $U$ be a neighbourhood of $x$ such that $\rho(\gamma(x),
-  \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y \in U$ and 
-  $t \in (0, 2^{-M}]$,
+  Let $x \in \boundary\Delta$ and let $\epsilon > 0$. By
+  Lemma~\ref{lem:convergestoidentity} there exists $M$ such that for $m \geq M$
+  and $y \in \boundary \Delta$, $\rho(\gamma(y), \gamma_m(y)) \leq \epsilon/3$.
+  Increasing $M$ if necessary we may assume that $\mu a^{-M-n} \leq
+  \epsilon/3$.  Finally, let $U$ be a neighbourhood of $x$ such that
+  $\rho(\gamma(x), \gamma(y)) \leq \epsilon/3$ for $y \in U$. Now, for any $y
+  \in U$ and $t \in (0, 2^{-M}]$,
   \begin{equation*}
     \rho(h(x,0), h(y,t)) \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} +
         \frac{\epsilon}{3} = \epsilon.
@@ -1406,15 +1413,16 @@ and~\ref{sec:local_simple_connectedness} together imply one direction of
 Theorem~\ref{thm:main_theorem}; we now complete the proof of this theorem.
 
 \begin{proof}[Proof of Theorem~\ref{thm:main_theorem}]
-  If $G$ is a one-ended hyperbolic group such that $\boundary G - \set\xi$ is
-  simply connected for any $\xi \in \boundary G$, then the condition $\S_M$ is
-  satisfied for any $M$ by Proposition~\ref{prop:sufficient_condition}. It
-  follows that $\boundary G$ is locally simply connected by
-  Theorem~\ref{thm:ddagimpliesLCtwo}.
+  If $G$ is one-ended then $\ddag'_M$ is satisfied for any $M$ by
+  Proposition~\ref{prop:sufficient_for_ddag_p}. Furthermore, if $\boundary G -
+  \set\xi$ is simply connected for any $\xi \in \boundary G$ then the condition
+  $\S_M$ is satisfied for any $M$ by
+  Proposition~\ref{prop:sufficient_condition}. It follows that $\boundary G$ is
+  locally simply connected by Theorem~\ref{thm:ddagimpliesLCtwo}.
 
-  For the converse, suppose that $\boundary G$ is connected and $\boundary$ 
-  is locally simply connected. Let $\xi$ be a point in $\boundary G$ and let
-  $\gamma\from S^1\to\boundary G - \set\xi$ be a continuous map. 
+  For the converse, suppose that $\boundary G$ is connected and locally simply
+  connected. Let $\xi$ be a point in $\boundary G$ and let $\gamma\from
+  S^1\to\boundary G - \set\xi$ be a continuous map. 
 
   The point $\xi$ is a conical limit point for the action of $G$ on $\boundary
   G$, so there exist points $\zeta_-$ and $\zeta_+$ in $\boundary G$ and a
@@ -1432,11 +1440,11 @@ Theorem~\ref{thm:main_theorem}; we now complete the proof of this theorem.
   contain $\zeta_-$ and let $V$ be a neighbourhood of $\zeta_+$ contained in
   $U$ such that any map from the circle to $V$ is nullhomotopic in $U$. Then by
   the properties of the sequence $(g_n)$ described above, there exists an
-  element $g_n$ such that $g_n\cdot\xi \notin U$ and $g_n\composed\gamma$ has
-  image in $V$. Then $g_n\composed\gamma$ admits a contracting homotopy with
-  image in $U$, and the image of this homotopy under $g_n^{-1}$ is a
-  contracting homotopy of $\gamma$ with image contaed in $\boundary G -
-  \set\xi$.
+  element $g_n$ of the sequence such that $g_n\cdot\xi \notin U$ and
+  $g_n\composed\gamma$ has image in $V$. Then $g_n\composed\gamma$ admits a
+  contracting homotopy with image in $U$, and the image of this homotopy under
+  $g_n^{-1}$ is a contracting homotopy of $\gamma$ with image contaed in
+  $\boundary G - \set\xi$.
 \end{proof}
 
 If $G$ is a group such that $\boundary G - \set\xi$ is disconnected for some
@@ -1451,7 +1459,7 @@ assertion. Therefore the following questions are natural.
 \begin{question} Is there a one-ended hyperbolic group $G$ such that $\boundary
   G$ is simply connected but not locally simply connected? Conversely, if
   $\boundary G$ is locally simply connected but not simply connected, does it
-  follow that $\boundary G$ is a circle and $G$ is virtually Fuchsian?
+  follow that $\boundary G$ is a circle, and so $G$ is virtually Fuchsian?
 \end{question}
 
 It is also natural to ask whether the theorem of this paper generalises to
