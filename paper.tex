@@ -6,18 +6,25 @@
 \begin{document}
 \maketitle
 
-\todo{Proof-read section 3 onwards}
+\begin{abstract}
+  In this paper we prove a theorem describing the local topology of the
+  boundary of a hyperbolic group in terms of its global topology: the boundary
+  is locally simply connected if and only if the complement of any point in the
+  boundary is simply connected. This generalises a theorem of Bestvina and
+  Mess~\cite{bestvinamess91}.
+\end{abstract}
 
 \section{Introduction}
 
-If a group acts geometrically on a proper hyperbolic space then, following
-Gromov~\cite{gromov87}, we say that the group is hyperbolic, and quasi-isometry
-invariants of the space can be thought of as invariants of the group. One
-particularly powerful quasi-isometry invariant that can be used in
-this way is the Gromov boundary of the space. This is the set of geodesic rays
-in the space eminating from a fixed base point, where rays are defined to be
-equivalent if they remain a bounded distance apart. In this way one can define
-the boundary $\boundary G$ of a hyperbolic group $G$.
+If a group acts geometrically on a proper hyperbolic metric space then,
+following Gromov~\cite{gromov87}, we say that the group is hyperbolic, and
+quasi-isometry invariants of the space can be thought of as invariants of the
+group. One particularly powerful quasi-isometry invariant that can be used in
+this way is the Gromov boundary of the space. This a topological space defined
+as the set of equivalence classes of geodesic rays in the space emanating from
+a fixed base point, where rays are defined to be equivalent if they remain a
+bounded distance apart. In this way one can define the boundary $\boundary G$
+of a hyperbolic group $G$.
 
 The boundary of a hyperbolic group is useful as a quasi-isometry invariant of
 the group: if groups $G_1$ and $G_2$ are quasi-isometric then $\boundary G_1
@@ -37,9 +44,11 @@ surface group at finite index.
 In~\cite{gromov87}, Gromov showed that the boundary of a hyperbolic group is a
 compact metric space with finite topological dimension. Beyond these basic
 properties, and excepting the case when $G$ is the fundamental group of a
-negatively curved smooth manifold, in which case $\boundary G$ is a sphere,
-boundaries of hyperbolic groups tend to be wild, fractal-like objects.
+negatively curved smooth closed manifold, in which case $\boundary G$ is a
+sphere, boundaries of hyperbolic groups tend to be wild, fractal-like objects.
 In~\cite{kapovichkleiner00}, Kapovich and Kleiner ask the following question.
+
+\todo{Survey of examples}
 
 \begin{question}\cite[Question A]{kapovichkleiner00}
   Which topological spaces are boundaries of hyperbolic groups?
@@ -49,15 +58,17 @@ On the one hand, finding concrete examples of spaces arising as boundaries has
 proved difficult, but on the other, relatively few restrictions on the topology
 of the boundary are known. One restriction of particular importance is a
 theorem of Bestvina and Mess~\cite{bestvinamess91}, which states that if
-$\boundary G$ is connected and is not disconnected by the removal of any single
-point then $\boundary G$ is locally path connected. Combined with a result of
-Bowditch~\cite{bowditch98b} and Swarup~\cite{swarup96}, this implies that
-$\boundary G$ is locally path connected whenever it is connected.
+$\boundary G$ is connected and cannot be disconnected by the removal of any
+single point then $\boundary G$ is locally path connected. Combined with a
+result of Bowditch~\cite{bowditch98b} and Swarup~\cite{swarup96}, this implies
+that $\boundary G$ is locally path connected whenever it is connected.
 
 The goal of this paper is to prove the following theorem, which restricts the
 local complexity of the boundary of a hyperbolic group in terms of its global
 complexity in a similar way to the theorem of Bestvina and Mess described
 above.
+
+\todo{Example of space ruled out by theorem}
 
 \begin{theorem}\label{thm:main_theorem}
   Let $G$ be a one-ended hyperbolic group. Then $\boundary G$ is locally simply
@@ -69,11 +80,10 @@ The paper is structured as follows. In Section~\ref{sec:spheres} we use the
 Rips complex of the group $G$ to build a sequence $(K_n)_{n \geq 0}$ of
 simplicial complexes that give successively better approximations to the
 boundary $\boundary G$. These simplicial complexes are spheres in the Rips
-complex. There exist natural simplicial maps $p^n_m\from K_n\to K_m$ for $n -
-m$ large enough, and there exist natural continuous maps
-$p^\infty_n\from\boundary G \to K_n$ for all $n$.  The remainder of
-Section~\ref{sec:spheres} will be spent proving quantitative statements about
-these maps.
+complex. There exist natural simplicial maps $p^n_m\from K_n\to K_m$ for $n \gg
+m$, and there exist natural continuous maps $p^\infty_n\from\boundary G \to
+K_n$ for all $n$.  The remainder of Section~\ref{sec:spheres} will be spent
+proving quantitative statements about these maps.
 
 In Section~\ref{sec:horoball} we prove a compactness result: given a sequence
 of vertices $v_n \in K_n$, there exist group elements $g_n$ and a subcomplex
@@ -93,18 +103,21 @@ that $\boundary G$ is locally path connected. We then modify the condition to
 allow for easier generalisation, and introduce a new condition $\S_M$, which we
 will see to be related the local simple connectedness of $\boundary G$. Using
 the compactness results from Section~\ref{sec:horoball} we show that this
-condition is satisfied whenever we have that $\boundary G - \set\xi$ is simply
-connected for any $\xi$ in $\boundary G$.
+condition is satisfied if $\boundary G - \set\xi$ is simply connected for any
+$\xi$ in $\boundary G$.
 
+\todo{Maybe rephrase?}
 Then, in Section~\ref{sec:local_simple_connectedness} we show that our new
 condition $\S_M$ implies the local simple connectedness of $\boundary G$. We
-begin by using $\S_M$ to construct a sequence of maps $(i^n_\infty)_n$ from the
+begin by using $\S_M$ to construct a sequence of maps $(i^n_\infty)$ from the
 2-skeleton of $K_n$ to $\boundary G$. These maps can be thought of as
-approximate sections of $p^\infty_n$, in that $i^n_\infty\composed p^\infty_n$
-converges uniformly to the identity map $\boundary G \to \boundary G$ as $n$
-tends to $\infty$. By controlling the diameter of the image under $i^n_\infty$
-of a simplex in $K_n$ we are able to prove the local simple connectedness of
-$\boundary G$.
+approximate sections of $p^\infty_n$, in the following sense. For each $n$, let
+$r_n\from K_n \to \Skel_2 K_n$ be a (not necessarily continuous) map sending
+points to nearby points in the 2-skeleton. Then $i^n_\infty\composed r_n
+\composed p^\infty_n$ converges uniformly to the identity map $\boundary G \to
+\boundary G$ as $n$ tends to $\infty$. By controlling the diameter of the image
+under $i^n_\infty$ of a simplex in $K_n$ we are able to prove that $\boundary
+G$ is locally simply connected.
 
 Finally, in Section~\ref{sec:conclusion} we put the results of the previous
 sections together to prove Theorem~\ref{thm:main_theorem}, and conclude the
@@ -164,7 +177,7 @@ very much, so we make the following simple definition.
 \end{definition}
 
 \begin{remark}\label{rem:dist_vs_newdist}
-  The extended ``metric'' $\newdist$ is not a metric, since it only satisifes
+  The extended ``metric'' $\newdist$ is not a metric, since it only satisfies
   the triangle inequality up to a bounded additive error, but this will not
   cause a problem.
 
@@ -183,13 +196,13 @@ We denote by $\gromov{a}{b}{c}$ the Gromov product of $b$ and $c$ in $G \union
 the Gromov product to $K$:
 
 \begin{definition}
-  \todo{Extend to the boundary}
-  Given points $x$, $y$ and $z$ in $K$, define the \emph{Gromov product
-  $\gromov{x}{y}{z}$ of $x$, $y$ and $z$} as follows.
-  \begin{equation*}
-    \gromov{x}{y}{z} = \frac{1}{2}\left(\newdist(x,y) + \newdist(x,z) -
-          \newdist(y,z)\right)
-  \end{equation*}
+  Let $x \in K$ and let $y$ and $z$ be points in $K \union \boundary G$. Let
+  $x^\star$ be a vertex of the minimal simplex of $K$ containing $x$. If $y$
+  (respectively $z$) is in $\boundary G$ let $y^\star = y$ (respectively
+  $z^\star = z$); otherwise let $y^\star$ (respectively $z^\star$) be a vertex
+  of the minimal simplex of $K$ containing $y$ (respectively $z$.)
+  Then define the \emph{Gromov product $\gromov{x}{y}{z}$ of $x$, $y$ and $z$}
+  as $\gromov{x}{y}{z} = \gromov{x^\star}{y^\star}{z^\star}$.
 \end{definition}
 
 We now equip $K \union \boundary G$ with a topology as follows.
@@ -216,7 +229,8 @@ Finally, we endow $\boundary G$ with a visual metric in the usual way.
   $k_1 \in (0,1]$, $k_2 \geq 1$ and $a > 1$ such that for any $\xi_1$ and
   $\xi_2$ in $\boundary G$,
   \begin{equation*}
-    \rho(\xi_1, \xi_2) \in \left[k_1 a^{-\gromov{e}{\xi_1}{\xi_2}}, k_2 a^{-\gromov{e}{\xi_1}{\xi_2}}\right]
+    \rho(\xi_1, \xi_2) \in \left[k_1 a^{-\gromov{e}{\xi_1}{\xi_2}}, k_2
+          a^{-\gromov{e}{\xi_1}{\xi_2}}\right]
   \end{equation*}
 \end{definition}
 
@@ -874,12 +888,14 @@ from from~\cite{bestvinamess91}.
   \to \Skel_1 K_{n+1}$ satisfying the following conditions:
   \begin{enumerate}
     \item for each $n$, $i^n_{n+1}$ is a simplicial map on the subdivision
-      $\sd_L\Skel_1 K_n$,
+      $\sd^L\Skel_1 K_n$,
     \item for any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$,
       and
     \item for each $n$, the map $i^n_{n+1}$ is a simplicial approximation a map
       that factors through $p^\infty_{n+1}\from \boundary G \to K_{n+1}$.
   \end{enumerate}
+  (When $X$ is a simplicial complex, we denote by $\sd^n X$ the complex
+  obtained from $X$ by barycentrically subdividing $n$ times.)
 \end{proposition}
 
 \begin{proof}
@@ -1000,7 +1016,7 @@ Proposition~\ref{prop:i_in_dimension_1}.
   $i^n_{n+1}\from\Skel_2 K_n \to \Skel_2 K_{n+1}$ with the following properties.
   \begin{enumerate}
     \item For each $n$, $i^n_{n+1}$ is an affine map on the subdivision
-      $\sd_L\Skel_2 K_n$.
+      $\sd^L\Skel_2 K_n$.
     \item For any vertex $x$ of $K_n$, $\dist(x, i^n_{n+1}(x)) \leq 2\delta+1$.
   \end{enumerate}
 \end{proposition}
@@ -1163,6 +1179,7 @@ We complete our description of the maps $i^n_\infty$ with the following lemma,
 which can be thought of as saying that $i^n_\infty$ is an approximate section
 of the map $p^\infty_n$.
 
+\todo{Doesn't quite make sense.}
 \begin{lemma}\label{lem:convergestoidentity}
   There is a constant $C$ such that the distance from $i^m_\infty \composed 
   p^\infty_m$ to the identity map $\boundary G\to\boundary G$ is at most 
@@ -1438,12 +1455,12 @@ Theorem~\ref{thm:main_theorem}; we now complete the proof of this theorem.
 
   Let $U$ be a neighbourhood of $\zeta_+$ such that the closure of $U$ does not
   contain $\zeta_-$ and let $V$ be a neighbourhood of $\zeta_+$ contained in
-  $U$ such that any map from the circle to $V$ is nullhomotopic in $U$. Then by
+  $U$ such that any map from the circle to $V$ is null-homotopic in $U$. Then by
   the properties of the sequence $(g_n)$ described above, there exists an
   element $g_n$ of the sequence such that $g_n\cdot\xi \notin U$ and
   $g_n\composed\gamma$ has image in $V$. Then $g_n\composed\gamma$ admits a
   contracting homotopy with image in $U$, and the image of this homotopy under
-  $g_n^{-1}$ is a contracting homotopy of $\gamma$ with image contaed in
+  $g_n^{-1}$ is a contracting homotopy of $\gamma$ with image contained in
   $\boundary G - \set\xi$.
 \end{proof}
 
@@ -1464,7 +1481,7 @@ assertion. Therefore the following questions are natural.
 
 It is also natural to ask whether the theorem of this paper generalises to
 higher dimensions. The difficulty is in generalising the proof of
-Proposion~\ref{prop:sufficient_condition}: given a sequence of maps from $S^0$
+Proposition~\ref{prop:sufficient_condition}: given a sequence of maps from $S^0$
 to $\boundary G$ we pass to a uniformly convergent subsequence, but this is not
 possible for higher dimensional spheres without controlling the modulus of
 continuity of the maps.
