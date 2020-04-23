@@ -106,7 +106,6 @@ the compactness results from Section~\ref{sec:horoball} we show that this
 condition is satisfied if $\boundary G - \set\xi$ is simply connected for any
 $\xi$ in $\boundary G$.
 
-\todo{Maybe rephrase?}
 Then, in Section~\ref{sec:local_simple_connectedness} we show that our new
 condition $\S_M$ implies the local simple connectedness of $\boundary G$. We
 begin by using $\S_M$ to construct a sequence of maps $(i^n_\infty)$ from the
@@ -1179,38 +1178,34 @@ We complete our description of the maps $i^n_\infty$ with the following lemma,
 which can be thought of as saying that $i^n_\infty$ is an approximate section
 of the map $p^\infty_n$.
 
-\todo{Doesn't quite make sense.}
 \begin{lemma}\label{lem:convergestoidentity}
-  There is a constant $C$ such that the distance from $i^m_\infty \composed 
-  p^\infty_m$ to the identity map $\boundary G\to\boundary G$ is at most 
-  $Ca^{-m}$ for each $m \geq n_0$.
+  There is a constant $C$ such that for any $m \geq n_0$, any point $\xi \in
+  \boundary G$, and point $x \in \Skel_2 K_n$ contained in a simplex
+  of $K_n$ containing $p^\infty_n(\xi)$, the visual distance from $\xi$ to
+  $i^\infty_n(x)$ is at most $Ca^{-m}$.
 \end{lemma}
 
 \begin{proof}
-  By \cref{lem:linearproduct} there is a constant $C$ such that  for $\xi \in
-  \boundary G$,
-  \begin{equation*}
-    \gromov{e}{i^m_n\composed p^\infty_m(\xi)}{p^\infty_m(\xi)} \geq m - C
-  \end{equation*} 
-  for each $n\geq m\geq n_0$. 
+  Let $m$, $\xi$ and $x$ be as in the statement of the lemma.
+  Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) =
+  \xi$; then $\alpha(m)$ is a vertex of a simplex of $K_n$ containing
+  $p^\infty_m(\xi)$. There is a path from $\alpha(m)$ to $x$ contained in the
+  union of two 2-simplices of $K_n$, so by Lemma~\ref{cor:visualdiameter} it is
+  sufficient to prove the lemma for $x = \alpha(m)$.
 
-  Let $\alpha$ be a geodesic ray with $\alpha(0) = e$ and $\alpha(\infty) = 
-  \xi$. Then $\alpha(m)$ is a vertex of a simplex in $\Skel_2K_m$ containing 
-  $p^\infty_m(\xi)$, and $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$.
-  It follows that there is a constant $\delta'$ depending only on $\delta$ such 
-  that
+  Let $C$ be the constant appearing in Lemma~\ref{lem:linearproduct}.
+  We have $\gromov{e}{\alpha(m)}{\alpha(n)} = m$ for $n\geq m$, and
+  by~\cite[Proposition III.H.1.22]{bridsonhaefliger99} there is a constant
+  $\delta'$ depending only on $\delta$ such that for $n\geq m$,
   \begin{align*}
-    \mathrlap{\gromov{e}{\alpha(n)}{i^m_n\composed p^\infty_m(\xi)}}\quad\quad &\\
+    \mathrlap{\gromov{e}{\alpha(n)}{i^m_n(\alpha(m))}}\quad\quad &\\
           & \geq \min\{\gromov{e}{\alpha(n)}{\alpha(m)}, 
-            \gromov{e}{\alpha(m)}{p^\infty_m(\xi)}, 
-            \gromov{e}{p^\infty_m(\xi)}{i^m_n\composed p^\infty_m(\xi)}\} 
-            - 2\delta' \\
-          &\geq \min\{m, m - D/2, m - C\} - 2\delta' \\
-          &\geq m - C'
+            \gromov{e}{\alpha(m)}{i^m_n(\alpha(m))}\} 
+            - \delta' \\
+          &\geq \min\{m, m - C\} - \delta' \\
+          &=  m - C - \delta'.
   \end{align*}
-  for some constant $C'$.
-
-  Therefore $\gromov{e}{\xi}{i^m_\infty\composed p^\infty_m(\xi)} \geq m - C'$, 
+  Therefore $\gromov{e}{\xi}{i^m_\infty(\alpha(m))} \geq m - C - \delta'$, 
   from which the claim follows.
 \end{proof}
 
