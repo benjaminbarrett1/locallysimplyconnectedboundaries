@@ -1,0 +1,40 @@
+Explicit examples of boundaries of indecomposable hyperbolic groups
+
+(1) Spheres $S^n$
+(2) Sierpinski compacta
+(3) Menger curve 
+(4) Universal Menger compacta of dimensions 2 and 3
+(5) Pontryagin surfaces $\Pi_p$, Pontryagin sphere
+(6) Certain trees of manifolds
+
+Additional notes/references
+
+(1) - These may be realised as fundamental groups of closed hyperbolic manifolds.
+
+      Conversely:
+      In dimension 1 these are all surface groups (convergence group theorem).
+      In dimension 2 these may all be closed manifold groups (Cannon conjecture).
+      If $G$ is torsion free with boundary homeomorphic to a sphere of dimension $\geq 5$ then $$G$$ is the fundamental group of a closed aspherical manifold (Bartels--L\"uck--Weinberger).
+      But there exist closed aspherical manifolds with negatively curved fundamental groups such that the boundary is not spherical (Davis-Januszkiewicz).
+      In general, if $G$ is torsion free with boundary homeomorphic to a sphere of dimension $\geq n$ then $G$ is a Poincar\'e duality group of dimension $n+1$.
+
+(2) - These may be realised as fundamental groups of compact hyperbolic manifolds with non-empty totally geodesic boundary.
+
+      In dimension 1 the converse would follow from the Cannon conjecture (Kapovch--Kleiner).
+
+(3) - This is the generic case (Champetier).
+      In particular it arises as the boundary of free-by-cyclic groups (Kapovich--Kleiner) and of right-angled Coxeter groups (Benakli).
+
+(4) - The two dimensional Menger compactum occurs as the boundary of a hyperbolic right-angled Coxeter group (Drani\v{s}nikov).
+      The three dimensional Menger comapctum occurs as boundaries of right angled hyperbolic buildings, so they are boundaries of cocompact lattices in the automorphism groups of these buildings (Dymara--Osajda).
+
+(5) - Dranishnikov constructed hyperbolic right-angled Coxeter groups with Pontryagin surfaces $\Pi_p$ as boundaries.
+      Together with a result of Fisher this method gives the Pontryagin sphere.
+
+(6) - This is due to Przytycki--\'Swi\c{}atkowski in dimension 3 and \'Swi\c{a}tkowski in arbitrary dimension.
+
+To do:
+Davis and Januszkiewicz's hyperbolisation of complexes is supposed to give other examples, including homology spheres
+Find out about trees of manifolds
+More generally, think about Coxeter groups
+
