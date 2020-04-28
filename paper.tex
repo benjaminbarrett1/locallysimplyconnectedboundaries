@@ -76,8 +76,8 @@ above.
 
 \begin{theorem}\label{thm:main_theorem}
   Let $G$ be a one-ended hyperbolic group. Then $\boundary G$ is locally simply
-  connected if and only if $\boundary G - \set\xi$ is simply connected for any
-  point $\xi \in \boundary G$.
+  connected if and only if, for every point $\xi \in \boundary G$,  $\boundary
+  G - \set\xi$ is simply connected.
 \end{theorem}
 
 The paper is structured as follows. In Section~\ref{sec:spheres} we use the
@@ -125,6 +125,13 @@ G$ is locally simply connected.
 Finally, in Section~\ref{sec:conclusion} we put the results of the previous
 sections together to prove Theorem~\ref{thm:main_theorem}, and conclude the
 paper with some questions about strengthenings and generalisations.
+
+\subsection*{Acknowledgements}
+
+I am grateful to Henry Wilton for pointing out the proof of
+Proposition~\ref{prop:converse_theorem}, and for other helpful comments.  I am
+also grateful to John Mackay and Panos Papazoglou for helpful discussions on
+this topic.
 
 \section{The Rips complex and the Gromov boundary}\label{sec:spheres}
 
@@ -1470,13 +1477,31 @@ $\boundary G$ is disconnected. It follows that $\boundary G$ is locally path
 connected if and only if either $G$ is one- or two-ended. No such argument is
 available in the higher dimensional case, but on the other hand no known
 example of a boundary of a hyperblic group contradicts the corresponding
-assertion. Therefore the following questions are natural.
+assertion. Therefore the following question is natural.
 
-\begin{question} Is there a one-ended hyperbolic group $G$ such that $\boundary
-  G$ is simply connected but not locally simply connected? Conversely, if
-  $\boundary G$ is locally simply connected but not simply connected, does it
-  follow that $\boundary G$ is a circle, and so $G$ is virtually Fuchsian?
+\begin{question} 
+  Is there a one-ended hyperbolic group $G$ such that $\boundary G$ is simply
+  connected but not locally simply connected? 
 \end{question}
+
+Note that the converse question has a positive answer if virtually Fuchsian
+groups (which have boundary homeomorphic to a circle) are excepted:
+
+\begin{proposition}\label{prop:converse_theorem}
+  If $G$ is a one-ended hyperbolic group such that $\boundary G$ is locally
+  simply connected then $\boundary G$ is either simply connected or
+  homeomorphic to a circle.
+\end{proposition}
+
+\begin{proof}
+  By Theorem~\ref{thm:main_theorem}, all point complements in $\boundary G$ are
+  simply connected. Let $p$ and $q$ be distinct points in $\boundary G$. If
+  $\boundary G - \set{p,q}$ is connected then $\boundary G$ is simply connected
+  by the Seifert--van Kampen theorem. It follows that either $\boundary G$ is
+  simply connected, or the complement of any two points in $\boundary G$ is
+  disconnected, in which case $\boundary G$ is a circle
+  by a classical theorem in point set topology~\cite[II.2.13]{wilder49}.
+\end{proof}
 
 It is also natural to ask whether the theorem of this paper generalises to
 higher dimensions. The difficulty is in generalising the proof of
