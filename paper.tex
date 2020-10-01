@@ -80,6 +80,19 @@ above.
   G - \set\xi$ is simply connected.
 \end{theorem}
 
+It is natural to ask whether a similar result holds in which the assumption on
+the topology of point complements in $\boundary G$ is replaced by a similar
+assumption on the whole of the boundary. This question is discussed in
+Section~\ref{sec:conclusion}. Note however that one direction of this question
+can be proved as a corollary of Theorem~\ref{thm:main_theorem}, at least when
+circular boundaries (for which the implication does not hold) are excepted.
+
+\begin{proposition}\label{prop:converse_theorem}
+  If $G$ is a one-ended hyperbolic group such that $\boundary G$ is locally
+  simply connected then $\boundary G$ is either simply connected or
+  homeomorphic to a circle.
+\end{proposition}
+
 The article is structured as follows. In Section~\ref{sec:spheres} we use the
 Rips complex of the group $G$ to build a sequence $(K_n)_{n \geq 0}$ of
 simplicial complexes that give successively better approximations to the
@@ -1485,15 +1498,10 @@ assertion. Therefore the following question is natural.
 \end{question}
 
 Note that the converse question has a positive answer if virtually Fuchsian
-groups (which have boundary homeomorphic to a circle) are excepted:
+groups (which have boundary homeomorphic to a circle) are excepted. This is the
+content of Proposition~\ref{prop:converse_theorem}, which we now prove.
 
-\begin{proposition}\label{prop:converse_theorem}
-  If $G$ is a one-ended hyperbolic group such that $\boundary G$ is locally
-  simply connected then $\boundary G$ is either simply connected or
-  homeomorphic to a circle.
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of Proposition~\ref{prop:converse_theorem}]
   By Theorem~\ref{thm:main_theorem}, all point complements in $\boundary G$ are
   simply connected. Let $p$ and $q$ be distinct points in $\boundary G$. If
   $\boundary G - \set{p,q}$ is connected then $\boundary G$ is simply connected
